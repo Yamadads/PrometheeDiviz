@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2012/XMCDA-2.2.1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2012/XMCDA-2.2.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd'>
+    <criteria>
+        <criterion id="c01" name="Price">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>500.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>3000.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="veto">
+                    <constant>
+                        <real>4000.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c02" name="Power">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>30.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c03" name="0-100">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>2.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>        
+    </criteria>
+
+</xmcda:XMCDA>

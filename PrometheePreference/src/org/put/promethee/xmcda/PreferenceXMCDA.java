@@ -46,10 +46,7 @@ public class PreferenceXMCDA {
 		if (!checkErrors(executionResult, results))
 			exitProgram(executionResult, prgExecResultsFile, version);
 
-		// final Map<String, XMCDA> xmcdaResults =
-		// OutputsHandler.convert(results, executionResult);
-
-		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(inputs.weights, executionResult);
+		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
 
 		writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
