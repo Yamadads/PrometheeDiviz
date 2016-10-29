@@ -20,7 +20,7 @@
                         <real>3000.0</real>
                     </constant>
                 </threshold>
-                <threshold mcdaConcept="veto">
+                <threshold mcdaConcept="sigma">
                     <constant>
                         <real>4000.0</real>
                     </constant>

@@ -17,7 +17,7 @@ public class InputFileLoader {
 			if (!ErrorChecker.checkErrors(executionResult))
 				return null;
 			xmcda = convertToXMCDA_v3(xmcda_v2, executionResult);
-			if (!ErrorChecker.checkErrors(executionResult))
+			if (!ErrorChecker.checkErrors(executionResult, xmcda))
 				return null;
 		} else if (version == Utils.XMCDA_VERSION.v3) {
 			xmcda = loadFilesV3(executionResult, inputDirectory, files);

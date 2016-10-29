@@ -17,26 +17,29 @@ public class ErrorChecker {
 
 	public static Boolean checkErrors(ProgramExecutionResult executionResult, XMCDA xmcda) {
 		Boolean success = true;
-		if (!(executionResult.isOk() || executionResult.isWarning() || xmcda == null)) {
-			success = false;
+		if (xmcda == null){
+			executionResult.addError("xmcda is null, loading or converting files was wrong");
 		}
+		success = checkErrors(executionResult);
 		return success;
 	}
 
 	public static Boolean checkErrors(ProgramExecutionResult executionResult, InputsHandler.Inputs inputs) {
 		Boolean success = true;
-		if (!(executionResult.isOk() || executionResult.isWarning()) || inputs == null) {
-			success = false;
+		if (inputs == null){
+			executionResult.addError("inputs is null");
 		}
+		success = checkErrors(executionResult);
 		return success;
 	}
 
 	public static Boolean checkErrors(ProgramExecutionResult executionResult,
 			Map<String, Map<String, Double>> results) {
 		Boolean success = true;
-		if (!(executionResult.isOk() || executionResult.isWarning()) || results == null) {
-			success = false;
+		if (results == null){
+			executionResult.addError("results is null");
 		}
+		success = checkErrors(executionResult);
 		return success;
 	}
 }
