@@ -7,8 +7,6 @@ import org.put.promethee.xmcda.InputFile;
 import org.put.promethee.preference.Preference;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
-import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
-import org.xmcda.parsers.xml.xmcda_2_2_1.XMCDAParser;
 
 import java.io.File;
 import java.util.ArrayList;
