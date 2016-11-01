@@ -1,7 +1,5 @@
 package org.put.promethee.xmcda;
 
-import org.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import org.put.promethee.xmcda.InputsHandler.Inputs;
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
 import org.xmcda.CriteriaScales;
@@ -79,7 +77,7 @@ public class InputsHandler {
 	}
 
 	public enum GeneralisedCriterionParam {
-		SPECIFIED("specified"), F1("1"), F2("2"), F3("3"), F4("4"), F5("5"), F6("6");
+		SPECIFIED("specified"), F1("1"), F2("2"), F3("3"), F4("4"), F5("5");
 
 		private String label;
 
@@ -145,9 +143,10 @@ public class InputsHandler {
 		public List<String> profiles_ids;
 		public Map<String, Map<String, Double>> profilesPerformanceTable;
 		public Map<String, Double> weights;
+		public Map<String, Double> reinforcementFactors;
 		public Map<String, Threshold<Double>> preferenceThresholds;
 		public Map<String, Threshold<Double>> indifferenceThresholds;
-		public Map<String, Threshold<Double>> sigmaThresholds;
+		public Map<String, Threshold<Double>> reinforcedPreferenceThresholds;
 
 	}
 
@@ -315,13 +314,14 @@ public class InputsHandler {
 			errors.addError("No criteria values has been supplied");
 			return;
 		} else if ((inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED)
-				&& (xmcda.criteriaValuesList.size() != 2)) {
-			errors.addError("Criteria weights and Generalised Criteria are expected");
+				&& (xmcda.criteriaValuesList.size() != 3)) {
+			errors.addError(
+					"Improper input data. Criteria weights, Generalised Criteria, and Reinforcement Factors are expected");
 			return;
 		}
 		if ((inputs.generalisedCriterion != GeneralisedCriterionParam.SPECIFIED)
-				&& (xmcda.criteriaValuesList.size() != 1)) {
-			errors.addError("More than one criteriaValues have been supplied. Only Criteria weights is expected. ");
+				&& (xmcda.criteriaValuesList.size() != 2)) {
+			errors.addError("Improper input data. Criteria weights and Reinforcement Factors are expected");
 			return;
 		}
 		@SuppressWarnings("rawtypes")
@@ -339,11 +339,27 @@ public class InputsHandler {
 				return;
 			}
 		}
+		@SuppressWarnings("rawtypes")
+		CriteriaValues reinforcementFactors = xmcda.criteriaValuesList.get(1);
+		if (!weights.isNumeric()) {
+			errors.addError("The Reinforcement Factor table must contain numeric values only");
+		} else {
+			try {
+				@SuppressWarnings("unchecked")
+				CriteriaValues<Double> reinforcementFactorsDouble = reinforcementFactors.asDouble();
+				xmcda.criteriaValuesList.set(1, reinforcementFactorsDouble);
+			} catch (ValueConverters.ConversionException e) {
+				final String msg = "Error when converting the Reinforcement Factor table's value to Double, reason:";
+				errors.addError(Utils.getMessage(msg, e));
+				return;
+			}
+		}
 		@SuppressWarnings("unchecked")
-		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(2);
 		if (!generalisedCriteria.isNumeric()) {
 			errors.addError("The generalised criteria table must contain numeric values only");
 		}
+
 	}
 
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
@@ -382,6 +398,7 @@ public class InputsHandler {
 		extractWeights(inputs, xmcda);
 		extractGeneralisedCriteria(inputs, xmcda, xmcda_execution_results);
 		extractCriteriaDirection(inputs, xmcda);
+		extractReinforcementFactors(inputs, xmcda);
 		extractThresholds(inputs, xmcda);
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
@@ -484,13 +501,19 @@ public class InputsHandler {
 				xmcda_execution_results
 						.addError("Criteria are not identical in criteria.xml file and weights.xml file");
 			}
+			if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
+				criteriaIdentical = false;
+				xmcda_execution_results
+						.addError("Criteria are not identical in criteria.xml file and weights.xml file");
+			}
 			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
-				if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
+				if (!xmcda.criteriaValuesList.get(2).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
 							"Criteria are not identical in criteria.xml file and generalised_criteria.xm file");
 				}
 			}
+
 			if (!criteriaIdentical)
 				return criteriaIdentical;
 		}
@@ -520,8 +543,16 @@ public class InputsHandler {
 				break;
 			}
 		}
+		for (Criterion criterion : xmcda.criteriaValuesList.get(1).getCriteria()) {
+			if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+				criteriaIdentical = false;
+				xmcda_execution_results
+						.addError("Criteria are not identical in criteria.xml file and reinforcement_factors.xml file");
+				break;
+			}
+		}
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			for (Criterion criterion : xmcda.criteriaValuesList.get(1).getCriteria()) {
+			for (Criterion criterion : xmcda.criteriaValuesList.get(2).getCriteria()) {
 				if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
@@ -573,14 +604,6 @@ public class InputsHandler {
 					xmcda_execution_results.addError(
 							"V-Shape With Indifference function (5) specified in generalised_criteria.xml  on Criterion "
 									+ criterion + "requires indifference and preference thresholds");
-					compatible = false;
-				}
-				break;
-			case 6:
-				if ((inputs.preferenceThresholds == null) || (inputs.preferenceThresholds.get(criterion) == null)) {
-					xmcda_execution_results
-							.addError("Gaussian function (6) specified in generalised_criteria.xml  on Criterion "
-									+ criterion + "requires sigma threshold");
 					compatible = false;
 				}
 				break;
@@ -636,20 +659,29 @@ public class InputsHandler {
 			inputs.weights.put(criterion.id(), weights_table.get(criterion).get(0).getValue());
 		}
 	}
+	
+	private static void extractReinforcementFactors(Inputs inputs, XMCDA xmcda) {
+		inputs.weights = new HashMap<>();
+		@SuppressWarnings("unchecked")
+		CriteriaValues<Double> reinforcement_factors_table = (CriteriaValues<Double>) xmcda.criteriaValuesList.get(1);
+		for (Criterion criterion : reinforcement_factors_table.getCriteria()) {
+			inputs.reinforcementFactors.put(criterion.id(), reinforcement_factors_table.get(criterion).get(0).getValue());
+		}
+	}
 
 	private static void extractGeneralisedCriteria(Inputs inputs, XMCDA xmcda,
 			ProgramExecutionResult xmcda_execution_results) {
 		inputs.generalisedCriteria = new HashMap<>();
 		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 			@SuppressWarnings("unchecked")
-			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(2);
 			for (Criterion criterion : generalisedCriteria.getCriteria()) {
 				Integer value = generalisedCriteria.get(criterion).get(0).getValue();
-				if ((value >= 1) && (value <= 6)) {
+				if ((value >= 1) && (value <= 5)) {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
 					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 6 in file generalised_criteria.xml");
+							"Generalised criteria must be integers between 1 and 5 in file generalised_criteria.xml");
 					break;
 				}
 			}
@@ -675,7 +707,7 @@ public class InputsHandler {
 		CriteriaThresholds thresholds = (CriteriaThresholds) xmcda.criteriaThresholdsList.get(0);
 
 		inputs.indifferenceThresholds = new HashMap<>();
-		inputs.sigmaThresholds = new HashMap<>();
+		inputs.reinforcedPreferenceThresholds = new HashMap<>();
 		inputs.preferenceThresholds = new HashMap<>();
 
 		for (Criterion criterion : thresholds.keySet()) {
@@ -685,7 +717,7 @@ public class InputsHandler {
 				continue;
 			int prefThresholdID = -1;
 			int indiffThresholdID = -1;
-			int sigmaThresholdID = -1;
+			int reinforcedPreferenceThresholdID = -1;
 
 			for (int i = 0; i < critThresholds.size(); i++) {
 				if (critThresholds.get(i).mcdaConcept().equals("indifference")) {
@@ -694,8 +726,8 @@ public class InputsHandler {
 				if (critThresholds.get(i).mcdaConcept().equals("preference")) {
 					prefThresholdID = i;
 				}
-				if (critThresholds.get(i).mcdaConcept().equals("sigma")) {
-					sigmaThresholdID = i;
+				if (critThresholds.get(i).mcdaConcept().equals("reinforced_preference")) {
+					reinforcedPreferenceThresholdID = i;
 				}
 			}
 			if (prefThresholdID != -1) {
@@ -710,10 +742,11 @@ public class InputsHandler {
 			} else {
 				inputs.indifferenceThresholds.put(criterion.id(), null);
 			}
-			if (sigmaThresholdID != -1) {
-				inputs.sigmaThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(sigmaThresholdID));
+			if (reinforcedPreferenceThresholdID != -1) {
+				inputs.reinforcedPreferenceThresholds.put(criterion.id(),
+						(Threshold<Double>) critThresholds.get(reinforcedPreferenceThresholdID));
 			} else {
-				inputs.sigmaThresholds.put(criterion.id(), null);
+				inputs.reinforcedPreferenceThresholds.put(criterion.id(), null);
 			}
 		}
 	}
