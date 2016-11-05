@@ -3,9 +3,9 @@
  */
 package org.put.promethee.xmcda;
 
+import org.put.promethee.weight.Weights;
 import org.put.promethee.xmcda.InputFile;
 import org.put.promethee.xmcda.Utils.InvalidCommandLineException;
-import org.put.promethee.preference.Preference;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * 
  */
-public class PreferenceXMCDA {
+public class WeightsXMCDA {
 	/**
 	 * @param args
 	 */
@@ -44,7 +44,7 @@ public class PreferenceXMCDA {
 		if (!ErrorChecker.checkErrors(executionResult, inputs))
 			exitProgram(executionResult, prgExecResultsFile, version);
 
-		final Map<String, Map<String, Double>> results = calcResults(inputs, executionResult);
+		final Map<String, Double> results = calcResults(inputs, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, results))
 			exitProgram(executionResult, prgExecResultsFile, version);
 
@@ -88,17 +88,7 @@ public class PreferenceXMCDA {
 		Map<String, InputFile> files = new LinkedHashMap<>();
 		files.put("methodParameters",
 				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
-		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
-		files.put("criteriaScales", new InputFile("criteriaScales", "criteriaScales", "criteria.xml", true));
-		files.put("performanceTable",
-				new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
-		files.put("criteriaWeights", new InputFile("criteriaValues", "criteriaValues", "weights.xml", true));
-		files.put("generalisedCriteria",
-				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
-		files.put("profilesPerformanceTable",
-				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));
-		files.put("preferenceThresholds",
-				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
+		files.put("criteriaRanking", new InputFile("criteriaValues", "criteriaValues", "criteria_ranking.xml", true));
 		return files;
 	}
 
@@ -107,11 +97,11 @@ public class PreferenceXMCDA {
 		Utils.writeProgramExecutionResultsAndExit(prgExecResultsFile, executionResult, version);
 	}
 
-	private static Map<String, Map<String, Double>> calcResults(InputsHandler.Inputs inputs,
+	private static Map<String, Double> calcResults(InputsHandler.Inputs inputs,
 			ProgramExecutionResult executionResult) {
-		Map<String, Map<String, Double>> results = null;
+		Map<String, Double> results = null;
 		try {
-			results = Preference.calculatePreferences(inputs);
+			results = Weights.calcWeights(inputs);
 		} catch (Throwable t) {
 			executionResult.addError(Utils.getMessage("The calculation could not be performed, reason: ", t));
 			return results;

@@ -1,7 +1,5 @@
 package org.put.promethee.xmcda;
 
-import org.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import org.put.promethee.xmcda.InputsHandler.Inputs;
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
 import org.xmcda.CriteriaScales;

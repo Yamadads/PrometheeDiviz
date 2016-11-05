@@ -4,6 +4,7 @@
 package org.put.promethee.xmcda;
 
 import org.put.promethee.xmcda.InputFile;
+import org.put.promethee.xmcda.Utils.InvalidCommandLineException;
 import org.put.promethee.preference.Preference;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
@@ -21,7 +22,7 @@ public class PreferenceXMCDA {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) throws Utils.InvalidCommandLineException {
+	public static void main(String[] args){
 		Map<String, InputFile> files = initFiles();
 
 		final Utils.XMCDA_VERSION version = readVersion(args);
@@ -53,16 +54,21 @@ public class PreferenceXMCDA {
 		exitProgram(executionResult, prgExecResultsFile, version);
 	}
 
-	private static Utils.Arguments readParams(String[] args) throws Utils.InvalidCommandLineException {
-		Utils.Arguments params;
+	private static Utils.Arguments readParams(String[] args) {
+		Utils.Arguments params = null;
 		ArrayList<String> argsList = new ArrayList<String>(Arrays.asList(args));
 		argsList.remove("--v2");
 		argsList.remove("--v3");
-		params = Utils.parseCmdLineArguments((String[]) argsList.toArray(new String[] {}));
+		try {
+			params = Utils.parseCmdLineArguments((String[]) argsList.toArray(new String[] {}));
+		} catch (InvalidCommandLineException e) {
+			System.err.println("Missing mandatory options. Required: [--v2|--v3] -i input_dir -o output_dir");
+			System.exit(-1);
+		}
 		return params;
 	}
 
-	private static Utils.XMCDA_VERSION readVersion(String[] args) throws Utils.InvalidCommandLineException {
+	private static Utils.XMCDA_VERSION readVersion(String[] args) {
 		Utils.XMCDA_VERSION version = Utils.XMCDA_VERSION.v2;
 		;
 		final ArrayList<String> argsList = new ArrayList<String>(Arrays.asList(args));
@@ -71,7 +77,7 @@ public class PreferenceXMCDA {
 		} else if (argsList.remove("--v3")) {
 			version = Utils.XMCDA_VERSION.v3;
 		} else {
-			System.err.println("missing mandatory option --v2 or --v3");
+			System.err.println("Missing mandatory option --v2 or --v3");
 			System.exit(-1);
 		}
 		return version;
