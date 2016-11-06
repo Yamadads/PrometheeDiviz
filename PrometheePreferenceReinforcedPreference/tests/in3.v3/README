@@ -1,0 +1,3 @@
+- performanceTable contains non-numeric values
+- weights contains non-numeric values
+- parameters: operator has an invalid value

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:XMCDA xmlns:ns2="http://www.decision-deck.org/2012/XMCDA-2.2.1">
+    <methodMessages>
+        <errorMessage>
+            <text>The performance table must contain numeric values only</text>
+        </errorMessage>
+        <errorMessage>
+            <text>Invalid value for parameter operator, it must be a label, possible values are: weightedSum, normalizedWeightedSum, sum, average</text>
+        </errorMessage>
+        <errorMessage>
+            <text>The weights must be numeric values only</text>
+        </errorMessage>
+    </methodMessages>
+</ns2:XMCDA>
