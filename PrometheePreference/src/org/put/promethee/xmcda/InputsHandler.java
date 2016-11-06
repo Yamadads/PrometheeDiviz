@@ -157,7 +157,7 @@ public class InputsHandler {
 	 */
 	static public Inputs checkAndExtractInputs(XMCDA xmcda, ProgramExecutionResult xmcda_exec_results) {
 		Inputs inputsDict = checkInputs(xmcda, xmcda_exec_results);
-
+		
 		if (xmcda_exec_results.isError())
 			return null;
 
