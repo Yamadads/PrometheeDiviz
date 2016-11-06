@@ -6,64 +6,50 @@
     <description>Computes aggregated preference indices
 
 This module is an extended version of 'PrometheePreference' - it brings the concept of 'reinforced_preference', which boils down to the new threshold of the same name and a new input file where the 'reinforcement factors' are defined (one for each criterion where 'reinforced_preference' threshold is present).</description>
-    <reference>Bernard Roy and Roman S?owi?ski; Handling effects of reinforced preference and counter-veto in credibility of outranking; European Journal of Operational Research 188(1):185?190; 2008; doi:10.1016/j.ejor.2007.04.005</reference>
-    <url>https://github.com/Yamadads/Promethee</url>
+    <reference>Bernard Roy and Roman Slowinski; Handling effects of reinforced preference and counter-veto in credibility of outranking; European Journal of Operational Research 188(1):185?190; 2008; doi:10.1016/j.ejor.2007.04.005</reference>
+    <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
-    <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
-      <documentation>
-        <description>Alternatives to consider.</description>
-      </documentation>
-      <xmcda tag="alternatives" />
-    </input>
-
-    <input id="input2" name="classes_profiles" displayName="classes_profiles" isoptional="1">
-      <documentation>
-        <description>Definitions of profiles (boundary or central) which should be used for classes (categories) representation.</description>
-      </documentation>
-      <xmcda tag="categoriesProfiles" />
-    </input>
-
-    <input id="input3" name="criteria" displayName="criteria" isoptional="0">
+    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with 'preference', 'indifference' and 'reinforced preference' thresholds (see also 'reinforcement_factors' input below). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input4" name="performance_table" displayName="performance_table" isoptional="0">
+    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input5" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
+    <input id="input3" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input6" name="weights" displayName="weights" isoptional="0">
+    <input id="input4" name="weights" displayName="weights" isoptional="0">
       <documentation>
         <description>Weights of criteria to consider.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input7" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
+    <input id="input5" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input8" name="reinforcement_factors" displayName="reinforcement_factors" isoptional="1">
+    <input id="input6" name="reinforcement_factors" displayName="reinforcement_factors" isoptional="0">
       <documentation>
         <description>Definitions of so-called 'reinforcement factors', one per each criterion for which 'reinforcement threshold' has been defined. For more regarding these concepts see the paper from 'Reference' section.
 
-Technically, this input is optional, but it doesn't make much sense to use 'PrometheeAggregatedPreferenceReinforcedPreference' without it, since in such scenario it will fall back to 'PrometheeAggregatedPreference'.</description>
+This input is mandatory, if you don't need need the concept of reinforced preference please use 'PrometheePreference'.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
@@ -150,7 +136,7 @@ Choosing some of numbers sets same function for all criteria.
     </input>
 
 
-    <output id="output1" name="aggregated_preferences" displayName="aggregated_preferences">
+    <output id="output1" name="preferences" displayName="preferences">
       <documentation>
         <description>Aggregated preference matrix computed from the given data. This matrix aggregates partial preference indices from all criteria into single preference index per pair of alternatives or alternatives/profiles.</description>
       </documentation>

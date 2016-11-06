@@ -9,60 +9,46 @@ elements allowed to compare, i.e. alternatives vs alternatives, alternatives vs
 boundary profiles and alternatives vs central (characteristic) profiles.
 Each criterion can have its own preference function (one of six predefined functions).
     </description>
-    <url>https://github.com/Yamadads/Promethee</url>
+    <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
 
-    <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
-      <documentation>
-        <description>Alternatives to consider.</description>
-      </documentation>
-      <xmcda tag="alternatives" />
-    </input>
-
-    <input id="input2" name="classes_profiles" displayName="classes_profiles" isoptional="1">
-      <documentation>
-        <description>Definitions of profiles (boundary or central) which should be used for classes (categories) representation.</description>
-      </documentation>
-      <xmcda tag="categoriesProfiles" />
-    </input>
-
-    <input id="input3" name="criteria" displayName="criteria" isoptional="0">
+    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input4" name="performance_table" displayName="performance_table" isoptional="0">
+    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input5" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
+    <input id="input3" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input6" name="weights" displayName="weights" isoptional="0">
+    <input id="input4" name="weights" displayName="weights" isoptional="0">
       <documentation>
         <description>Weights of criteria to consider.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input7" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
+    <input id="input5" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input8" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input6" name="method_parameters" displayName="method_parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 
@@ -144,7 +130,7 @@ Choosing some of numbers sets same function for all criteria.
     </input>
 
 
-    <output id="output1" name="aggregated_preferences" displayName="aggregated_preferences">
+    <output id="output1" name="preferences" displayName="preferences">
       <documentation>
         <description>Aggregated preference matrix computed from the given data. This matrix aggregates partial preference indices from all criteria into single preference index per pair of alternatives or alternatives/profiles.</description>
       </documentation>

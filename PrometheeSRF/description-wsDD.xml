@@ -5,7 +5,7 @@
   <documentation>
     <description>PrometheeSRF - computes weights of criteria using the revised Simos procedure
     </description>
-    <url>https://github.com/Yamadads/Promethee</url>
+    <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
     <input id="input1" name="criteria_ranking" displayName="criteria_ranking" isoptional="0">
