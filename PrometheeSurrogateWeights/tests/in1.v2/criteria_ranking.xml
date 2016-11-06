@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2012/XMCDA-2.2.1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2012/XMCDA-2.2.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd'>
+	<projectReference>
+		<title>Criteria ranking</title>
+		<comment>Ranking of importance of each criterion</comment>
+	</projectReference>
+	<criteriaValues mcdaConcept="Importance" name="ranking">
+		<criterionValue>
+			<criterionID>c01</criterionID>
+			<value>
+				<integer>2</integer>
+			</value>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>c02</criterionID>
+			<value>
+				<integer>3</integer>
+			</value>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>c03</criterionID>
+			<value>
+				<integer>1</integer>
+			</value>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>c04</criterionID>
+			<value>
+				<integer>4</integer>
+			</value>
+		</criterionValue>
+	</criteriaValues>
+</xmcda:XMCDA>
