@@ -1,6 +1,8 @@
 package org.put.promethee.preference;
 
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -13,8 +15,9 @@ import org.xmcda.Threshold;
 
 public class Preference {
 
-	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs) throws WrongPreferenceDirectionException, NullThresholdException {		
-		Map<String , Double> partialPreferences = calcPartialPreferences(inputs);
+	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs)
+			throws WrongPreferenceDirectionException, NullThresholdException {
+		Map<String, Double> partialPreferences = calcPartialPreferences(inputs);
 		Map<String, Map<String, Double>> preferences = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
@@ -25,7 +28,7 @@ public class Preference {
 			}
 		} else {
 			for (String a : inputs.alternatives_ids) {
-				for (String b : inputs.profiles_ids) {					
+				for (String b : inputs.profiles_ids) {
 					preferences.putIfAbsent(a, new HashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, partialPreferences));
 					preferences.putIfAbsent(b, new HashMap<>());
@@ -39,7 +42,13 @@ public class Preference {
 				}
 			}
 		}
-		return preferences;
+		return sortMapByKey(preferences);
+	}
+
+	private static Map<String, Map<String, Double>> sortMapByKey(Map<String, Map<String, Double>> map) {
+		Map<String, Map<String, Double>> sortedMap = map.entrySet().stream().sorted(Entry.comparingByKey())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		return sortedMap;
 	}
 
 	/**
@@ -126,12 +135,11 @@ public class Preference {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.performanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-										inputs.sigmaThresholds.get(c)));
+						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
+								inputs.performanceTable.get(a).get(c).doubleValue(),
+								inputs.performanceTable.get(b).get(c).doubleValue(), inputs.preferenceDirections.get(c),
+								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
+								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
@@ -142,13 +150,15 @@ public class Preference {
 						preferenceMap.put(keyHash(a, b, c),
 								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
 										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
+										inputs.preferenceDirections.get(c),
+										inputs.generalisedCriteria.get(c).intValue(),
 										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
 										inputs.sigmaThresholds.get(c)));
 						preferenceMap.put(keyHash(b, a, c),
 								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
 										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
+										inputs.preferenceDirections.get(c),
+										inputs.generalisedCriteria.get(c).intValue(),
 										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
 										inputs.sigmaThresholds.get(c)));
 					}
@@ -157,13 +167,12 @@ public class Preference {
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
-								calcPreferenceOnOneCriterion(
-										inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
-										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-										inputs.sigmaThresholds.get(c)));
+						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
+								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
+								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
+								inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+								inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
@@ -178,13 +187,13 @@ public class Preference {
 		for (String criterion : inputs.criteria_ids) {
 			Double weight = inputs.weights.get(criterion);
 			totalWeight += weight;
-			preference += (partialPreferences.get(keyHash(alternative1, alternative2 , criterion)) * weight);
+			preference += (partialPreferences.get(keyHash(alternative1, alternative2, criterion)) * weight);
 		}
-		preference = preference/totalWeight;
+		preference = preference / totalWeight;
 		return preference;
 	}
-	
-	private static String keyHash(String a, String b, String c){
-		return "_"+a+"_*|*_"+b+"_*|*_"+c+"_";
+
+	private static String keyHash(String a, String b, String c) {
+		return "_" + a + "_*|*_" + b + "_*|*_" + c + "_";
 	}
 }

@@ -1,6 +1,8 @@
 package org.put.promethee.preference;
 
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -41,7 +43,13 @@ public class Preference {
 				}
 			}
 		}
-		return preferences;
+		return sortMapByKey(preferences);
+	}
+
+	private static Map<String, Map<String, Double>> sortMapByKey(Map<String, Map<String, Double>> map) {
+		Map<String, Map<String, Double>> sortedMap = map.entrySet().stream().sorted(Entry.comparingByKey())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		return sortedMap;
 	}
 
 	/**
