@@ -32,8 +32,8 @@ public class Flows {
 			for (String profile : inputs.profiles_ids){
 				ArrayList<String> profilesToCompare = new ArrayList<String>(inputs.profiles_ids);
 				profilesToCompare.remove(profile);
-				positiveFlows.put(profile, calcPositiveFlow(profile, inputs.profiles_ids, inputs));
-				negativeFlows.put(profile, calcNegativeFlow(profile, inputs.profiles_ids, inputs));
+				positiveFlows.put(profile, calcPositiveFlow(profile, profilesToCompare, inputs));
+				negativeFlows.put(profile, calcNegativeFlow(profile, profilesToCompare, inputs));
 			}
 		}
 

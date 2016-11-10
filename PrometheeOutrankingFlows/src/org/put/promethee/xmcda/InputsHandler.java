@@ -273,7 +273,7 @@ public class InputsHandler {
 		}
 		if (inputs.profiles_ids != null) {
 			for (String profile : inputs.profiles_ids) {
-				inputs.alternatives_ids.remove(profile);
+				alternatives_ids.remove(profile);
 			}
 		}
 		inputs.alternatives_ids = alternatives_ids;
