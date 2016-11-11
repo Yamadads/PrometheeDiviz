@@ -12,6 +12,7 @@ generalised_criteria.xml; criteriaValues; function number for preference calcula
 reinforcement_factors.xml; criteriaValues; ;
 criteria_ranking.xml; criteriaValues; rank (integer) for each criterion;
 preferences.xml; alternativesMatrix; real preference value for pairs of alternatives or alternative/profile
+discordances.xml; alternativesMatrix; real discordance value for pairs of alternatives or alternative/profile
 categories_profiles.xml; categoriesProfiles; pairs of profile ids and category ids;
  
 
