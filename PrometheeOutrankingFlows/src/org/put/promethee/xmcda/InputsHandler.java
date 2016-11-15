@@ -220,6 +220,10 @@ public class InputsHandler {
 			inputs.profiles_ids = new ArrayList<String>();
 			for (CategoryProfile catProf : xmcda.categoriesProfilesList.get(0)) {
 				if (inputs.comparisonWith == ComparisonWithParam.BOUNDARY_PROFILES) {
+					if ((catProf.getLowerBound() == null)&&(catProf.getUpperBound() == null)){
+						errors.addError("Upper Bound or Lower Bound Profile in categories profiles must be specified");
+						return;
+					}						
 					if (catProf.getLowerBound() != null) {
 						if (catProf.getLowerBound().getAlternative() != null) {
 							inputs.profiles_ids.add(catProf.getLowerBound().getAlternative().id());
@@ -227,11 +231,7 @@ public class InputsHandler {
 							errors.addError("Alternative in Category Profile must be specified");
 							return;
 						}
-					} else {
-						errors.addError("Lower Bound Profile in categories profiles must be specified");
-						return;
 					}
-
 					if (catProf.getUpperBound() != null) {
 						if (catProf.getUpperBound().getAlternative() != null) {
 							inputs.profiles_ids.add(catProf.getUpperBound().getAlternative().id());
@@ -239,9 +239,6 @@ public class InputsHandler {
 							errors.addError("Alternative in Category Profile must be specified");
 							return;
 						}
-					} else {
-						errors.addError("Upper Bound Profile in categories profiles must be specified");
-						return;
 					}
 				}
 				if (inputs.comparisonWith == ComparisonWithParam.CENTRAL_PROFILES) {
