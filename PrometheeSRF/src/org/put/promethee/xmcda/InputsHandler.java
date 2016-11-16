@@ -1,24 +1,14 @@
 package org.put.promethee.xmcda;
 
 import org.put.promethee.exceptions.WrongParamValue;
-import org.xmcda.Alternative;
-import org.xmcda.Criteria;
-import org.xmcda.CriteriaScales;
-import org.xmcda.CriteriaThresholds;
 import org.xmcda.CriteriaValues;
 import org.xmcda.Criterion;
-import org.xmcda.CriterionThresholds;
-import org.xmcda.PerformanceTable;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramParameter;
-import org.xmcda.Threshold;
 import org.xmcda.XMCDA;
-import org.xmcda.QuantitativeScale;
-import org.xmcda.utils.ValueConverters;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 

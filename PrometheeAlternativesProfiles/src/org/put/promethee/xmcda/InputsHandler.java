@@ -16,6 +16,7 @@ import org.xmcda.QuantitativeScale;
 import org.xmcda.utils.ValueConverters;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -25,17 +26,17 @@ import java.util.Map;
  * 
  */
 public class InputsHandler {
-	public enum ComparisonWithParam {
-		ALTERNATIVES("alternatives"), BOUNDARY_PROFILES("boundary_profiles"), CENTRAL_PROFILES("central_profiles");
+	public enum OperatingModeParam {
+		NORMAL("normal"), REINFORCED_PREFERENCE("reinforced_preference");
 
 		private String label;
 
-		private ComparisonWithParam(String paramLabel) {
+		private OperatingModeParam(String paramLabel) {
 			label = paramLabel;
 		}
 
 		/**
-		 * Return the label for this ComparisonWith Parameter
+		 * Return the label for this OperatingMode Parameter
 		 *
 		 * @return the parameter's label
 		 */
@@ -54,25 +55,25 @@ public class InputsHandler {
 		}
 
 		/**
-		 * Returns the {@link ComparisonWithParam} with the specified label. It
+		 * Returns the {@link OperatingModeParam} with the specified label. It
 		 * behaves like {@link #valueOf(String)} with the exception
 		 *
 		 * @param parameterLabel
 		 *            the label of the constant to return
 		 * @return the enum constant with the specified label
 		 * @throws IllegalArgumentException
-		 *             if there is no ComparisonWithParam with this label
+		 *             if there is no OperatingModeParam with this label
 		 * @throws NullPointerException
 		 *             if parameterLabel is null
 		 */
-		public static ComparisonWithParam fromString(String parameterLabel) {
+		public static OperatingModeParam fromString(String parameterLabel) {
 			if (parameterLabel == null)
 				throw new NullPointerException("parameterLabel is null");
-			for (ComparisonWithParam op : ComparisonWithParam.values()) {
+			for (OperatingModeParam op : OperatingModeParam.values()) {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ComparisonWithParam with label " + parameterLabel);
+			throw new IllegalArgumentException("No enum OperatingModeParam with label " + parameterLabel);
 		}
 	}
 
@@ -133,20 +134,18 @@ public class InputsHandler {
 	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
 	 */
 	public static class Inputs {
-		public ComparisonWithParam comparisonWith;
+		public OperatingModeParam mode;
 		public GeneralisedCriterionParam generalisedCriterion;
 		public List<String> alternatives_ids;
 		public Map<String, Map<String, Double>> performanceTable;
 		public List<String> criteria_ids;
 		public Map<String, Integer> generalisedCriteria;
 		public Map<String, String> preferenceDirections;
-		public List<String> profiles_ids;
-		public Map<String, Map<String, Double>> profilesPerformanceTable;
-		public Map<String, Double> weights;
+		public Map<String, Double> reinforcementFactors;
 		public Map<String, Threshold<Double>> preferenceThresholds;
 		public Map<String, Threshold<Double>> indifferenceThresholds;
 		public Map<String, Threshold<Double>> sigmaThresholds;
-
+		public Map<String, Threshold<Double>> reinforcedPreferenceThresholds;
 	}
 
 	/**
@@ -175,15 +174,15 @@ public class InputsHandler {
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
 		checkParameters(inputs, xmcda, errors);
-		checkPerformanceTables(inputs, xmcda, errors);
+		checkPerformanceTable(inputs, xmcda, errors);
 		checkCriteriaValues(inputs, xmcda, errors);
 		checkCriteriaScales(inputs, xmcda, errors);
 		return inputs;
 	}
 
 	private static void checkParameters(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
-		ComparisonWithParam comparisonWith = null;
 		GeneralisedCriterionParam generalisedCriterion = null;
+		OperatingModeParam operatingModeParam = null;
 		if (xmcda.programParametersList.size() > 1) {
 			errors.addError("Only one programParameters is expected");
 			return;
@@ -198,8 +197,7 @@ public class InputsHandler {
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(0);
-
-		if (!"comparison_with".equals(prgParam.name())) {
+		if (!"operating_mode".equals(prgParam.name())) {
 			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
 			return;
 		}
@@ -211,21 +209,20 @@ public class InputsHandler {
 
 		try {
 			final String parameterValue = (String) prgParam.getValues().get(0).getValue();
-			comparisonWith = ComparisonWithParam.fromString((String) parameterValue);
+			operatingModeParam = OperatingModeParam.fromString((String) parameterValue);
 		} catch (Throwable throwable) {
 			StringBuffer valid_values = new StringBuffer();
-			for (ComparisonWithParam op : ComparisonWithParam.values()) {
+			for (OperatingModeParam op : OperatingModeParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
 			String err = "Invalid value for parameter operator, it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
-			comparisonWith = null;
+			operatingModeParam = null;
 		}
-		inputs.comparisonWith = comparisonWith;
+		inputs.mode = operatingModeParam;
 
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(1);
-
 		if (!"generalised_criterion".equals(prgParam2.name())) {
 			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
 			return;
@@ -252,93 +249,101 @@ public class InputsHandler {
 		inputs.generalisedCriterion = generalisedCriterion;
 	}
 
-	private static void checkPerformanceTables(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+	private static void checkPerformanceTable(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.performanceTablesList.size() == 0) {
 			errors.addError("No performance table has been supplied");
 			return;
-		} else if (xmcda.performanceTablesList.size() > 2) {
-			errors.addError("More than two performance tables have been supplied");
-			return;
-		} else if ((inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES)
-				&& (xmcda.performanceTablesList.size() != 1)) {
+		} else if (xmcda.performanceTablesList.size() != 1) {
 			errors.addError("Only one performance table is expected");
 			return;
 		}
-		if ((inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) && (xmcda.performanceTablesList.size() != 2)) {
-			errors.addError("Exactly two performance tables are expected");
-			return;
+		@SuppressWarnings("rawtypes")
+		PerformanceTable p = xmcda.performanceTablesList.get(0);
+
+		if (p.hasMissingValues())
+			errors.addError("The performance table has missing values");
+		if (!p.isNumeric()) {
+			errors.addError("The performance table must contain numeric values only");
 		} else {
-			@SuppressWarnings("rawtypes")
-			PerformanceTable p = xmcda.performanceTablesList.get(0);
-
-			if (p.hasMissingValues())
-				errors.addError("The performance table has missing values");
-			if (!p.isNumeric()) {
-				errors.addError("The performance table must contain numeric values only");
-			} else {
-				try {
-					@SuppressWarnings("unchecked")
-					PerformanceTable<Double> perfTable = p.asDouble();
-					xmcda.performanceTablesList.set(0, perfTable);
-				} catch (ValueConverters.ConversionException e) {
-					final String msg = "Error when converting the performance table's value to Double, reason:";
-					errors.addError(Utils.getMessage(msg, e));
-					return;
-				}
-			}
-			if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-				@SuppressWarnings("rawtypes")
-				PerformanceTable p2 = xmcda.performanceTablesList.get(1);
-
-				if (p2.hasMissingValues())
-					errors.addError("The performance table has missing values");
-				if (!p2.isNumeric()) {
-					errors.addError("The performance table must contain numeric values only");
-				} else {
-					try {
-						@SuppressWarnings("unchecked")
-						PerformanceTable<Double> perfTable = p2.asDouble();
-						xmcda.performanceTablesList.set(1, perfTable);
-					} catch (ValueConverters.ConversionException e) {
-						final String msg = "Error when converting the performance table's value to Double, reason:";
-						errors.addError(Utils.getMessage(msg, e));
-					}
-				}
+			try {
+				@SuppressWarnings("unchecked")
+				PerformanceTable<Double> perfTable = p.asDouble();
+				xmcda.performanceTablesList.set(0, perfTable);
+			} catch (ValueConverters.ConversionException e) {
+				final String msg = "Error when converting the performance table's value to Double, reason:";
+				errors.addError(Utils.getMessage(msg, e));
+				return;
 			}
 		}
 	}
 
 	private static void checkCriteriaValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
-		if (xmcda.criteriaValuesList.size() == 0) {
-			errors.addError("No criteria values has been supplied");
-			return;
-		} else if ((inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED)
-				&& (xmcda.criteriaValuesList.size() != 2)) {
-			errors.addError("Criteria weights and Generalised Criteria are expected");
+		Integer numberOfCriteriaValues = 0;
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+			numberOfCriteriaValues++;
+		}
+		if (inputs.mode == OperatingModeParam.REINFORCED_PREFERENCE) {
+			numberOfCriteriaValues++;
+		}
+		if (numberOfCriteriaValues == 0) {
 			return;
 		}
-		if ((inputs.generalisedCriterion != GeneralisedCriterionParam.SPECIFIED)
-				&& (xmcda.criteriaValuesList.size() != 1)) {
-			errors.addError("More than one criteriaValues have been supplied. Only Criteria weights is expected. ");
+		if (numberOfCriteriaValues == 1) {
+			if (xmcda.criteriaValuesList.size() != 1) {
+				if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+					errors.addError("Improper input data. Generalised Criteria are expected");
+					return;
+				}
+				if (inputs.mode == OperatingModeParam.REINFORCED_PREFERENCE) {
+					errors.addError("Improper input data. Reinforcement Factors are expected");
+					return;
+				}
+			}
+			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+				checkGeneralisedCriteria(xmcda, errors, 0);
+				return;
+			}
+			if (inputs.mode == OperatingModeParam.REINFORCED_PREFERENCE) {
+				checkReinforcementFactors(xmcda, errors, 0);
+				return;
+			}
+		}
+		if (numberOfCriteriaValues == 2) {
+			if (xmcda.criteriaValuesList.size() != 2) {
+				errors.addError("Improper input data. Generalised Criteria, and Reinforcement Factors are expected");
+				return;
+			}
+
+			checkGeneralisedCriteria(xmcda, errors, 0);
+			checkReinforcementFactors(xmcda, errors, 1);
 			return;
 		}
+	}
+
+	private static void checkReinforcementFactors(XMCDA xmcda, ProgramExecutionResult errors,
+			Integer criteriaValuesListIndex) {
 		@SuppressWarnings("rawtypes")
-		CriteriaValues weights = xmcda.criteriaValuesList.get(0);
-		if (!weights.isNumeric()) {
-			errors.addError("The weights table must contain numeric values only");
+		CriteriaValues reinforcementFactors = xmcda.criteriaValuesList.get(1);
+		if (!reinforcementFactors.isNumeric()) {
+			errors.addError("The Reinforcement Factor table must contain numeric values only");
 		} else {
 			try {
 				@SuppressWarnings("unchecked")
-				CriteriaValues<Double> weightsDouble = weights.asDouble();
-				xmcda.criteriaValuesList.set(0, weightsDouble);
+				CriteriaValues<Double> reinforcementFactorsDouble = reinforcementFactors.asDouble();
+				xmcda.criteriaValuesList.set(1, reinforcementFactorsDouble);
 			} catch (ValueConverters.ConversionException e) {
-				final String msg = "Error when converting the weights table's value to Double, reason:";
+				final String msg = "Error when converting the Reinforcement Factor table's value to Double, reason:";
 				errors.addError(Utils.getMessage(msg, e));
 				return;
 			}
 		}
+	}
+
+	private static void checkGeneralisedCriteria(XMCDA xmcda, ProgramExecutionResult errors,
+			Integer criteriaValuesListIndex) {
 		@SuppressWarnings("unchecked")
-		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList
+				.get(criteriaValuesListIndex);
 		if (!generalisedCriteria.isNumeric()) {
 			errors.addError("The generalised criteria table must contain numeric values only");
 		}
@@ -365,22 +370,17 @@ public class InputsHandler {
 	protected static Inputs extractInputs(Inputs inputs, XMCDA xmcda, ProgramExecutionResult xmcda_execution_results) {
 		extractAlternatives(inputs, xmcda);
 		extractCriteria(inputs, xmcda);
-		extractProfiles(inputs, xmcda);
-		if (!profilesIDsUnique(inputs, xmcda_execution_results)) {
-			return null;
-		}
-		if (!criteriaAlternativesAndProfilesExists(inputs, xmcda, xmcda_execution_results)) {
+		if (!criteriaAndAlternatives(inputs, xmcda, xmcda_execution_results)) {
 			return null;
 		}
 		if (!criteriaIdenticalInAllFiles(inputs, xmcda, xmcda_execution_results)) {
 			return null;
 		}
 		extractPreferenceTables(inputs, xmcda);
-		extractProfilesPreferenceTables(inputs, xmcda);
-		extractWeights(inputs, xmcda);
 		extractGeneralisedCriteria(inputs, xmcda, xmcda_execution_results);
+		extractReinforcementFactors(inputs, xmcda);
 		extractCriteriaDirection(inputs, xmcda);
-		extractThresholds(inputs, xmcda);
+		extractThresholds(inputs, xmcda, xmcda_execution_results);
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
 		}
@@ -394,6 +394,7 @@ public class InputsHandler {
 		for (Alternative x_alternative : xmcda_perf_table.getAlternatives())
 			if (x_alternative.isActive())
 				inputs.alternatives_ids.add(x_alternative.id());
+		Collections.sort(inputs.alternatives_ids);
 	}
 
 	private static void extractCriteria(Inputs inputs, XMCDA xmcda) {
@@ -402,44 +403,12 @@ public class InputsHandler {
 		for (Criterion x_criterion : criteria)
 			if (x_criterion.isActive())
 				criteria_ids.add(x_criterion.id());
+		Collections.sort(criteria_ids);
 		inputs.criteria_ids = criteria_ids;
+
 	}
 
-	private static void extractProfiles(Inputs inputs, XMCDA xmcda) {
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			@SuppressWarnings("unchecked")
-			PerformanceTable<Double> x_perf_table_profiles = (PerformanceTable<Double>) xmcda.performanceTablesList
-					.get(1);
-			inputs.profiles_ids = new ArrayList<>();
-			for (Alternative x_alternative : x_perf_table_profiles.getAlternatives()) {
-				if (x_alternative.isActive())
-					inputs.profiles_ids.add(x_alternative.id());
-			}
-		} else {
-			inputs.profiles_ids = null;
-		}
-	}
-
-	private static Boolean profilesIDsUnique(Inputs inputs, ProgramExecutionResult errors) {
-		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
-			return true;
-		}
-		if (inputs.profiles_ids == null) {
-			errors.addError("Profile IDs is null");
-			return false;
-		}
-		Boolean unique = true;
-		for (String profile : inputs.profiles_ids) {
-			if (inputs.alternatives_ids.contains(profile)) {
-				errors.addError("Profile IDs are not unique");
-				unique = false;
-				break;
-			}
-		}
-		return unique;
-	}
-
-	private static Boolean criteriaAlternativesAndProfilesExists(Inputs inputs, XMCDA xmcda,
+	private static Boolean criteriaAndAlternatives(Inputs inputs, XMCDA xmcda,
 			ProgramExecutionResult xmcda_execution_results) {
 		Boolean allExists = true;
 		if (inputs.alternatives_ids.size() == 0) {
@@ -449,12 +418,6 @@ public class InputsHandler {
 		if (inputs.criteria_ids.size() == 0) {
 			xmcda_execution_results.addError("No active criteria in criteria.xml");
 			allExists = false;
-		}
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			if (inputs.profiles_ids.size() == 0) {
-				xmcda_execution_results.addError("No active profiles in profiles_performance_table.xml");
-				allExists = false;
-			}
 		}
 		return allExists;
 	}
@@ -470,23 +433,26 @@ public class InputsHandler {
 				xmcda_execution_results
 						.addError("Criteria are not identical in criteria.xml file and performance_table.xml file");
 			}
-			if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-				if (!xmcda.performanceTablesList.get(1).getCriteria().contains(criterion)) {
-					criteriaIdentical = false;
-					xmcda_execution_results.addError(
-							"Criteria are not identical in criteria.xml file and profiles_performance_table.xml file");
-				}
-			}
-			if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
-				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("Criteria are not identical in criteria.xml file and weights.xml file");
-			}
-			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
-				if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
+			if (inputs.generalisedCriterion.equals(GeneralisedCriterionParam.SPECIFIED)) {
+				if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
 							"Criteria are not identical in criteria.xml file and generalised_criteria.xm file");
+				}
+				if (inputs.mode.equals(OperatingModeParam.REINFORCED_PREFERENCE)) {
+					if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
+						criteriaIdentical = false;
+						xmcda_execution_results.addError(
+								"Criteria are not identical in criteria.xml file and reinforcement_factors.xm file");
+					}
+				}
+			} else {
+				if (inputs.mode.equals(OperatingModeParam.REINFORCED_PREFERENCE)) {
+					if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
+						criteriaIdentical = false;
+						xmcda_execution_results.addError(
+								"Criteria are not identical in criteria.xml file and reinforcement_factors.xm file");
+					}
 				}
 			}
 			if (!criteriaIdentical)
@@ -500,31 +466,34 @@ public class InputsHandler {
 				break;
 			}
 		}
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			for (Criterion criterion : xmcda.performanceTablesList.get(1).getCriteria()) {
-				if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
-					criteriaIdentical = false;
-					xmcda_execution_results.addError(
-							"Criteria are not identical in criteria.xml file and profiles_performance_table.xml file");
-					break;
-				}
-			}
-		}
-		for (Criterion criterion : xmcda.criteriaValuesList.get(0).getCriteria()) {
-			if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
-				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("Criteria are not identical in criteria.xml file and weights.xml file");
-				break;
-			}
-		}
-		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
-			for (Criterion criterion : xmcda.criteriaValuesList.get(1).getCriteria()) {
+		if (inputs.generalisedCriterion.equals(GeneralisedCriterionParam.SPECIFIED)) {
+			for (Criterion criterion : xmcda.criteriaValuesList.get(0).getCriteria()) {
 				if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
 							"Criteria are not identical in criteria.xml file and generalised_criteria.xm file");
 					break;
+				}
+			}
+			if (inputs.mode.equals(OperatingModeParam.REINFORCED_PREFERENCE)) {
+				for (Criterion criterion : xmcda.criteriaValuesList.get(1).getCriteria()) {
+					if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
+						criteriaIdentical = false;
+						xmcda_execution_results.addError(
+								"Criteria are not identical in criteria.xml file and reinforcement_factors.xm file");
+						break;
+					}
+				}
+			}
+		} else {
+			if (inputs.mode.equals(OperatingModeParam.REINFORCED_PREFERENCE)) {
+				for (Criterion criterion : xmcda.criteriaValuesList.get(0).getCriteria()) {
+					if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
+						criteriaIdentical = false;
+						xmcda_execution_results.addError(
+								"Criteria are not identical in criteria.xml file and reinforcement_factors.xm file");
+						break;
+					}
 				}
 			}
 		}
@@ -605,49 +574,23 @@ public class InputsHandler {
 		}
 	}
 
-	private static void extractProfilesPreferenceTables(Inputs inputs, XMCDA xmcda) {
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			List<String> criteria_ids = inputs.criteria_ids;
-			@SuppressWarnings("unchecked")
-			PerformanceTable<Double> x_perf_table_profiles = (PerformanceTable<Double>) xmcda.performanceTablesList
-					.get(1);
-			inputs.profilesPerformanceTable = new LinkedHashMap<>();
-			for (Alternative x_alternative : x_perf_table_profiles.getAlternatives()) {
-				if (!inputs.profiles_ids.contains(x_alternative.id()))
-					continue;
-				for (Criterion x_criterion : x_perf_table_profiles.getCriteria()) {
-					if (!criteria_ids.contains(x_criterion.id()))
-						continue;
-					Double value = x_perf_table_profiles.getValue(x_alternative, x_criterion);
-					inputs.profilesPerformanceTable.putIfAbsent(x_alternative.id(), new HashMap<>());
-					inputs.profilesPerformanceTable.get(x_alternative.id()).put(x_criterion.id(), value);
-				}
-			}
-		}
-	}
-
-	private static void extractWeights(Inputs inputs, XMCDA xmcda) {
-		inputs.weights = new HashMap<>();
-		@SuppressWarnings("unchecked")
-		CriteriaValues<Double> weights_table = (CriteriaValues<Double>) xmcda.criteriaValuesList.get(0);
-		for (Criterion criterion : weights_table.getCriteria()) {
-			inputs.weights.put(criterion.id(), weights_table.get(criterion).get(0).getValue());
-		}
-	}
-
 	private static void extractGeneralisedCriteria(Inputs inputs, XMCDA xmcda,
 			ProgramExecutionResult xmcda_execution_results) {
 		inputs.generalisedCriteria = new HashMap<>();
 		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 			@SuppressWarnings("unchecked")
-			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(0);
 			for (Criterion criterion : generalisedCriteria.getCriteria()) {
 				Integer value = generalisedCriteria.get(criterion).get(0).getValue();
-				if ((value >= 1) && (value <= 6)) {
+				Integer upperValue = 5;
+				if (inputs.mode == OperatingModeParam.NORMAL) {
+					upperValue = 6;
+				}
+				if ((value >= 1) && (value <= upperValue)) {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
-					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 6 in file generalised_criteria.xml");
+					xmcda_execution_results.addError("Generalised criteria must be integers between 1 and "
+							+ upperValue.toString() + " in file generalised_criteria.xml");
 					break;
 				}
 			}
@@ -668,13 +611,31 @@ public class InputsHandler {
 		}
 	}
 
+	private static void extractReinforcementFactors(Inputs inputs, XMCDA xmcda) {
+		if (inputs.mode == OperatingModeParam.REINFORCED_PREFERENCE) {
+			Integer criteriaValuesListIndex = 0;
+			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+				criteriaValuesListIndex++;
+			}
+			inputs.reinforcementFactors = new HashMap<>();
+			@SuppressWarnings("unchecked")
+			CriteriaValues<Double> reinforcement_factors_table = (CriteriaValues<Double>) xmcda.criteriaValuesList
+					.get(criteriaValuesListIndex);
+			for (Criterion criterion : reinforcement_factors_table.getCriteria()) {
+				inputs.reinforcementFactors.put(criterion.id(),
+						reinforcement_factors_table.get(criterion).get(0).getValue());
+			}
+		}
+	}
+
 	@SuppressWarnings("unchecked")
-	private static void extractThresholds(Inputs inputs, XMCDA xmcda) {
+	private static void extractThresholds(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		CriteriaThresholds thresholds = (CriteriaThresholds) xmcda.criteriaThresholdsList.get(0);
 
 		inputs.indifferenceThresholds = new HashMap<>();
 		inputs.sigmaThresholds = new HashMap<>();
 		inputs.preferenceThresholds = new HashMap<>();
+		inputs.reinforcedPreferenceThresholds = new HashMap<>();
 
 		for (Criterion criterion : thresholds.keySet()) {
 			CriterionThresholds critThresholds = thresholds.get(criterion);
@@ -684,6 +645,7 @@ public class InputsHandler {
 			int prefThresholdID = -1;
 			int indiffThresholdID = -1;
 			int sigmaThresholdID = -1;
+			int reinforcedPreferenceThresholdID = -1;
 
 			for (int i = 0; i < critThresholds.size(); i++) {
 				if (critThresholds.get(i).mcdaConcept().equals("indifference")) {
@@ -694,6 +656,9 @@ public class InputsHandler {
 				}
 				if (critThresholds.get(i).mcdaConcept().equals("sigma")) {
 					sigmaThresholdID = i;
+				}
+				if (critThresholds.get(i).mcdaConcept().equals("reinforced_preference")) {
+					reinforcedPreferenceThresholdID = i;
 				}
 			}
 			if (prefThresholdID != -1) {
@@ -712,6 +677,15 @@ public class InputsHandler {
 				inputs.sigmaThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(sigmaThresholdID));
 			} else {
 				inputs.sigmaThresholds.put(criterion.id(), null);
+			}
+			if (reinforcedPreferenceThresholdID != -1) {
+				inputs.reinforcedPreferenceThresholds.put(criterion.id(),
+						(Threshold<Double>) critThresholds.get(reinforcedPreferenceThresholdID));
+			} else {
+				if (inputs.mode == OperatingModeParam.REINFORCED_PREFERENCE) {
+					errors.addError("Reinforced preference threshold is not specified on criterion " + criterion.id());
+				}
+				inputs.reinforcedPreferenceThresholds.put(criterion.id(), null);
 			}
 		}
 	}

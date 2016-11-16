@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
+  <program provider="PUT" name="PrometheeAlternativesProfiles" displayName="PrometheeAlternativesProfiles" version="0.2.0" />
+  <documentation>
+    <description>Computes the profiles of the alternatives (the single criterion net flow for each alternative and criterion)
+Each criterion can have its own preference function (one of six predefined functions).
+    </description>
+    <url>https://github.com/Yamadads/PrometheeDiviz</url>
+  </documentation>
+  <parameters>
+
+    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
+      <documentation>
+        <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). If reinforced preference mode is set also reinforced threshold is needed. Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
+      </documentation>
+      <xmcda tag="criteria" />
+    </input>
+
+    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
+      <documentation>
+        <description>The performance of alternatives.</description>
+      </documentation>
+      <xmcda tag="performanceTable" />
+    </input>
+ 	
+ 	<input id="input3" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
+      <documentation>
+        <description>ID number of predefined preference function specified for each criterion.</description>
+      </documentation>
+      <xmcda tag="criteriaValues" />
+    </input>
+    
+ 	<input id="input4" name="reinforcement_factors" displayName="reinforcement_factors" isoptional="1">
+      <documentation>
+        <description>Definitions of so-called 'reinforcement factors', one per each criterion for which 'reinforcement threshold' has been defined.</description>
+      </documentation>
+      <xmcda tag="criteriaValues" />
+    </input>
+
+   
+
+    <input id="input5" name="method_parameters" displayName="method_parameters" isoptional="0">
+      <documentation>
+        <description>First parameter specifies the operationg mode module (work with reinforced preference or not) 
+Second parameter specifies the type of function used for comparison of each criterion.
+Choosing 'specified' requires providing inputs "generalised_criterion" which is optional by default.
+Choosing some of numbers sets same function for all criteria.
+        </description>
+      </documentation>
+      <xmcda tag="methodParameters">
+        <![CDATA[
+        <methodParameters>
+          <parameter id="operating_mode" name="operating_mode">
+            <value>
+              <label>%1</label>
+            </value>
+          </parameter>
+          <parameter id="criterion" name="generalised_criterion">
+            <value>
+              <label>%2</label>
+            </value>
+          </parameter>
+        </methodParameters>
+        ]]>
+      </xmcda>
+      <gui status="preferGUI">
+        <entry id="%1" type="enum" displayName="operating_mode">
+          <items>
+            <item id="item0">
+              <description>natural</description>
+              <value>natural</value>
+            </item>
+            <item id="item1">
+              <description>reinforced_preference</description>
+              <value>reinforced_preference</value>
+            </item>
+          </items>
+          <defaultValue>item0</defaultValue>
+        </entry>
+        <entry id="%2" type="enum" displayName="generalised_criterion">
+          <items>
+            <item id="item0">
+              <description>Each criterion needs its own function</description>
+              <value>specified</value>
+            </item>
+            <item id="item1">
+              <description>Usual Criterion</description>
+              <value>1</value>
+            </item>
+            <item id="item2">
+              <description>U-Shape Criterion, needs indifference threshold specified in criterion.</description>
+              <value>2</value>
+            </item>
+            <item id="item3">
+              <description>V-Shape Criterion, needs threshold of strict preference specified in criterion.</description>
+              <value>3</value>
+            </item>
+            <item id="item4">
+              <description>Level Criterion, needs both indifference and strict preference thresholds specified in criterion.</description>
+              <value>4</value>
+            </item>
+            <item id="item5">
+              <description>V-Shape with Indifference Criterion, needs both indifference and strict preference thresholds specified in criterion.</description>
+              <value>5</value>
+            </item>
+            <item id="item6">
+              <description>Gaussian Criterion, needs the inflection point of the preference function specified in criterion.</description>
+              <value>6</value>
+            </item>
+          </items>
+          <defaultValue>item0</defaultValue>
+        </entry>
+      </gui>
+    </input>
+
+
+    <output id="output1" name="preferences" displayName="preferences">
+      <documentation>
+        <description>profiles of the alternatives</description>
+      </documentation>
+      <xmcda tag="performanceTable" />
+    </output>
+
+    <output id="output2" name="messages" displayName="messages">
+      <documentation>
+        <description>Messages or errors generated by this module.</description>
+      </documentation>
+      <xmcda tag="methodMessages" />
+    </output>
+
+  </parameters>
+</program_description>

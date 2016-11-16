@@ -2,16 +2,12 @@ package org.put.promethee.xmcda;
 
 import org.xmcda.Alternative;
 import org.xmcda.AlternativesMatrix;
-import org.xmcda.CategoryProfile;
 import org.xmcda.ProgramExecutionResult;
-import org.xmcda.ProgramParameter;
 import org.xmcda.XMCDA;
 import org.xmcda.utils.Coord;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

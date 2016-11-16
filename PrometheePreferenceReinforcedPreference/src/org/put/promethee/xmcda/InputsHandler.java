@@ -341,7 +341,7 @@ public class InputsHandler {
 		}
 		@SuppressWarnings("rawtypes")
 		CriteriaValues reinforcementFactors = xmcda.criteriaValuesList.get(1);
-		if (!weights.isNumeric()) {
+		if (!reinforcementFactors.isNumeric()) {
 			errors.addError("The Reinforcement Factor table must contain numeric values only");
 		} else {
 			try {
@@ -399,7 +399,7 @@ public class InputsHandler {
 		extractGeneralisedCriteria(inputs, xmcda, xmcda_execution_results);
 		extractCriteriaDirection(inputs, xmcda);
 		extractReinforcementFactors(inputs, xmcda);
-		extractThresholds(inputs, xmcda);
+		extractThresholds(inputs, xmcda, xmcda_execution_results);
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
 		}
@@ -430,26 +430,26 @@ public class InputsHandler {
 			PerformanceTable<Double> x_perf_table_profiles = (PerformanceTable<Double>) xmcda.performanceTablesList
 					.get(1);
 			inputs.profiles_ids = new ArrayList<>();
-			for (Alternative x_alternative : x_perf_table_profiles.getAlternatives()){
+			for (Alternative x_alternative : x_perf_table_profiles.getAlternatives()) {
 				if (x_alternative.isActive())
-					inputs.profiles_ids.add(x_alternative.id());				
+					inputs.profiles_ids.add(x_alternative.id());
 			}
-		}else{
+		} else {
 			inputs.profiles_ids = null;
 		}
 	}
-	
-	private static Boolean profilesIDsUnique(Inputs inputs, ProgramExecutionResult errors){		
+
+	private static Boolean profilesIDsUnique(Inputs inputs, ProgramExecutionResult errors) {
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			return true;
 		}
-		if (inputs.profiles_ids==null){
+		if (inputs.profiles_ids == null) {
 			errors.addError("Profile IDs is null");
 			return false;
 		}
 		Boolean unique = true;
-		for (String profile: inputs.profiles_ids){
-			if (inputs.alternatives_ids.contains(profile)){
+		for (String profile : inputs.profiles_ids) {
+			if (inputs.alternatives_ids.contains(profile)) {
 				errors.addError("Profile IDs are not unique");
 				unique = false;
 				break;
@@ -518,7 +518,7 @@ public class InputsHandler {
 				return criteriaIdentical;
 		}
 		for (Criterion criterion : xmcda.performanceTablesList.get(0).getCriteria()) {
-			if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+			if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 				criteriaIdentical = false;
 				xmcda_execution_results
 						.addError("Criteria are not identical in criteria.xml file and performance_table.xml file");
@@ -527,7 +527,7 @@ public class InputsHandler {
 		}
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			for (Criterion criterion : xmcda.performanceTablesList.get(1).getCriteria()) {
-				if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+				if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
 							"Criteria are not identical in criteria.xml file and profiles_performance_table.xml file");
@@ -536,7 +536,7 @@ public class InputsHandler {
 			}
 		}
 		for (Criterion criterion : xmcda.criteriaValuesList.get(0).getCriteria()) {
-			if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+			if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 				criteriaIdentical = false;
 				xmcda_execution_results
 						.addError("Criteria are not identical in criteria.xml file and weights.xml file");
@@ -544,16 +544,16 @@ public class InputsHandler {
 			}
 		}
 		for (Criterion criterion : xmcda.criteriaValuesList.get(1).getCriteria()) {
-			if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+			if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 				criteriaIdentical = false;
 				xmcda_execution_results
 						.addError("Criteria are not identical in criteria.xml file and reinforcement_factors.xml file");
 				break;
 			}
 		}
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 			for (Criterion criterion : xmcda.criteriaValuesList.get(2).getCriteria()) {
-				if ((inputs.criteria_ids.contains(criterion.id())) && (!criterion.isActive())) {
+				if ((!inputs.criteria_ids.contains(criterion.id())) && (criterion.isActive())) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
 							"Criteria are not identical in criteria.xml file and generalised_criteria.xm file");
@@ -659,13 +659,14 @@ public class InputsHandler {
 			inputs.weights.put(criterion.id(), weights_table.get(criterion).get(0).getValue());
 		}
 	}
-	
+
 	private static void extractReinforcementFactors(Inputs inputs, XMCDA xmcda) {
-		inputs.weights = new HashMap<>();
+		inputs.reinforcementFactors = new HashMap<>();
 		@SuppressWarnings("unchecked")
 		CriteriaValues<Double> reinforcement_factors_table = (CriteriaValues<Double>) xmcda.criteriaValuesList.get(1);
 		for (Criterion criterion : reinforcement_factors_table.getCriteria()) {
-			inputs.reinforcementFactors.put(criterion.id(), reinforcement_factors_table.get(criterion).get(0).getValue());
+			inputs.reinforcementFactors.put(criterion.id(),
+					reinforcement_factors_table.get(criterion).get(0).getValue());
 		}
 	}
 
@@ -703,7 +704,7 @@ public class InputsHandler {
 	}
 
 	@SuppressWarnings("unchecked")
-	private static void extractThresholds(Inputs inputs, XMCDA xmcda) {
+	private static void extractThresholds(Inputs inputs, XMCDA xmcda, ProgramExecutionResult xmcda_execution_results) {
 		CriteriaThresholds thresholds = (CriteriaThresholds) xmcda.criteriaThresholdsList.get(0);
 
 		inputs.indifferenceThresholds = new HashMap<>();
@@ -746,6 +747,8 @@ public class InputsHandler {
 				inputs.reinforcedPreferenceThresholds.put(criterion.id(),
 						(Threshold<Double>) critThresholds.get(reinforcedPreferenceThresholdID));
 			} else {
+				xmcda_execution_results
+						.addError("Reinforced preference threshold is not specified on criterion " + criterion.id());
 				inputs.reinforcedPreferenceThresholds.put(criterion.id(), null);
 			}
 		}
