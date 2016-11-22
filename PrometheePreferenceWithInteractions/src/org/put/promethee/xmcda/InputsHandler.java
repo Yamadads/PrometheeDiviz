@@ -1,9 +1,8 @@
 package org.put.promethee.xmcda;
 
-import org.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import org.put.promethee.xmcda.InputsHandler.GeneralisedCriterionParam;
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
+import org.xmcda.CriteriaMatrix;
 import org.xmcda.CriteriaScales;
 import org.xmcda.CriteriaThresholds;
 import org.xmcda.CriteriaValues;
@@ -12,6 +11,8 @@ import org.xmcda.CriterionThresholds;
 import org.xmcda.PerformanceTable;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramParameter;
+import org.xmcda.QualifiedValue;
+import org.xmcda.QualifiedValues;
 import org.xmcda.Threshold;
 import org.xmcda.XMCDA;
 import org.xmcda.QuantitativeScale;
@@ -129,6 +130,57 @@ public class InputsHandler {
 		}
 	}
 
+	public enum ZFunctionParam {
+		MULTIPLICATION("multiplication"), MINIMUM("minimum");
+
+		private String label;
+
+		private ZFunctionParam(String paramLabel) {
+			label = paramLabel;
+		}
+
+		/**
+		 * Return the label for this ZFunction Parameter
+		 *
+		 * @return the parameter's label
+		 */
+		public final String getLabel() {
+			return label;
+		}
+
+		/**
+		 * Returns the parameter's label
+		 *
+		 * @return the parameter's label
+		 */
+		@Override
+		public String toString() {
+			return label;
+		}
+
+		/**
+		 * Returns the {@link ZFunctionParam} with the specified label. It
+		 * behaves like {@link #valueOf(String)} with the exception
+		 *
+		 * @param parameterLabel
+		 *            the label of the constant to return
+		 * @return the enum constant with the specified label
+		 * @throws IllegalArgumentException
+		 *             if there is no ZFunctionParam with this label
+		 * @throws NullPointerException
+		 *             if parameterLabel is null
+		 */
+		public static ZFunctionParam fromString(String parameterLabel) {
+			if (parameterLabel == null)
+				throw new NullPointerException("parameterLabel is null");
+			for (ZFunctionParam op : ZFunctionParam.values()) {
+				if (op.toString().equals(parameterLabel))
+					return op;
+			}
+			throw new IllegalArgumentException("No enum ZFunctionParam with label " + parameterLabel);
+		}
+	}
+
 	/**
 	 * This class contains every element which are needed to compute the
 	 * weighted sum. It is populated by
@@ -137,6 +189,7 @@ public class InputsHandler {
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public GeneralisedCriterionParam generalisedCriterion;
+		public ZFunctionParam zFunction;
 		public List<String> alternatives_ids;
 		public Map<String, Map<String, Double>> performanceTable;
 		public List<String> criteria_ids;
@@ -148,7 +201,11 @@ public class InputsHandler {
 		public Map<String, Threshold<Double>> preferenceThresholds;
 		public Map<String, Threshold<Double>> indifferenceThresholds;
 		public Map<String, Threshold<Double>> sigmaThresholds;
-
+		public Map<String, Map<String, Double>> strengtheningEffect;
+		public Map<String, Map<String, Double>> strengtheningEffectReverse;
+		public Map<String, Map<String, Double>> weakeningEffect;
+		public Map<String, Map<String, Double>> weakeningEffectReverse;
+		public Map<String, Map<String, Double>> antagonisticEffect;
 	}
 
 	/**
@@ -180,12 +237,14 @@ public class InputsHandler {
 		checkPerformanceTables(inputs, xmcda, errors);
 		checkCriteriaValues(inputs, xmcda, errors);
 		checkCriteriaScales(inputs, xmcda, errors);
+		checkCriteriaMatrix(inputs, xmcda, errors);
 		return inputs;
 	}
 
 	private static void checkParameters(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		ComparisonWithParam comparisonWith = null;
 		GeneralisedCriterionParam generalisedCriterion = null;
+		ZFunctionParam zFunction = null;
 		if (xmcda.programParametersList.size() > 1) {
 			errors.addError("Only one programParameters is expected");
 			return;
@@ -194,8 +253,8 @@ public class InputsHandler {
 			errors.addError("No programParameter found");
 			return;
 		}
-		if (xmcda.programParametersList.get(0).size() != 2) {
-			errors.addError("Exactly two programParameters are expected");
+		if (xmcda.programParametersList.get(0).size() != 3) {
+			errors.addError("Exactly three programParameters are expected");
 			return;
 		}
 
@@ -252,6 +311,33 @@ public class InputsHandler {
 			generalisedCriterion = null;
 		}
 		inputs.generalisedCriterion = generalisedCriterion;
+
+		final ProgramParameter<?> prgParam3 = xmcda.programParametersList.get(0).get(2);
+
+		if (!"z_function".equals(prgParam3.name())) {
+			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam3.id()));
+			return;
+		}
+
+		if (prgParam3.getValues() == null || (prgParam3.getValues() != null && prgParam3.getValues().size() != 1)) {
+			errors.addError("Parameter operator must have a single (label) value only");
+			return;
+		}
+
+		try {
+			final String parameterValue = (String) prgParam3.getValues().get(0).getValue();
+			zFunction = ZFunctionParam.fromString((String) parameterValue);
+		} catch (Throwable throwable) {
+			StringBuffer valid_values = new StringBuffer();
+			for (ZFunctionParam op : ZFunctionParam.values()) {
+				valid_values.append(op.getLabel()).append(", ");
+			}
+			String err = "Invalid value for parameter operator, it must be a label, ";
+			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
+			errors.addError(err);
+			zFunction = null;
+		}
+		inputs.zFunction = zFunction;
 	}
 
 	private static void checkPerformanceTables(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
@@ -346,6 +432,27 @@ public class InputsHandler {
 		}
 	}
 
+	private static void checkCriteriaMatrix(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (xmcda.criteriaMatricesList.size() == 0) {
+			errors.addError("No criteria values has been supplied");
+			return;
+		}
+		if (xmcda.criteriaMatricesList.get(0).size() == 0) {
+			errors.addError("No criteria values has been supplied");
+			return;
+		}
+		if (xmcda.criteriaMatricesList.get(0).size() != 1) {
+			errors.addError("Exactly one criteriaSetsValues is expected");
+			return;
+		}
+
+		@SuppressWarnings("rawtypes")
+		CriteriaMatrix interactions = xmcda.criteriaMatricesList.get(0);
+		if (interactions.isEmpty()) {
+			errors.addError("The interactions table cannot be empty");
+		}
+	}
+
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaScalesList.size() == 0) {
 			errors.addError("No scales list has been supplied");
@@ -386,6 +493,7 @@ public class InputsHandler {
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
 		}
+		extractInteractins(inputs, xmcda, xmcda_execution_results);
 		return inputs;
 	}
 
@@ -469,26 +577,28 @@ public class InputsHandler {
 
 			if (!xmcda.performanceTablesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("Criteria are not identical, performance_table.xml doesn't contain criterion "+ criterionID);
+				xmcda_execution_results.addError(
+						"Criteria are not identical, performance_table.xml doesn't contain criterion " + criterionID);
 			}
 			if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 				if (!xmcda.performanceTablesList.get(1).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
-							"Criteria are not identical, profiles_performance_table.xml doesn't contain criterion "+ criterionID);
+							"Criteria are not identical, profiles_performance_table.xml doesn't contain criterion "
+									+ criterionID);
 				}
 			}
 			if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
 				xmcda_execution_results
-						.addError("Criteria are not identical, weights.xml doesn't contain criterion "+ criterionID);
+						.addError("Criteria are not identical, weights.xml doesn't contain criterion " + criterionID);
 			}
 			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 				if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
-					xmcda_execution_results.addError(
-							"Criteria are not identical, generalised_criteria.xm doesn't contain criterion "+ criterionID);
+					xmcda_execution_results
+							.addError("Criteria are not identical, generalised_criteria.xm doesn't contain criterion "
+									+ criterionID);
 				}
 			}
 			if (!criteriaIdentical)
@@ -678,6 +788,119 @@ public class InputsHandler {
 				inputs.sigmaThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(sigmaThresholdID));
 			} else {
 				inputs.sigmaThresholds.put(criterion.id(), null);
+			}
+		}
+	}
+
+	private static void extractInteractins(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		@SuppressWarnings({ "unchecked" })
+		CriteriaMatrix<Double> interactions = (CriteriaMatrix<Double>) xmcda.criteriaMatricesList.get(0);
+		inputs.antagonisticEffect = new LinkedHashMap<String, Map<String, Double>>();
+		inputs.strengtheningEffect = new LinkedHashMap<String, Map<String, Double>>();
+		inputs.strengtheningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
+		inputs.weakeningEffect = new LinkedHashMap<String, Map<String, Double>>();
+		inputs.weakeningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
+
+		for (Criterion row : interactions.getRows()) {
+			for (Criterion column : interactions.getColumns()) {
+				QualifiedValues<Double> values = interactions.get(row, column);
+				if (values != null) {
+					if (values.isEmpty()) {
+						errors.addError("Value in interaction cannot be empty.");
+						return;
+					}
+					if (!values.isNumeric()) {
+						errors.addError("value in interacion need to be numeric");
+						return;
+					}
+					if (values.size() != 1) {
+						errors.addError("Interaction need exacly one values list");
+						return;
+					}
+					for (QualifiedValue<Double> value : values) {
+						if (value.mcdaConcept() == null) {
+							errors.addError("mcdaConcept need to be specified in value of interaction");
+							return;
+						}
+						switch (value.mcdaConcept()) {
+						case "weakening":
+							if (value.getValue() >= 0) {
+								errors.addError("weakening coefficient must be less than zero");
+								return;
+							}
+							inputs.weakeningEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
+							inputs.weakeningEffect.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
+
+							if ((inputs.strengtheningEffect.containsKey(row.id()))
+									&& (inputs.strengtheningEffect.get(row.id()).containsKey(column.id()))) {
+								errors.addError("Weakening and strengthening effects are mutually exclusive");
+								return;
+							}
+							if ((inputs.strengtheningEffect.containsKey(column.id()))
+									&& (inputs.strengtheningEffect.get(column.id()).containsKey(row.id()))) {
+								errors.addError("Weakening and strengthening effects are mutually exclusive");
+								return;
+							}
+
+							if ((inputs.weakeningEffect.get(row.id()).containsKey(column.id()))
+									|| (inputs.weakeningEffect.get(column.id()).containsKey(row.id()))) {
+								errors.addError("Only one weakening effect per pair of criteria can exist");
+								return;
+							}
+
+							inputs.weakeningEffect.get(row.id()).put(column.id(), value.getValue());
+
+							// put reverse
+							inputs.weakeningEffectReverse.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
+							inputs.weakeningEffectReverse.get(column.id()).put(row.id(), value.getValue());
+							break;
+						case "strengthening":
+							if (value.getValue() <= 0) {
+								errors.addError("strengthening coefficient must be greater than zero");
+								return;
+							}
+							inputs.strengtheningEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
+							inputs.strengtheningEffect.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
+
+							if ((inputs.strengtheningEffect.get(column.id()).containsKey(row.id()))
+									|| (inputs.strengtheningEffect.get(row.id()).containsKey(column.id()))) {
+								errors.addError("Only one strengthening effect per pair of criteria can exist");
+								return;
+							}
+
+							if ((inputs.weakeningEffect.containsKey(row.id()))
+									&& (inputs.weakeningEffect.get(row.id()).containsKey(column.id()))) {
+								errors.addError("Weakening and strengthening effects are mutually exclusive");
+								return;
+							}
+							if ((inputs.weakeningEffect.containsKey(column.id()))
+									&& (inputs.weakeningEffect.get(column.id()).containsKey(row.id()))) {
+								errors.addError("Weakening and strengthening effects are mutually exclusive");
+								return;
+							}
+
+							inputs.strengtheningEffect.get(row.id()).put(column.id(), value.getValue());
+
+							// put reverse
+							inputs.strengtheningEffectReverse.putIfAbsent(column.id(),
+									new LinkedHashMap<String, Double>());
+							inputs.strengtheningEffectReverse.get(column.id()).put(row.id(), value.getValue());
+							break;
+						case "antagonistic":
+							inputs.antagonisticEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
+							if (inputs.antagonisticEffect.get(row.id()).containsKey(column.id())) {
+								errors.addError("Only one antagonistic effect per pair of criteria can exist");
+								return;
+							}
+							inputs.antagonisticEffect.get(row.id()).put(column.id(), value.getValue());
+							break;
+						default:
+							errors.addError(
+									"Only three interaction types are supported : weakening, strengthening, antagonistic)");
+							break;
+						}
+					}
+				}
 			}
 		}
 	}
