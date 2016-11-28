@@ -1,4 +1,4 @@
-package org.put.promethee.weight;
+package pl.poznan.put.promethee.weight;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
 
 public class Weights {
 

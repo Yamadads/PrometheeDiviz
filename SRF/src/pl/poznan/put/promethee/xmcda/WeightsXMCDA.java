@@ -1,13 +1,14 @@
 /**
  *
  */
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
-import org.put.promethee.weight.Weights;
-import org.put.promethee.xmcda.InputFile;
-import org.put.promethee.xmcda.Utils.InvalidCommandLineException;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
+
+import pl.poznan.put.promethee.weight.Weights;
+import pl.poznan.put.promethee.xmcda.InputFile;
+import pl.poznan.put.promethee.xmcda.Utils.InvalidCommandLineException;
 
 import java.io.File;
 import java.util.ArrayList;
