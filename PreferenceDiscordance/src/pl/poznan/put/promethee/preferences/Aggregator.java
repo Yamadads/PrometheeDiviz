@@ -1,4 +1,4 @@
-package org.put.promethee.preferences;
+package pl.poznan.put.promethee.preferences;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import org.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
 
 public class Aggregator {
 
