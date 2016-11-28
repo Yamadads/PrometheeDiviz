@@ -3,14 +3,19 @@
  */
 package pl.poznan.put.promethee.xmcda;
 
+import pl.poznan.put.promethee.xmcda.Utils;
+
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
 
+import pl.poznan.put.promethee.xmcda.OutputFileWriter;
 import pl.poznan.put.promethee.preferences.Aggregator;
 import pl.poznan.put.promethee.xmcda.InputFile;
 import pl.poznan.put.promethee.xmcda.Utils.InvalidCommandLineException;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -26,6 +31,7 @@ public class PreferencesXMCDA {
 	public static void main(String[] args) {
 		Map<String, InputFile> files = initFiles();
 
+		final Utils.XMCDA_VERSION version = readVersion(args);
 		final Utils.Arguments params = readParams(args);
 
 		final String inputDirectory = params.inputDirectory;
@@ -35,45 +41,67 @@ public class PreferencesXMCDA {
 
 		final ProgramExecutionResult executionResult = new ProgramExecutionResult();
 
-		final XMCDA xmcda = loadFiles(files, inputDirectory, executionResult);
+		final XMCDA xmcda = InputFileLoader.loadFiles(files, inputDirectory, executionResult, prgExecResultsFile,
+				version);
 		if (!ErrorChecker.checkErrors(executionResult, xmcda))
-			exitProgram(executionResult, prgExecResultsFile);
+			exitProgram(executionResult, prgExecResultsFile, version);
 
-		InputsHandler.Inputs inputs = InputsHandler.checkAndExtractInputs(xmcda, executionResult);
+		final InputsHandler.Inputs inputs = InputsHandler.checkAndExtractInputs(xmcda, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, inputs))
-			exitProgram(executionResult, prgExecResultsFile);
+			exitProgram(executionResult, prgExecResultsFile, version);
 
 		final Map<String, Map<String, Double>> results = calcResults(inputs, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, results))
-			exitProgram(executionResult, prgExecResultsFile);
+			exitProgram(executionResult, prgExecResultsFile, version);
 
 		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
 
-		writeResultFilesV3(xmcdaResults, executionResult, outputDirectory);
+		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
-		exitProgram(executionResult, prgExecResultsFile);
+		exitProgram(executionResult, prgExecResultsFile, version);
 	}
 
 	private static Utils.Arguments readParams(String[] args) {
 		Utils.Arguments params = null;
+		ArrayList<String> argsList = new ArrayList<String>(Arrays.asList(args));
+		argsList.remove("--v2");
+		argsList.remove("--v3");
 		try {
-			params = Utils.parseCmdLineArguments(args);
+			params = Utils.parseCmdLineArguments((String[]) argsList.toArray(new String[] {}));
 		} catch (InvalidCommandLineException e) {
-			System.err.println("Missing mandatory options. Required: -i input_dir -o output_dir");
+			System.err.println("Missing mandatory options. Required: [--v2|--v3] -i input_dir -o output_dir");
 			System.exit(-1);
 		}
 		return params;
 	}
 
+	private static Utils.XMCDA_VERSION readVersion(String[] args) {
+		Utils.XMCDA_VERSION version = Utils.XMCDA_VERSION.v2;
+		;
+		final ArrayList<String> argsList = new ArrayList<String>(Arrays.asList(args));
+		if (argsList.remove("--v2")) {
+			version = Utils.XMCDA_VERSION.v2;
+		} else if (argsList.remove("--v3")) {
+			version = Utils.XMCDA_VERSION.v3;
+		} else {
+			System.err.println("Missing mandatory option --v2 or --v3");
+			System.exit(-1);
+		}
+		return version;
+	}
+
 	private static Map<String, InputFile> initFiles() {
 		Map<String, InputFile> files = new LinkedHashMap<>();
-		files.put("preferences", new InputFile("alternativesMatrix", "preferences.xml", true));
-		files.put("discordances", new InputFile("alternativesMatrix", "discordances.xml", true));
+		files.put("preferences",
+				new InputFile("alternativesComparisons", "alternativesMatrix", "preferences.xml", true));
+		files.put("discordances",
+				new InputFile("alternativesComparisons", "alternativesMatrix", "discordances.xml", true));
 		return files;
 	}
 
-	private static void exitProgram(ProgramExecutionResult executionResult, File prgExecResultsFile) {
-		Utils.writeProgramExecutionResultsAndExit(prgExecResultsFile, executionResult, Utils.XMCDA_VERSION.v3);
+	private static void exitProgram(ProgramExecutionResult executionResult, File prgExecResultsFile,
+			Utils.XMCDA_VERSION version) {
+		Utils.writeProgramExecutionResultsAndExit(prgExecResultsFile, executionResult, version);
 	}
 
 	private static Map<String, Map<String, Double>> calcResults(InputsHandler.Inputs inputs,
@@ -86,29 +114,5 @@ public class PreferencesXMCDA {
 			return results;
 		}
 		return results;
-	}
-
-	private static XMCDA loadFiles(Map<String, InputFile> files, String indir, ProgramExecutionResult executionResult) {
-		XMCDA xmcda = new XMCDA();
-		for (InputFile file : files.values()) {
-			Utils.loadXMCDAv3(xmcda, new File(indir, file.filename), file.mandatory, executionResult, file.loadTagV3);
-		}
-		return xmcda;
-	}
-
-	private static void writeResultFilesV3(Map<String, XMCDA> xmcdaResults, ProgramExecutionResult executionResult,
-			String outputDirectory) {
-		final org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser();
-
-		for (String key : xmcdaResults.keySet()) {
-			File outputFile = new File(outputDirectory, String.format("%s.xml", key));
-			try {
-				parser.writeXMCDA(xmcdaResults.get(key), outputFile, OutputsHandler.xmcdaV3Tag(key));
-			} catch (Throwable throwable) {
-				final String err = String.format("Error while writing %s.xml, reason: ", key);
-				executionResult.addError(Utils.getMessage(err, throwable));
-				outputFile.delete();
-			}
-		}
 	}
 }
