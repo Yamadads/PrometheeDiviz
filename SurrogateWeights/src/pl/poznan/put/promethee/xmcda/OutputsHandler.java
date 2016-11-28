@@ -1,4 +1,4 @@
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
 import org.xmcda.CriteriaValues;
 import org.xmcda.Criterion;

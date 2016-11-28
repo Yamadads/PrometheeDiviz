@@ -1,4 +1,4 @@
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
 public class InputFile {
 	public String loadTagV2;

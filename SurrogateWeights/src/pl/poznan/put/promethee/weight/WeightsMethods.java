@@ -1,4 +1,4 @@
-package org.put.promethee.weight;
+package pl.poznan.put.promethee.weight;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

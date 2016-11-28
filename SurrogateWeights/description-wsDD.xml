@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="PrometheeSurrogateWeights" displayName="PrometheeSurrogateWeights" version="0.2.0" />
+  <program provider="PUT" name="SurrogateWeights" displayName="SurrogateWeights" version="0.2.0" />
   <documentation>
-    <description>PrometheeSRF - computes weights of criteria using ranking specified by user. Module allows to choose one of four method.
+    <description>SurrogateWeights - computes weights of criteria using ranking specified by user. Module allows to choose one of four method.
     </description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
