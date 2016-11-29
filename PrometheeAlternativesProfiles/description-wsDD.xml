@@ -115,7 +115,7 @@ Choosing some of numbers sets same function for all criteria.
     </input>
 
 
-    <output id="output1" name="preferences" displayName="preferences">
+    <output id="output1" name="alternatives_profiles" displayName="alternatives_profiles">
       <documentation>
         <description>profiles of the alternatives</description>
       </documentation>

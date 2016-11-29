@@ -1,14 +1,15 @@
-package org.put.promethee.profiles;
+package pl.poznan.put.promethee.profiles;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import org.put.promethee.exceptions.NullThresholdException;
-import org.put.promethee.exceptions.WrongPreferenceDirectionException;
-import org.put.promethee.xmcda.InputsHandler;
-import org.put.promethee.xmcda.InputsHandler.Inputs;
-import org.put.promethee.xmcda.InputsHandler.OperatingModeParam;
 import org.xmcda.Threshold;
+
+import pl.poznan.put.promethee.exceptions.NullThresholdException;
+import pl.poznan.put.promethee.exceptions.WrongPreferenceDirectionException;
+import pl.poznan.put.promethee.xmcda.InputsHandler;
+import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.promethee.xmcda.InputsHandler.OperatingModeParam;
 
 public class Preference {
 

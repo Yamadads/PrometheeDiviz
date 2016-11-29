@@ -1,13 +1,13 @@
-package org.put.promethee.profiles;
+package pl.poznan.put.promethee.profiles;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.put.promethee.exceptions.NullThresholdException;
-import org.put.promethee.exceptions.WrongPreferenceDirectionException;
-import org.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.promethee.exceptions.NullThresholdException;
+import pl.poznan.put.promethee.exceptions.WrongPreferenceDirectionException;
+import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
 
 public class Profiles {
 

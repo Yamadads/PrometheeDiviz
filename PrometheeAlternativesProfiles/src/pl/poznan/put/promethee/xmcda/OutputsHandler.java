@@ -1,4 +1,4 @@
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
 import org.xmcda.Alternative;
 import org.xmcda.Criterion;
@@ -33,6 +33,28 @@ public class OutputsHandler {
 			return "performanceTable";
 		case "messages":
 			return "programExecutionResult";
+		default:
+			throw new IllegalArgumentException(String.format("Unknown output name '%s'", outputName));
+		}
+	}
+	
+	/**
+	 * Returns the xmcda v2 tag for a given output
+	 * 
+	 * @param outputName
+	 *            the output's name
+	 * @return the associated XMCDA v2 tag
+	 * @throws NullPointerException
+	 *             if outputName is null
+	 * @throws IllegalArgumentException
+	 *             if outputName is not known
+	 */
+	public static final String xmcdaV2Tag(String outputName) {
+		switch (outputName) {
+		case "alternatives_profiles":
+			return "performanceTable";
+		case "messages":
+			return "methodMessages";
 		default:
 			throw new IllegalArgumentException(String.format("Unknown output name '%s'", outputName));
 		}

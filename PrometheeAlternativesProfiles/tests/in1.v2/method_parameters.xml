@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2012/XMCDA-2.2.1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2012/XMCDA-2.2.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd'>
+<methodParameters>
+	<parameter name="operating_mode" id="operating_mode">			
+		<value>
+			<label>normal</label>
+		</value>		
+	</parameter>
+  	<parameter name="generalised_criterion" id="criterion">
+    		<value>
+      			<label>specified</label>
+    		</value>
+	</parameter>
+</methodParameters>
+</xmcda:XMCDA>
