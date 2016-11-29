@@ -1,4 +1,4 @@
-package org.put.xmcda;
+package pl.poznan.put.xmcda;
 
 import java.io.File;
 import java.io.FileNotFoundException;
