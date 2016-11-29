@@ -1,18 +1,19 @@
-package org.put.promethee.preference;
+package pl.poznan.put.promethee.preference;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-import org.put.promethee.exceptions.InvalidZFunctionParamException;
-import org.put.promethee.exceptions.NullThresholdException;
-import org.put.promethee.exceptions.PositiveNetBalanceException;
-import org.put.promethee.exceptions.WrongPreferenceDirectionException;
-import org.put.promethee.xmcda.InputsHandler;
-import org.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import org.put.promethee.xmcda.InputsHandler.Inputs;
-import org.put.promethee.xmcda.InputsHandler.ZFunctionParam;
 import org.xmcda.Threshold;
+
+import pl.poznan.put.promethee.exceptions.InvalidZFunctionParamException;
+import pl.poznan.put.promethee.exceptions.NullThresholdException;
+import pl.poznan.put.promethee.exceptions.PositiveNetBalanceException;
+import pl.poznan.put.promethee.exceptions.WrongPreferenceDirectionException;
+import pl.poznan.put.promethee.xmcda.InputsHandler;
+import pl.poznan.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
+import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.promethee.xmcda.InputsHandler.ZFunctionParam;
 
 public class Preference {
 

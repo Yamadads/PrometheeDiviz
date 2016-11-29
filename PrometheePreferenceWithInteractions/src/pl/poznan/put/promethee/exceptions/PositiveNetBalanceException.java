@@ -1,4 +1,4 @@
-package org.put.promethee.exceptions;
+package pl.poznan.put.promethee.exceptions;
 
 public class PositiveNetBalanceException extends Exception {
 

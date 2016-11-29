@@ -1,4 +1,4 @@
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
