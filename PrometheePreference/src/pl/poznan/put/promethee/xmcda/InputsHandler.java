@@ -1,7 +1,5 @@
-package org.put.promethee.xmcda;
+package pl.poznan.put.promethee.xmcda;
 
-import org.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import org.put.promethee.xmcda.InputsHandler.GeneralisedCriterionParam;
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
 import org.xmcda.CriteriaScales;
@@ -16,6 +14,9 @@ import org.xmcda.Threshold;
 import org.xmcda.XMCDA;
 import org.xmcda.QuantitativeScale;
 import org.xmcda.utils.ValueConverters;
+
+import pl.poznan.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
+import pl.poznan.put.promethee.xmcda.InputsHandler.GeneralisedCriterionParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,9 +1,9 @@
-package org.put.promethee.preference;
+package pl.poznan.put.promethee.preference;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.put.promethee.exceptions.NullThresholdException;
+import pl.poznan.put.promethee.exceptions.NullThresholdException;
 
 public class GeneralisedCriteria {
 	Map<Integer, GeneralisedCriterion> generalisedCriteria;

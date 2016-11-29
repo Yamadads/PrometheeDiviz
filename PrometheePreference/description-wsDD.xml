@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="PrometheeAggregatedPreference" displayName="PrometheeAggregatedPreference" version="0.2.0" />
+  <program provider="PUT" name="PrometheePreference" displayName="PrometheePreference" version="0.2.0" />
   <documentation>
     <description>Computes aggregated preference indices
 The key feature of this module is its flexibility in terms of the types of
