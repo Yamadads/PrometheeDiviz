@@ -18,5 +18,5 @@ if [ ! -x "${JAVA}" ]; then
 fi
 
 CLASSPATH="./bin:${XMCDA_LIB}:${CLASSPATH}"
-CMD="${JAVA} -cp ${CLASSPATH} org.put.promethee.xmcda.FlowsXMCDA"
+CMD="${JAVA} -cp ${CLASSPATH} pl.poznan.put.promethee.xmcda.FlowsXMCDA"
 export JAVA_HOME
