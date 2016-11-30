@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2012/XMCDA-2.2.1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2012/XMCDA-2.2.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd'>
+<methodParameters>
+  <parameter name="comparison_with" id="comparison_with">
+    <value>
+      <label>alternatives</label>
+    </value>
+  </parameter>
+  <parameter name="weights_specified" id="weights_specified">
+    <value>
+      <label>not_specified</label>
+    </value>
+  </parameter>
+</methodParameters>
+
+</xmcda:XMCDA>
