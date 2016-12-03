@@ -16,10 +16,11 @@ import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
 
 public class Preference {
 
-	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs)
+	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs,
+			Map<String, Map<String, Map<String, Double>>> partialResult)
 			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> pp = calcPartialPreferences(inputs);
-		Map<String, Double> rfpc = calcReinforcementPreferenceCrossed(inputs);
+		Map<String, Map<String, Map<String, Double>>> pp = calcPartialPreferences(inputs);
+		Map<String, Map<String, Map<String, Double>>> rfpc = calcReinforcementPreferenceCrossed(inputs);
 		Map<String, Map<String, Double>> preferences = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
@@ -44,6 +45,7 @@ public class Preference {
 				}
 			}
 		}
+		calcPartialPreferencesReinforcedPreference(partialResult, rfpc, pp);
 		return sortMapByKey(preferences);
 	}
 
@@ -142,14 +144,16 @@ public class Preference {
 	 * @throws WrongPreferenceDirectionException
 	 * @throws NullThresholdException
 	 */
-	private static Map<String, Double> calcPartialPreferences(Inputs inputs)
+	private static Map<String, Map<String, Map<String, Double>>> calcPartialPreferences(Inputs inputs)
 			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> preferenceMap = new HashMap<>();
+		Map<String, Map<String, Map<String, Double>>> preferenceMap = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c,
 								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
 										inputs.performanceTable.get(b).get(c).doubleValue(),
 										inputs.preferenceDirections.get(c),
@@ -162,25 +166,30 @@ public class Preference {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c,
 								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
 										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 										inputs.preferenceDirections.get(c),
 										inputs.generalisedCriteria.get(c).intValue(),
 										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c)));
-						preferenceMap.put(keyHash(b, a, c),
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c),
-										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c)));
+						preferenceMap.putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(b).putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(b).get(a).put(c, calcPreferenceOnOneCriterion(
+								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+								inputs.performanceTable.get(a).get(c).doubleValue(), inputs.preferenceDirections.get(c),
+								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
+								inputs.indifferenceThresholds.get(c)));
 					}
 				}
 			}
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
 								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
 								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
@@ -199,9 +208,9 @@ public class Preference {
 	 * @throws WrongPreferenceDirectionException
 	 * @throws NullThresholdException
 	 */
-	private static Map<String, Double> calcReinforcementPreferenceCrossed(Inputs inputs)
+	private static Map<String, Map<String, Map<String, Double>>> calcReinforcementPreferenceCrossed(Inputs inputs)
 			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> reinforcementPreferenceCrossed = new HashMap<>();
+		Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
@@ -210,8 +219,14 @@ public class Preference {
 						Double gb = inputs.performanceTable.get(b).get(c).doubleValue();
 						if (checkIfCrossed(ga, gb, inputs.preferenceDirections.get(c),
 								inputs.reinforcedPreferenceThresholds.get(c))) {
-							reinforcementPreferenceCrossed.put(keyHash(a, b, c),
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c,
 									inputs.reinforcementFactors.getOrDefault(c, 1.0));
+						} else {
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c, 1.0);
 						}
 					}
 				}
@@ -221,16 +236,28 @@ public class Preference {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
 						Double ga = inputs.performanceTable.get(a).get(c).doubleValue();
-						Double gb = inputs.performanceTable.get(b).get(c).doubleValue();
+						Double gb = inputs.profilesPerformanceTable.get(b).get(c).doubleValue();
 						if (checkIfCrossed(ga, gb, inputs.preferenceDirections.get(c),
 								inputs.reinforcedPreferenceThresholds.get(c))) {
-							reinforcementPreferenceCrossed.put(keyHash(a, b, c),
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c,
 									inputs.reinforcementFactors.getOrDefault(c, 1.0));
+						} else {
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c, 1.0);
 						}
 						if (checkIfCrossed(gb, ga, inputs.preferenceDirections.get(c),
 								inputs.reinforcedPreferenceThresholds.get(c))) {
-							reinforcementPreferenceCrossed.put(keyHash(b, a, c),
+							reinforcementPreferenceCrossed.putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(b).putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(b).get(a).put(c,
 									inputs.reinforcementFactors.getOrDefault(c, 1.0));
+						} else {
+							reinforcementPreferenceCrossed.putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(b).putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(b).get(a).put(c, 1.0);
 						}
 					}
 				}
@@ -238,12 +265,18 @@ public class Preference {
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						Double ga = inputs.performanceTable.get(a).get(c).doubleValue();
-						Double gb = inputs.performanceTable.get(b).get(c).doubleValue();
+						Double ga = inputs.profilesPerformanceTable.get(a).get(c).doubleValue();
+						Double gb = inputs.profilesPerformanceTable.get(b).get(c).doubleValue();
 						if (checkIfCrossed(ga, gb, inputs.preferenceDirections.get(c),
 								inputs.reinforcedPreferenceThresholds.get(c))) {
-							reinforcementPreferenceCrossed.put(keyHash(a, b, c),
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c,
 									inputs.reinforcementFactors.getOrDefault(c, 1.0));
+						} else {
+							reinforcementPreferenceCrossed.putIfAbsent(a, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).putIfAbsent(b, new LinkedHashMap<>());
+							reinforcementPreferenceCrossed.get(a).get(b).put(c, 1.0);
 						}
 					}
 				}
@@ -253,7 +286,8 @@ public class Preference {
 	}
 
 	private static Double calcTotalPreference(String alternative1, String alternative2, Inputs inputs,
-			Map<String, Double> partialPreferences, Map<String, Double> reinforcementPreferenceCrossed) {
+			Map<String, Map<String, Map<String, Double>>> partialPreferences,
+			Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed) {
 		Double sumOfWeights = sumOfWeightRPCrossed(alternative1, alternative2, inputs, reinforcementPreferenceCrossed);
 		Double sum = sumOfPreference(alternative1, alternative2, inputs, reinforcementPreferenceCrossed,
 				partialPreferences);
@@ -262,27 +296,41 @@ public class Preference {
 	}
 
 	private static Double sumOfWeightRPCrossed(String a, String b, Inputs inputs,
-			Map<String, Double> reinforcementPreferenceCrossed) {
+			Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed) {
 		Double sum = 0.0;
 		for (String criterion : inputs.criteria_ids) {
-			sum += inputs.weights.get(criterion)
-					* reinforcementPreferenceCrossed.getOrDefault(keyHash(a, b, criterion), 1.0);
+			sum += inputs.weights.get(criterion) * reinforcementPreferenceCrossed.get(a).get(b).get(criterion);
 		}
 		return sum;
 	}
 
 	private static Double sumOfPreference(String a, String b, Inputs inputs,
-			Map<String, Double> reinforcementPreferenceCrossed, Map<String, Double> partialPreferences) {
+			Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed,
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) {
 		Double sum = 0.0;
 		for (String criterion : inputs.criteria_ids) {
 			sum += inputs.weights.get(criterion)
-					* reinforcementPreferenceCrossed.getOrDefault(keyHash(a, b, criterion), 1.0)
-					* partialPreferences.get(keyHash(a, b, criterion));
+					* reinforcementPreferenceCrossed.get(a).get(b).get(criterion).doubleValue()
+					* partialPreferences.get(a).get(b).get(criterion);
 		}
 		return sum;
 	}
 
-	private static String keyHash(String a, String b, String c) {
-		return "_" + a + "_*|*_" + b + "_*|*_" + c + "_";
+	public static void calcPartialPreferencesReinforcedPreference(
+			Map<String, Map<String, Map<String, Double>>> preference,
+			Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed,
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) {		
+		for (String a : partialPreferences.keySet()) {
+			for (String b : partialPreferences.get(a).keySet()) {
+				for (String c : partialPreferences.get(a).get(b).keySet()) {
+					preference.putIfAbsent(a, new LinkedHashMap<>());
+					preference.get(a).putIfAbsent(b, new LinkedHashMap<>());
+					Double prefValue = partialPreferences.get(a).get(b).get(c).doubleValue();
+					Double reinfValue = reinforcementPreferenceCrossed.get(a).get(b).get(c).doubleValue();
+					Double resultValue = prefValue * reinfValue;
+					preference.get(a).get(b).put(c, resultValue);
+				}
+			}
+		}
 	}
 }

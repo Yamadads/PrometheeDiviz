@@ -122,65 +122,6 @@ public class Preference {
 		return preference;
 	}
 
-	/**
-	 * @param inputs
-	 * @return matrix of preferences - all alternatives with all
-	 *         alternatives(profiles) on all criteria
-	 * @throws WrongPreferenceDirectionException
-	 * @throws NullThresholdException
-	 */
-	/*private static Map<String, Double> calcPartialPreferences(Inputs inputs)
-			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> preferenceMap = new HashMap<>();
-		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
-			for (String a : inputs.alternatives_ids) {
-				for (String b : inputs.alternatives_ids) {
-					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
-								inputs.performanceTable.get(a).get(c).doubleValue(),
-								inputs.performanceTable.get(b).get(c).doubleValue(), inputs.preferenceDirections.get(c),
-								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
-								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
-					}
-				}
-			}
-		} else {
-			for (String a : inputs.alternatives_ids) {
-				for (String b : inputs.profiles_ids) {
-					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c),
-										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-										inputs.sigmaThresholds.get(c)));
-						preferenceMap.put(keyHash(b, a, c),
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c),
-										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-										inputs.sigmaThresholds.get(c)));
-					}
-				}
-			}
-			for (String a : inputs.profiles_ids) {
-				for (String b : inputs.profiles_ids) {
-					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
-								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
-								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
-								inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-								inputs.sigmaThresholds.get(c)));
-					}
-				}
-			}
-		}
-		return preferenceMap;
-	}*/
-
 	public static Map<String, Map<String, Map<String, Double>>> calcPartialPreferences(Inputs inputs)
 			throws WrongPreferenceDirectionException, NullThresholdException {
 		Map<String, Map<String, Map<String, Double>>> preferenceMap = new LinkedHashMap<>();

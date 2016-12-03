@@ -2,10 +2,17 @@
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2013/XMCDA-3.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2013/XMCDA-3.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.0.xsd">
 
 <programParameters>
-		<parameter id="operator">
+		<parameter id="comparison_with" name="comparison_with">
 			<values>
 				<value>
-					<label>invalid</label>
+					<label>alternatives</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter id="criterion" name="generalised_criterion">
+			<values>
+				<value>
+					<label>specified</label>
 				</value>
 			</values>
 		</parameter>

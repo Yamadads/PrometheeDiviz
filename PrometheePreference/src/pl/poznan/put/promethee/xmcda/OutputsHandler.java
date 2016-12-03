@@ -66,7 +66,8 @@ public class OutputsHandler {
 	/**
 	 * Converts the results of the computation step into XMCDA objects.
 	 * 
-	 * @param alternativesValues
+	 * @param alternativesMatrix
+	 * @param partialPreferences
 	 * @param executionResult
 	 * @return a map with keys being xmcda objects' names and values their
 	 *         corresponding XMCDA object
@@ -110,7 +111,7 @@ public class OutputsHandler {
 		}
 		xmcdaPartial.alternativesMatricesList.add(resultPartial);
 		x_results.put("partial_preferences", xmcdaPartial);
-		
+
 		return x_results;
 	}
 }

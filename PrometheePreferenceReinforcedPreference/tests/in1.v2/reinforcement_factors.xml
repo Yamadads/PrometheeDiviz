@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2012/XMCDA-2.2.1'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2012/XMCDA-2.2.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd'>
+  <criteriaValues mcdaConcept = "reinforcement_factors">
+    <criterionValue>
+      <criterionID>c01</criterionID>
+      <value>
+        <real>1.5</real>
+      </value>
+    </criterionValue>
+    <criterionValue>
+      <criterionID>c02</criterionID>
+      <value>
+        <real>1.5</real>
+      </value>
+    </criterionValue>
+    <criterionValue>
+      <criterionID>c03</criterionID>
+      <value>
+        <real>1.5</real>
+      </value>
+    </criterionValue>
+    <criterionValue>
+      <criterionID>c04</criterionID>
+      <value>
+        <real>1.5</real>
+      </value>
+    </criterionValue>
+    <criterionValue>
+      <criterionID>c05</criterionID>
+      <value>
+        <real>1.5</real>
+      </value>
+    </criterionValue>
+  </criteriaValues>
+</xmcda:XMCDA>

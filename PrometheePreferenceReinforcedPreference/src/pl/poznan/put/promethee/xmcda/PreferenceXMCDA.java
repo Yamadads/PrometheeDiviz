@@ -23,7 +23,7 @@ public class PreferenceXMCDA {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		Map<String, InputFile> files = initFiles();
 
 		final Utils.XMCDA_VERSION version = readVersion(args);
@@ -36,19 +36,23 @@ public class PreferenceXMCDA {
 
 		final ProgramExecutionResult executionResult = new ProgramExecutionResult();
 
-		final XMCDA xmcda = InputFileLoader.loadFiles(files, inputDirectory, executionResult, prgExecResultsFile, version);
+		final XMCDA xmcda = InputFileLoader.loadFiles(files, inputDirectory, executionResult, prgExecResultsFile,
+				version);
 		if (!ErrorChecker.checkErrors(executionResult, xmcda))
 			exitProgram(executionResult, prgExecResultsFile, version);
-		
+
 		final InputsHandler.Inputs inputs = InputsHandler.checkAndExtractInputs(xmcda, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, inputs))
 			exitProgram(executionResult, prgExecResultsFile, version);
 
-		final Map<String, Map<String, Double>> results = calcResults(inputs, executionResult);
+		Map<String, Map<String, Map<String, Double>>> partialResults = new LinkedHashMap<>();
+		final Map<String, Map<String, Double>> results = calcResults(inputs, partialResults, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, results))
 			exitProgram(executionResult, prgExecResultsFile, version);
+		if (!ErrorChecker.checkPartialResultsErrors(executionResult, partialResults))
+			exitProgram(executionResult, prgExecResultsFile, version);
 
-		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
+		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, partialResults, executionResult);
 
 		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
@@ -85,7 +89,7 @@ public class PreferenceXMCDA {
 	}
 
 	private static Map<String, InputFile> initFiles() {
-		Map<String, InputFile> files = new LinkedHashMap<>();		
+		Map<String, InputFile> files = new LinkedHashMap<>();
 		files.put("methodParameters",
 				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
@@ -93,7 +97,8 @@ public class PreferenceXMCDA {
 		files.put("performanceTable",
 				new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
 		files.put("criteriaWeights", new InputFile("criteriaValues", "criteriaValues", "weights.xml", true));
-		files.put("reinforcementFactors", new InputFile("criteriaValues", "criteriaValues", "reinforcement_factors.xml", true));
+		files.put("reinforcementFactors",
+				new InputFile("criteriaValues", "criteriaValues", "reinforcement_factors.xml", true));
 		files.put("generalisedCriteria",
 				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
 		files.put("profilesPerformanceTable",
@@ -109,10 +114,10 @@ public class PreferenceXMCDA {
 	}
 
 	private static Map<String, Map<String, Double>> calcResults(InputsHandler.Inputs inputs,
-			ProgramExecutionResult executionResult) {
+			Map<String, Map<String, Map<String, Double>>> partialResult, ProgramExecutionResult executionResult) {
 		Map<String, Map<String, Double>> results = null;
 		try {
-			results = Preference.calculatePreferences(inputs);
+			results = Preference.calculatePreferences(inputs, partialResult);
 		} catch (Throwable t) {
 			executionResult.addError(Utils.getMessage("The calculation could not be performed, reason: ", t));
 			return results;

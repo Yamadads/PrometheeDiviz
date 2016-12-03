@@ -7,23 +7,16 @@
                     <alternativeID>a01</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a02</alternativeID>
+                    <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
-                    <value>
-                        <real>0.125</real>
+                    <value id="c01">
+                        <real>0.0</real>
                     </value>
-                </values>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>a01</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>a01</alternativeID>
-                </terminal>
-                <values>
-                    <value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
                         <real>0.0</real>
                     </value>
                 </values>
@@ -33,23 +26,35 @@
                     <alternativeID>a01</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a03</alternativeID>
+                    <alternativeID>a02</alternativeID>
                 </terminal>
                 <values>
-                    <value>
-                        <real>0.875</real>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.5</real>
                     </value>
                 </values>
             </pair>
             <pair>
                 <initial>
-                    <alternativeID>a02</alternativeID>
+                    <alternativeID>a01</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a02</alternativeID>
+                    <alternativeID>a03</alternativeID>
                 </terminal>
                 <values>
-                    <value>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
                         <real>0.0</real>
                     </value>
                 </values>
@@ -62,8 +67,33 @@
                     <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
-                    <value>
-                        <real>0.875</real>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a02</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a02</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
                     </value>
                 </values>
             </pair>
@@ -75,21 +105,14 @@
                     <alternativeID>a03</alternativeID>
                 </terminal>
                 <values>
-                    <value>
-                        <real>0.875</real>
+                    <value id="c01">
+                        <real>1.0</real>
                     </value>
-                </values>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>a03</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>a02</alternativeID>
-                </terminal>
-                <values>
-                    <value>
-                        <real>0.125</real>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
                     </value>
                 </values>
             </pair>
@@ -101,8 +124,33 @@
                     <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
-                    <value>
-                        <real>0.125</real>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.5</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a03</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a02</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.5</real>
                     </value>
                 </values>
             </pair>
@@ -114,7 +162,13 @@
                     <alternativeID>a03</alternativeID>
                 </terminal>
                 <values>
-                    <value>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
                         <real>0.0</real>
                     </value>
                 </values>
