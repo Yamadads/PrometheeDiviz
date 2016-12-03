@@ -18,7 +18,7 @@ public class Preference {
 
 	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs)
 			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> partialPreferences = calcPartialPreferences(inputs);
+		Map<String, Map<String, Map<String, Double>>> partialPreferences = calcPartialPreferences(inputs);
 		Map<String, Map<String, Double>> preferences = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
@@ -129,7 +129,7 @@ public class Preference {
 	 * @throws WrongPreferenceDirectionException
 	 * @throws NullThresholdException
 	 */
-	private static Map<String, Double> calcPartialPreferences(Inputs inputs)
+	/*private static Map<String, Double> calcPartialPreferences(Inputs inputs)
 			throws WrongPreferenceDirectionException, NullThresholdException {
 		Map<String, Double> preferenceMap = new HashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
@@ -179,22 +179,78 @@ public class Preference {
 			}
 		}
 		return preferenceMap;
+	}*/
+
+	public static Map<String, Map<String, Map<String, Double>>> calcPartialPreferences(Inputs inputs)
+			throws WrongPreferenceDirectionException, NullThresholdException {
+		Map<String, Map<String, Map<String, Double>>> preferenceMap = new LinkedHashMap<>();
+		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
+			for (String a : inputs.alternatives_ids) {
+				for (String b : inputs.alternatives_ids) {
+					for (String c : inputs.criteria_ids) {
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
+								inputs.performanceTable.get(a).get(c).doubleValue(),
+								inputs.performanceTable.get(b).get(c).doubleValue(), inputs.preferenceDirections.get(c),
+								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
+								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
+					}
+				}
+			}
+		} else {
+			for (String a : inputs.alternatives_ids) {
+				for (String b : inputs.profiles_ids) {
+					for (String c : inputs.criteria_ids) {
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c,
+								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
+										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+										inputs.preferenceDirections.get(c),
+										inputs.generalisedCriteria.get(c).intValue(),
+										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+										inputs.sigmaThresholds.get(c)));
+						preferenceMap.putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(b).putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(b).get(a).put(c,
+								calcPreferenceOnOneCriterion(inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+										inputs.performanceTable.get(a).get(c).doubleValue(),
+										inputs.preferenceDirections.get(c),
+										inputs.generalisedCriteria.get(c).intValue(),
+										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+										inputs.sigmaThresholds.get(c)));
+					}
+				}
+			}
+			for (String a : inputs.profiles_ids) {
+				for (String b : inputs.profiles_ids) {
+					for (String c : inputs.criteria_ids) {
+						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
+						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						preferenceMap.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
+								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
+								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
+								inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+								inputs.sigmaThresholds.get(c)));
+					}
+				}
+			}
+		}
+		return preferenceMap;
 	}
 
 	private static Double calcTotalPreference(String alternative1, String alternative2, Inputs inputs,
-			Map<String, Double> partialPreferences) {
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) {
 		Double preference = 0.0;
 		Double totalWeight = 0.0;
 		for (String criterion : inputs.criteria_ids) {
 			Double weight = inputs.weights.get(criterion);
 			totalWeight += weight;
-			preference += (partialPreferences.get(keyHash(alternative1, alternative2, criterion)) * weight);
+			preference += (partialPreferences.get(alternative1).get(alternative2).get(criterion).doubleValue() * weight);
 		}
 		preference = preference / totalWeight;
 		return preference;
-	}
-
-	private static String keyHash(String a, String b, String c) {
-		return "_" + a + "_*|*_" + b + "_*|*_" + c + "_";
 	}
 }

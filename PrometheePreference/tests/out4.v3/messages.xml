@@ -5,7 +5,10 @@
 		<status>error</status>
 		<messages>
 			<message level="error">
-				<text>Upper Bound or Lower Bound Profile in categories profiles must be specified</text>
+				<text>Criteria weights and Generalised Criteria are expected</text>
+			</message>
+			<message level="error">
+				<text>inputs is null</text>
 			</message>
 		</messages>
 	</programExecutionResult>

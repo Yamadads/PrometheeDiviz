@@ -48,8 +48,13 @@ public class PreferenceXMCDA {
 		final Map<String, Map<String, Double>> results = calcResults(inputs, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, results))
 			exitProgram(executionResult, prgExecResultsFile, version);
+		
+		final Map<String, Map<String, Map<String, Double>>> partialResults = calcPartialResults(inputs,
+				executionResult);
+		if (!ErrorChecker.checkPartialResultsErrors(executionResult, partialResults))
+			exitProgram(executionResult, prgExecResultsFile, version);
 
-		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
+		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, partialResults, executionResult);
 
 		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
@@ -113,6 +118,18 @@ public class PreferenceXMCDA {
 		Map<String, Map<String, Double>> results = null;
 		try {
 			results = Preference.calculatePreferences(inputs);
+		} catch (Throwable t) {
+			executionResult.addError(Utils.getMessage("The calculation could not be performed, reason: ", t));
+			return results;
+		}
+		return results;
+	}
+	
+	private static Map<String, Map<String, Map<String, Double>>> calcPartialResults(InputsHandler.Inputs inputs,
+			ProgramExecutionResult executionResult) {
+		Map<String, Map<String, Map<String, Double>>> results = null;
+		try {
+			results = Preference.calcPartialPreferences(inputs);
 		} catch (Throwable t) {
 			executionResult.addError(Utils.getMessage("The calculation could not be performed, reason: ", t));
 			return results;

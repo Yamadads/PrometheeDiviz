@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:XMCDA xmlns:ns2="http://www.decision-deck.org/2012/XMCDA-2.2.1">
+    <alternativesComparisons>
+        <pairs>
+            <pair>
+                <initial>
+                    <alternativeID>a01</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.16666666666666666</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.06</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a01</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.30666666666666664</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.01</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a01</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.20000000000000018</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a02</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.39</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a03</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a04</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.9</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.03</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a05</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.26</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a06</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.40000000000000036</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.39</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a01</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a02</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.2999999999999998</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.44</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a03</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.55</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.5666666666666667</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.5</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a04</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.08</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a05</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.8</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.7000000000000002</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.5999999999999996</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.31</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a06</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.44</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.05</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a02</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.6333333333333333</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a02</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a03</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.06</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a03</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.01</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a04</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a04</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.5666666666666667</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.04999999999999982</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.2999999999999998</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a05</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.7999999999999998</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.40000000000000036</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a05</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.08333333333333333</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a06</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pBM</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.8833333333333333</real>
+                    </value>
+                    <value id="c02">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c03">
+                        <real>1.0</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>a06</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>pMG</alternativeID>
+                </terminal>
+                <values>
+                    <value id="c01">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c02">
+                        <real>0.6666666666666666</real>
+                    </value>
+                    <value id="c03">
+                        <real>0.04999999999999982</real>
+                    </value>
+                    <value id="c04">
+                        <real>0.0</real>
+                    </value>
+                    <value id="c05">
+                        <real>0.0</real>
+                    </value>
+                </values>
+            </pair>
+        </pairs>
+    </alternativesComparisons>
+</ns2:XMCDA>

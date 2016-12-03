@@ -30,6 +30,8 @@ public class OutputsHandler {
 		switch (outputName) {
 		case "preferences":
 			return "alternativesMatrix";
+		case "partial_preferences":
+			return "alternativesMatrix";
 		case "messages":
 			return "programExecutionResult";
 		default:
@@ -52,6 +54,8 @@ public class OutputsHandler {
 		switch (outputName) {
 		case "preferences":
 			return "alternativesComparisons";
+		case "partial_preferences":
+			return "alternativesComparisons";
 		case "messages":
 			return "methodMessages";
 		default:
@@ -68,7 +72,7 @@ public class OutputsHandler {
 	 *         corresponding XMCDA object
 	 */
 	public static Map<String, XMCDA> convert(Map<String, Map<String, Double>> alternativesMatrix,
-			ProgramExecutionResult executionResult) {
+			Map<String, Map<String, Map<String, Double>>> partialPreferences, ProgramExecutionResult executionResult) {
 		final HashMap<String, XMCDA> x_results = new HashMap<>();
 		XMCDA xmcda = new XMCDA();
 		AlternativesMatrix<Double> result = new AlternativesMatrix<Double>();
@@ -86,6 +90,27 @@ public class OutputsHandler {
 		xmcda.alternativesMatricesList.add(result);
 		x_results.put("preferences", xmcda);
 
+		XMCDA xmcdaPartial = new XMCDA();
+		AlternativesMatrix<Double> resultPartial = new AlternativesMatrix<Double>();
+
+		for (String alternative1 : partialPreferences.keySet()) {
+			for (String alternative2 : partialPreferences.get(alternative1).keySet()) {
+				Alternative alt1 = new Alternative(alternative1);
+				Alternative alt2 = new Alternative(alternative2);
+				Coord<Alternative, Alternative> coord = new Coord<Alternative, Alternative>(alt1, alt2);
+				QualifiedValues<Double> values = new QualifiedValues<Double>();
+				for (String criterion : partialPreferences.get(alternative1).get(alternative2).keySet()) {
+					Double value = partialPreferences.get(alternative1).get(alternative2).get(criterion).doubleValue();
+					QualifiedValue<Double> qualifiedValue = new QualifiedValue<Double>(value);
+					qualifiedValue.setId(criterion);
+					values.add(qualifiedValue);
+				}
+				resultPartial.put(coord, values);
+			}
+		}
+		xmcdaPartial.alternativesMatricesList.add(resultPartial);
+		x_results.put("partial_preferences", xmcdaPartial);
+		
 		return x_results;
 	}
 }

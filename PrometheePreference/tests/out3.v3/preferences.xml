@@ -65,7 +65,7 @@
 				<alternativeID>a02</alternativeID>
 				<values>
 					<value>
-						<real>0.625</real>
+						<real>0.375</real>
 					</value>
 				</values>
 			</column>
@@ -73,7 +73,7 @@
 				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
-						<real>0.125</real>
+						<real>0.375</real>
 					</value>
 				</values>
 			</column>
@@ -81,7 +81,7 @@
 				<alternativeID>a03</alternativeID>
 				<values>
 					<value>
-						<real>0.125</real>
+						<real>0.875</real>
 					</value>
 				</values>
 			</column>

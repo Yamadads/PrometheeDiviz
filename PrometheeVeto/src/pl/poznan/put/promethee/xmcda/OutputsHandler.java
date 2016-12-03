@@ -8,9 +8,6 @@ import org.xmcda.QualifiedValues;
 import org.xmcda.XMCDA;
 import org.xmcda.utils.Coord;
 
-import pl.poznan.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
-
 import java.util.HashMap;
 import java.util.Map;
 

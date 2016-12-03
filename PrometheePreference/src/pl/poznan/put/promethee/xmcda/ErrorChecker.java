@@ -42,4 +42,14 @@ public class ErrorChecker {
 		success = checkErrors(executionResult);
 		return success;
 	}
+	
+	public static Boolean checkPartialResultsErrors(ProgramExecutionResult executionResult,
+			Map<String, Map<String, Map<String, Double>>> results) {
+		Boolean success = true;
+		if (results == null) {
+			executionResult.addError("results is null");
+		}
+		success = checkErrors(executionResult);
+		return success;
+	}
 }

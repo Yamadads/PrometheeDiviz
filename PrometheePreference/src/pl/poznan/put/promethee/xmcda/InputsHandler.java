@@ -15,9 +15,6 @@ import org.xmcda.XMCDA;
 import org.xmcda.QuantitativeScale;
 import org.xmcda.utils.ValueConverters;
 
-import pl.poznan.put.promethee.xmcda.InputsHandler.ComparisonWithParam;
-import pl.poznan.put.promethee.xmcda.InputsHandler.GeneralisedCriterionParam;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -311,6 +308,7 @@ public class InputsHandler {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private static void checkCriteriaValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaValuesList.size() == 0) {
 			errors.addError("No criteria values has been supplied");
@@ -331,7 +329,6 @@ public class InputsHandler {
 			errors.addError("The weights table must contain numeric values only");
 		} else {
 			try {
-				@SuppressWarnings("unchecked")
 				CriteriaValues<Double> weightsDouble = weights.asDouble();
 				xmcda.criteriaValuesList.set(0, weightsDouble);
 			} catch (ValueConverters.ConversionException e) {
@@ -340,11 +337,16 @@ public class InputsHandler {
 				return;
 			}
 		}
-		@SuppressWarnings("unchecked")
-		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
-		if (!generalisedCriteria.isNumeric()) {
-			errors.addError("The generalised criteria table must contain numeric values only");
-		}
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED){
+			if (xmcda.criteriaValuesList.get(0)==null){
+				errors.addError("generalised_criteria.xml file not found");
+				return;
+			}
+			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+			if (!generalisedCriteria.isNumeric()) {
+				errors.addError("The generalised criteria table must contain numeric values only");
+			}
+		}		
 	}
 
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {

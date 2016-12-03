@@ -17,7 +17,6 @@ public class Veto {
 
 	public static Map<String, Map<String, Double>> calcTotalVeto(Inputs inputs)
 			throws WrongPreferenceDirectionException {
-		// Map<String, Double> partialVeto = calcPartialVeto(inputs);
 		Map<String, Map<String, Map<String, Double>>> partialVeto = calcPartialVeto(inputs);
 		Map<String, Map<String, Double>> preferences = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
