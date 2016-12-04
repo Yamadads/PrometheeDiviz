@@ -1,0 +1,6 @@
+/bin/
+/.settings/
+/.metadata/
+.classpath
+/tests_tmp/
+.project
