@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/PrometheeAlternativesProfiles/src/pl/poznan/put/promethee/xmcda/AlternativesProfilesXMCDA.java"/>
+<listEntry value="/PrometheeAlternativesProfiles2/src/pl/poznan/put/promethee/xmcda/AlternativesProfilesXMCDA.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="pl.poznan.put.promethee.xmcda.AlternativesProfilesXMCDA"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--v3 -i tests/in2.v3 -o tests/out2.v3"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PrometheeAlternativesProfiles"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PrometheeAlternativesProfiles2"/>
 </launchConfiguration>
