@@ -38,6 +38,30 @@ public class OutputsHandler {
 	}
 
 	/**
+	 * Returns the xmcda v2 tag for a given output
+	 * 
+	 * @param outputName
+	 *            the output's name
+	 * @return the associated XMCDA v2 tag
+	 * @throws NullPointerException
+	 *             if outputName is null
+	 * @throws IllegalArgumentException
+	 *             if outputName is not known
+	 */
+	public static final String xmcdaV2Tag(String outputName) {
+		switch (outputName) {
+		case "preferences":
+			return "alternativesComparisons";
+		case "partial_preferences":
+			return "alternativesComparisons";
+		case "messages":
+			return "methodMessages";
+		default:
+			throw new IllegalArgumentException(String.format("Unknown output name '%s'", outputName));
+		}
+	}
+
+	/**
 	 * Converts the results of the computation step into XMCDA objects.
 	 * 
 	 * @param alternativesValues

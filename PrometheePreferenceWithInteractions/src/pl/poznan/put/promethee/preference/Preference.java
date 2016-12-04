@@ -17,11 +17,11 @@ import pl.poznan.put.promethee.xmcda.InputsHandler.ZFunctionParam;
 
 public class Preference {
 
-	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs)
-			throws WrongPreferenceDirectionException, NullThresholdException, InvalidZFunctionParamException,
-			PositiveNetBalanceException {
-		checkNetBalance(inputs);		
-		Map<String, Double> partialPreferences = calcPartialPreferences(inputs);
+	public static Map<String, Map<String, Double>> calculatePreferences(InputsHandler.Inputs inputs,
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) throws WrongPreferenceDirectionException,
+			NullThresholdException, InvalidZFunctionParamException, PositiveNetBalanceException {
+		checkNetBalance(inputs);
+		calcPartialPreferences(inputs, partialPreferences);
 		Map<String, Map<String, Double>> preferences = new LinkedHashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
@@ -77,8 +77,8 @@ public class Preference {
 	 * @param ga
 	 * @param gb
 	 * @param threshold
-	 * @return calculated final threshold value (get constant if exist or calc
-	 *         value if defined as linear)
+	 * @return calculated final threshold value (get constant if exist or
+	 *         calculate value if defined as linear)
 	 * @throws WrongPreferenceDirectionException
 	 */
 	private static Double calcThreshold(String direction, Double ga, Double gb, Threshold<Double> threshold)
@@ -126,14 +126,16 @@ public class Preference {
 	 * @throws WrongPreferenceDirectionException
 	 * @throws NullThresholdException
 	 */
-	private static Map<String, Double> calcPartialPreferences(Inputs inputs)
+	private static void calcPartialPreferences(Inputs inputs,
+			Map<String, Map<String, Map<String, Double>>> partialPreferences)
 			throws WrongPreferenceDirectionException, NullThresholdException {
-		Map<String, Double> preferenceMap = new HashMap<>();
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
+						partialPreferences.putIfAbsent(a, new LinkedHashMap<>());
+						partialPreferences.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						partialPreferences.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
 								inputs.performanceTable.get(a).get(c).doubleValue(),
 								inputs.performanceTable.get(b).get(c).doubleValue(), inputs.preferenceDirections.get(c),
 								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
@@ -145,27 +147,31 @@ public class Preference {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c),
+						partialPreferences.putIfAbsent(a, new LinkedHashMap<>());
+						partialPreferences.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						partialPreferences.get(a).get(b).put(c,
 								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
 										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 										inputs.preferenceDirections.get(c),
 										inputs.generalisedCriteria.get(c).intValue(),
 										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
 										inputs.sigmaThresholds.get(c)));
-						preferenceMap.put(keyHash(b, a, c),
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c),
-										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
-										inputs.sigmaThresholds.get(c)));
+						partialPreferences.putIfAbsent(b, new LinkedHashMap<>());
+						partialPreferences.get(b).putIfAbsent(a, new LinkedHashMap<>());
+						partialPreferences.get(b).get(a).put(c, calcPreferenceOnOneCriterion(
+								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
+								inputs.performanceTable.get(a).get(c).doubleValue(), inputs.preferenceDirections.get(c),
+								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
+								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
 					for (String c : inputs.criteria_ids) {
-						preferenceMap.put(keyHash(a, b, c), calcPreferenceOnOneCriterion(
+						partialPreferences.putIfAbsent(a, new LinkedHashMap<>());
+						partialPreferences.get(a).putIfAbsent(b, new LinkedHashMap<>());
+						partialPreferences.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
 								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
 								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
@@ -175,78 +181,39 @@ public class Preference {
 				}
 			}
 		}
-		return preferenceMap;
 	}
 
-	/*
-	 * private static Double calcTotalPreference(String alternative1, String
-	 * alternative2, Inputs inputs, Map<String, Double> partialPreferences)
-	 * throws InvalidZFunctionParam { Double preference = 0.0; Double
-	 * totalWeight = 0.0; for (String criterion : inputs.criteria_ids) { Double
-	 * weight = inputs.weights.get(criterion); totalWeight += weight; preference
-	 * += (partialPreferences.get(keyHash(alternative1, alternative2 ,
-	 * criterion)) * weight); } Double interactionsSum = 0.0; Double
-	 * antagonisticSum = 0.0; for (String rowCriterion:
-	 * inputs.strengtheningEffect.keySet()){ for (String columnCriterion:
-	 * inputs.strengtheningEffect.get(rowCriterion).keySet()){ Double ci =
-	 * partialPreferences.get(keyHash(alternative1, alternative2 ,
-	 * rowCriterion)); Double cj = partialPreferences.get(keyHash(alternative1,
-	 * alternative2 , columnCriterion)); interactionsSum +=
-	 * calcZFunction(inputs.zFunction, ci, cj) *
-	 * inputs.strengtheningEffect.get(rowCriterion).get(columnCriterion).
-	 * doubleValue(); } } for (String rowCriterion:
-	 * inputs.weakeningEffect.keySet()){ for (String columnCriterion:
-	 * inputs.weakeningEffect.get(rowCriterion).keySet()){ Double ci =
-	 * partialPreferences.get(keyHash(alternative1, alternative2 ,
-	 * rowCriterion)); Double cj = partialPreferences.get(keyHash(alternative1,
-	 * alternative2 , columnCriterion)); interactionsSum +=
-	 * calcZFunction(inputs.zFunction, ci, cj) *
-	 * inputs.weakeningEffect.get(rowCriterion).get(columnCriterion).doubleValue
-	 * (); } } for (String rowCriterion: inputs.antagonisticEffect.keySet()){
-	 * for (String columnCriterion:
-	 * inputs.antagonisticEffect.get(rowCriterion).keySet()){ Double ci =
-	 * partialPreferences.get(keyHash(alternative1, alternative2 ,
-	 * rowCriterion)); Double cj = partialPreferences.get(keyHash(alternative2,
-	 * alternative1 , columnCriterion)); antagonisticSum +=
-	 * calcZFunction(inputs.zFunction, ci, cj) *
-	 * inputs.antagonisticEffect.get(rowCriterion).get(columnCriterion).
-	 * doubleValue(); } }
-	 * 
-	 * Double K = totalWeight + interactionsSum - antagonisticSum; preference =
-	 * (preference + interactionsSum - antagonisticSum)/K; return preference; }
-	 */
-
 	private static Double calcTotalPreference(String alternative1, String alternative2, Inputs inputs,
-			Map<String, Double> partialPreferences) throws InvalidZFunctionParamException {
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) throws InvalidZFunctionParamException {
 		Double preference = 0.0;
 		Double totalWeight = 0.0;
 		for (String criterion : inputs.criteria_ids) {
 			Double weight = inputs.weights.get(criterion);
 			totalWeight += weight;
-			preference += (partialPreferences.get(keyHash(alternative1, alternative2, criterion)) * weight);
+			preference += (partialPreferences.get(alternative1).get(alternative2).get(criterion) * weight);
 		}
 		Double interactionsSum = 0.0;
 		Double antagonisticSum = 0.0;
 		for (String rowCriterion : inputs.strengtheningEffect.keySet()) {
 			for (String columnCriterion : inputs.strengtheningEffect.get(rowCriterion).keySet()) {
-				Double ci = partialPreferences.get(keyHash(alternative1, alternative2, rowCriterion));
-				Double cj = partialPreferences.get(keyHash(alternative1, alternative2, columnCriterion));
+				Double ci = partialPreferences.get(alternative1).get(alternative2).get(rowCriterion);
+				Double cj = partialPreferences.get(alternative1).get(alternative2).get(columnCriterion);
 				interactionsSum += calcZFunction(inputs.zFunction, ci, cj)
 						* inputs.strengtheningEffect.get(rowCriterion).get(columnCriterion).doubleValue();
 			}
 		}
 		for (String rowCriterion : inputs.weakeningEffect.keySet()) {
 			for (String columnCriterion : inputs.weakeningEffect.get(rowCriterion).keySet()) {
-				Double ci = partialPreferences.get(keyHash(alternative1, alternative2, rowCriterion));
-				Double cj = partialPreferences.get(keyHash(alternative1, alternative2, columnCriterion));
+				Double ci = partialPreferences.get(alternative1).get(alternative2).get(rowCriterion);
+				Double cj = partialPreferences.get(alternative1).get(alternative2).get(columnCriterion);
 				interactionsSum += calcZFunction(inputs.zFunction, ci, cj)
 						* inputs.weakeningEffect.get(rowCriterion).get(columnCriterion).doubleValue();
 			}
 		}
 		for (String rowCriterion : inputs.antagonisticEffect.keySet()) {
 			for (String columnCriterion : inputs.antagonisticEffect.get(rowCriterion).keySet()) {
-				Double ci = partialPreferences.get(keyHash(alternative1, alternative2, rowCriterion));
-				Double cj = partialPreferences.get(keyHash(alternative2, alternative1, columnCriterion));
+				Double ci = partialPreferences.get(alternative1).get(alternative2).get(rowCriterion);
+				Double cj = partialPreferences.get(alternative2).get(alternative1).get(columnCriterion);
 				antagonisticSum += calcZFunction(inputs.zFunction, ci, cj)
 						* inputs.antagonisticEffect.get(rowCriterion).get(columnCriterion).doubleValue();
 			}
@@ -257,11 +224,8 @@ public class Preference {
 		return preference;
 	}
 
-	private static String keyHash(String a, String b, String c) {
-		return "_" + a + "_*|*_" + b + "_*|*_" + c + "_";
-	}
-
-	private static Double calcZFunction(ZFunctionParam zFunction, Double x, Double y) throws InvalidZFunctionParamException {
+	private static Double calcZFunction(ZFunctionParam zFunction, Double x, Double y)
+			throws InvalidZFunctionParamException {
 		if (zFunction.equals(ZFunctionParam.MULTIPLICATION)) {
 			return x * y;
 		}
@@ -295,8 +259,8 @@ public class Preference {
 						+ Math.abs(inputs.antagonisticEffect.get(rowCriterion).get(columnCriterion).doubleValue()));
 			}
 		}
-		for (String criterion: criteriaWeakSum.keySet()){
-			if (inputs.weights.get(criterion)-criteriaWeakSum.get(criterion)<=0){
+		for (String criterion : criteriaWeakSum.keySet()) {
+			if (inputs.weights.get(criterion) - criteriaWeakSum.get(criterion) <= 0) {
 				throw new PositiveNetBalanceException(criterion);
 			}
 		}

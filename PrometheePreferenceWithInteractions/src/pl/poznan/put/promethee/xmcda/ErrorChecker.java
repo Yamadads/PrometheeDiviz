@@ -17,7 +17,7 @@ public class ErrorChecker {
 
 	public static Boolean checkErrors(ProgramExecutionResult executionResult, XMCDA xmcda) {
 		Boolean success = true;
-		if (xmcda == null){
+		if (xmcda == null) {
 			executionResult.addError("xmcda is null, loading or converting files was wrong");
 		}
 		success = checkErrors(executionResult);
@@ -26,7 +26,7 @@ public class ErrorChecker {
 
 	public static Boolean checkErrors(ProgramExecutionResult executionResult, InputsHandler.Inputs inputs) {
 		Boolean success = true;
-		if (inputs == null){
+		if (inputs == null) {
 			executionResult.addError("inputs is null");
 		}
 		success = checkErrors(executionResult);
@@ -36,7 +36,17 @@ public class ErrorChecker {
 	public static Boolean checkErrors(ProgramExecutionResult executionResult,
 			Map<String, Map<String, Double>> results) {
 		Boolean success = true;
-		if (results == null){
+		if (results == null) {
+			executionResult.addError("results is null");
+		}
+		success = checkErrors(executionResult);
+		return success;
+	}
+
+	public static Boolean checkPartialResultsErrors(ProgramExecutionResult executionResult,
+			Map<String, Map<String, Map<String, Double>>> results) {
+		Boolean success = true;
+		if (results == null) {
 			executionResult.addError("results is null");
 		}
 		success = checkErrors(executionResult);
