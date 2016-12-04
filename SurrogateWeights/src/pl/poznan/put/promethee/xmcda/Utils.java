@@ -7,6 +7,7 @@ import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
 import org.xmcda.parsers.xml.xmcda_2_2_1.XMCDAParser;
 import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -119,9 +120,9 @@ public class Utils {
 
 	public static void readXMCDAv2_and_update(org.xmcda.v2_2_1.XMCDA xmcda_v2, XMCDAParser parser, File file,
 			String[] load_tags) throws FileNotFoundException, JAXBException, SAXException {
+		@SuppressWarnings("static-access")
 		final org.xmcda.v2_2_1.XMCDA new_xmcda = parser.readXMCDA(file, load_tags);
-		@SuppressWarnings("rawtypes")
-		final List new_content = new_xmcda.getProjectReferenceOrMethodMessagesOrMethodParameters();
+		final List<JAXBElement<?>> new_content = new_xmcda.getProjectReferenceOrMethodMessagesOrMethodParameters();
 		xmcda_v2.getProjectReferenceOrMethodMessagesOrMethodParameters().addAll(new_content);
 	}
 
