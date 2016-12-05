@@ -2,7 +2,6 @@ package pl.poznan.put.promethee.xmcda;
 
 import org.xmcda.Alternative;
 import org.xmcda.Criteria;
-import org.xmcda.CriteriaMatrix;
 import org.xmcda.CriteriaScales;
 import org.xmcda.CriteriaSet;
 import org.xmcda.CriteriaSetsValues;
@@ -10,11 +9,10 @@ import org.xmcda.CriteriaThresholds;
 import org.xmcda.CriteriaValues;
 import org.xmcda.Criterion;
 import org.xmcda.CriterionThresholds;
+import org.xmcda.LabelledQValues;
 import org.xmcda.PerformanceTable;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramParameter;
-import org.xmcda.QualifiedValue;
-import org.xmcda.QualifiedValues;
 import org.xmcda.Threshold;
 import org.xmcda.XMCDA;
 import org.xmcda.QuantitativeScale;
@@ -447,12 +445,12 @@ public class InputsHandler {
 			errors.addError("No criteriaSetsValues has been supplied");
 			return;
 		}
-		if (xmcda.criteriaSetsValuesList.get(0).size() == 0) {
-			errors.addError("No criteriaSetsValues has been supplied");
+		if (xmcda.criteriaSetsValuesList.size() != 1) {
+			errors.addError("Exactly one criteriaSetsValues is expected");
 			return;
 		}
-		if (xmcda.criteriaMatricesList.get(0).size() != 1) {
-			errors.addError("Exactly one criteriaSetsValues is expected");
+		if (xmcda.criteriaSetsValuesList.get(0).size() == 0) {
+			errors.addError("No criteriaSetsValues has been supplied");
 			return;
 		}
 
@@ -802,120 +800,145 @@ public class InputsHandler {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static void extractInteractins(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		@SuppressWarnings({ "unchecked" })
-		CriteriaSetsValues<Double, Double> interactions = (CriteriaSetsValues<Double, Double>) xmcda.criteriaSetsValuesList.get(0);
+		CriteriaSetsValues<Double, Double> interactions = (CriteriaSetsValues<Double, Double>) xmcda.criteriaSetsValuesList
+				.get(0);
+		initInteractionsMaps(inputs);
+
+		for (CriteriaSet criteriaSet : interactions.keySet()) {
+			if (criteriaSet.size() != 2) {
+				errors.addError("Criteria Set need exactly 2 criteria");
+				return;
+			}
+			String criterion1 = ((Criterion) criteriaSet.keySet().toArray()[0]).id();
+			String criterion2 = ((Criterion) criteriaSet.keySet().toArray()[1]).id();
+
+			String interactionType = interactions.get(criteriaSet).mcdaConcept();
+			if (interactionType == null) {
+				errors.addError("mcdaConcept need to be specified in value of interaction");
+				return;
+			}
+			Double interactionCoefficient = getInteractionCoefficient(interactions, criteriaSet, errors);
+			if (interactionCoefficient == null) {
+				return;
+			}
+
+			switch (interactionType) {
+			case "weakening":
+				weakeningCase(inputs, criterion1, criterion2, interactionCoefficient, errors);
+				break;
+			case "strengthening":
+				strengtheningCase(inputs, criterion1, criterion2, interactionCoefficient, errors);
+				break;
+			case "antagonistic":
+				antagonisticCase(inputs, criterion1, criterion2, interactionCoefficient, errors);
+				break;
+			default:
+				errors.addError("\""+interactionType+"\""+" unrecognized. Only three interaction types are supported : weakening, strengthening, antagonistic");
+				break;
+			}
+
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	private static Double getInteractionCoefficient(CriteriaSetsValues<Double, Double> interactions,
+			CriteriaSet criteriaSet, ProgramExecutionResult errors) {
+		LabelledQValues<Double> values = interactions.get(criteriaSet);
+		if ((values == null) || (values.isEmpty())) {
+			errors.addError("Interaction coefficient has not been specified");
+			return null;
+		}
+		if (values.size() != 1) {
+			errors.addError("Exactly one coefficient per interaction is needed");
+			return null;
+		}
+		return values.get(0).getValue().doubleValue();
+	}
+
+	private static void initInteractionsMaps(Inputs inputs) {
 		inputs.antagonisticEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.strengtheningEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.strengtheningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.weakeningEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.weakeningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
-		//TODO READ CRITERIASETVALUES
-		for (CriteriaSet criteriaSet: interactions.keySet()){
-			if (criteriaSet.)
-			criteriaSet.mcdaConcept()
+	}
+
+	private static void weakeningCase(Inputs inputs, String criterion1, String criterion2,
+			Double interactionCoefficient, ProgramExecutionResult errors) {
+		if (interactionCoefficient >= 0) {
+			errors.addError("weakening coefficient must be less than zero");
+			return;
 		}
-		for (Criterion row : interactions.getRows()) {
-			for (Criterion column : interactions.getColumns()) {
-				QualifiedValues<Double> values = interactions.get(row, column);
-				if (values != null) {
-					if (values.isEmpty()) {
-						errors.addError("Value in interaction cannot be empty.");
-						return;
-					}
-					if (!values.isNumeric()) {
-						errors.addError("value in interacion need to be numeric");
-						return;
-					}
-					if (values.size() != 1) {
-						errors.addError("Interaction need exacly one values list");
-						return;
-					}
-					for (QualifiedValue<Double> value : values) {
-						if (value.mcdaConcept() == null) {
-							errors.addError("mcdaConcept need to be specified in value of interaction");
-							return;
-						}
-						switch (value.mcdaConcept()) {
-						case "weakening":
-							if (value.getValue() >= 0) {
-								errors.addError("weakening coefficient must be less than zero");
-								return;
-							}
-							inputs.weakeningEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
-							inputs.weakeningEffect.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
+		inputs.weakeningEffect.putIfAbsent(criterion1, new LinkedHashMap<String, Double>());
+		inputs.weakeningEffect.putIfAbsent(criterion2, new LinkedHashMap<String, Double>());
 
-							if ((inputs.strengtheningEffect.containsKey(row.id()))
-									&& (inputs.strengtheningEffect.get(row.id()).containsKey(column.id()))) {
-								errors.addError("Weakening and strengthening effects are mutually exclusive");
-								return;
-							}
-							if ((inputs.strengtheningEffect.containsKey(column.id()))
-									&& (inputs.strengtheningEffect.get(column.id()).containsKey(row.id()))) {
-								errors.addError("Weakening and strengthening effects are mutually exclusive");
-								return;
-							}
-
-							if ((inputs.weakeningEffect.get(row.id()).containsKey(column.id()))
-									|| (inputs.weakeningEffect.get(column.id()).containsKey(row.id()))) {
-								errors.addError("Only one weakening effect per pair of criteria can exist");
-								return;
-							}
-
-							inputs.weakeningEffect.get(row.id()).put(column.id(), value.getValue());
-
-							// put reverse
-							inputs.weakeningEffectReverse.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
-							inputs.weakeningEffectReverse.get(column.id()).put(row.id(), value.getValue());
-							break;
-						case "strengthening":
-							if (value.getValue() <= 0) {
-								errors.addError("strengthening coefficient must be greater than zero");
-								return;
-							}
-							inputs.strengtheningEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
-							inputs.strengtheningEffect.putIfAbsent(column.id(), new LinkedHashMap<String, Double>());
-
-							if ((inputs.strengtheningEffect.get(column.id()).containsKey(row.id()))
-									|| (inputs.strengtheningEffect.get(row.id()).containsKey(column.id()))) {
-								errors.addError("Only one strengthening effect per pair of criteria can exist");
-								return;
-							}
-
-							if ((inputs.weakeningEffect.containsKey(row.id()))
-									&& (inputs.weakeningEffect.get(row.id()).containsKey(column.id()))) {
-								errors.addError("Weakening and strengthening effects are mutually exclusive");
-								return;
-							}
-							if ((inputs.weakeningEffect.containsKey(column.id()))
-									&& (inputs.weakeningEffect.get(column.id()).containsKey(row.id()))) {
-								errors.addError("Weakening and strengthening effects are mutually exclusive");
-								return;
-							}
-
-							inputs.strengtheningEffect.get(row.id()).put(column.id(), value.getValue());
-
-							// put reverse
-							inputs.strengtheningEffectReverse.putIfAbsent(column.id(),
-									new LinkedHashMap<String, Double>());
-							inputs.strengtheningEffectReverse.get(column.id()).put(row.id(), value.getValue());
-							break;
-						case "antagonistic":
-							inputs.antagonisticEffect.putIfAbsent(row.id(), new LinkedHashMap<String, Double>());
-							if (inputs.antagonisticEffect.get(row.id()).containsKey(column.id())) {
-								errors.addError("Only one antagonistic effect per pair of criteria can exist");
-								return;
-							}
-							inputs.antagonisticEffect.get(row.id()).put(column.id(), value.getValue());
-							break;
-						default:
-							errors.addError(
-									"Only three interaction types are supported : weakening, strengthening, antagonistic)");
-							break;
-						}
-					}
-				}
-			}
+		if ((inputs.strengtheningEffect.containsKey(criterion1))
+				&& (inputs.strengtheningEffect.get(criterion1).containsKey(criterion2))) {
+			errors.addError("Weakening and strengthening effects are mutually exclusive");
+			return;
 		}
+		if ((inputs.strengtheningEffect.containsKey(criterion2))
+				&& (inputs.strengtheningEffect.get(criterion2).containsKey(criterion1))) {
+			errors.addError("Weakening and strengthening effects are mutually exclusive");
+			return;
+		}
+
+		if ((inputs.weakeningEffect.get(criterion1).containsKey(criterion2))
+				|| (inputs.weakeningEffect.get(criterion2).containsKey(criterion1))) {
+			errors.addError("Only one weakening effect per pair of criteria can exist");
+			return;
+		}
+
+		inputs.weakeningEffect.get(criterion1).put(criterion2, interactionCoefficient);
+
+		// put reverse
+		inputs.weakeningEffectReverse.putIfAbsent(criterion2, new LinkedHashMap<String, Double>());
+		inputs.weakeningEffectReverse.get(criterion2).put(criterion1, interactionCoefficient);
+	}
+
+	private static void strengtheningCase(Inputs inputs, String criterion1, String criterion2,
+			Double interactionCoefficient, ProgramExecutionResult errors) {
+		if (interactionCoefficient <= 0) {
+			errors.addError("strengthening coefficient must be greater than zero");
+			return;
+		}
+		inputs.strengtheningEffect.putIfAbsent(criterion1, new LinkedHashMap<String, Double>());
+		inputs.strengtheningEffect.putIfAbsent(criterion2, new LinkedHashMap<String, Double>());
+
+		if ((inputs.strengtheningEffect.get(criterion2).containsKey(criterion1))
+				|| (inputs.strengtheningEffect.get(criterion1).containsKey(criterion2))) {
+			errors.addError("Only one strengthening effect per pair of criteria can exist");
+			return;
+		}
+
+		if ((inputs.weakeningEffect.containsKey(criterion1))
+				&& (inputs.weakeningEffect.get(criterion1).containsKey(criterion2))) {
+			errors.addError("Weakening and strengthening effects are mutually exclusive");
+			return;
+		}
+		if ((inputs.weakeningEffect.containsKey(criterion2))
+				&& (inputs.weakeningEffect.get(criterion2).containsKey(criterion1))) {
+			errors.addError("Weakening and strengthening effects are mutually exclusive");
+			return;
+		}
+
+		inputs.strengtheningEffect.get(criterion1).put(criterion2, interactionCoefficient);
+
+		// put reverse
+		inputs.strengtheningEffectReverse.putIfAbsent(criterion2, new LinkedHashMap<String, Double>());
+		inputs.strengtheningEffectReverse.get(criterion2).put(criterion1, interactionCoefficient);
+	}
+
+	private static void antagonisticCase(Inputs inputs, String criterion1, String criterion2,
+			Double interactionCoefficient, ProgramExecutionResult errors) {
+		inputs.antagonisticEffect.putIfAbsent(criterion1, new LinkedHashMap<String, Double>());
+		if (inputs.antagonisticEffect.get(criterion1).containsKey(criterion2)) {
+			errors.addError("Only one antagonistic effect per pair of criteria can exist");
+			return;
+		}
+		inputs.antagonisticEffect.get(criterion1).put(criterion2, interactionCoefficient);
 	}
 }
