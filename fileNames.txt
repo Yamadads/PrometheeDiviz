@@ -18,5 +18,7 @@ categories_profiles.xml; categoriesProfiles; categoriesProfiles; pairs of profil
 alternatives_profiles.xml; performanceTable; performanceTable; single criterion net flow on each criterion for each alternative
 veto.xml; alternativesComparisons; alternativesMatrix; real veto value for pairs of alternatives or alternatives/profile;
 partial_veto.xml; alternativesComparisons; alternativesMatrix; real veto value on each criterion for pairs of alternatives or alternatives/profile;
+interactions.xml; criteriaValues; criteriaSetsValues; interactions between criteria;
+interactions.xml; ; criteriaSets; criteria sets used by criteriaSetsValues in interactions in version 3;
  
 

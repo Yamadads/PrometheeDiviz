@@ -4,6 +4,8 @@ import org.xmcda.Alternative;
 import org.xmcda.Criteria;
 import org.xmcda.CriteriaMatrix;
 import org.xmcda.CriteriaScales;
+import org.xmcda.CriteriaSet;
+import org.xmcda.CriteriaSetsValues;
 import org.xmcda.CriteriaThresholds;
 import org.xmcda.CriteriaValues;
 import org.xmcda.Criterion;
@@ -237,7 +239,8 @@ public class InputsHandler {
 		checkPerformanceTables(inputs, xmcda, errors);
 		checkCriteriaValues(inputs, xmcda, errors);
 		checkCriteriaScales(inputs, xmcda, errors);
-		checkCriteriaMatrix(inputs, xmcda, errors);
+		checkCriteriaSets(inputs, xmcda, errors);
+		checkCriteriaSetsValues(inputs, xmcda, errors);
 		return inputs;
 	}
 
@@ -432,13 +435,20 @@ public class InputsHandler {
 		}
 	}
 
-	private static void checkCriteriaMatrix(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
-		if (xmcda.criteriaMatricesList.size() == 0) {
-			errors.addError("No criteria values has been supplied");
+	private static void checkCriteriaSets(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (xmcda.criteriaSets.size() == 0) {
+			errors.addError("CriteriaSets table is empty");
 			return;
 		}
-		if (xmcda.criteriaMatricesList.get(0).size() == 0) {
-			errors.addError("No criteria values has been supplied");
+	}
+
+	private static void checkCriteriaSetsValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (xmcda.criteriaSetsValuesList.size() == 0) {
+			errors.addError("No criteriaSetsValues has been supplied");
+			return;
+		}
+		if (xmcda.criteriaSetsValuesList.get(0).size() == 0) {
+			errors.addError("No criteriaSetsValues has been supplied");
 			return;
 		}
 		if (xmcda.criteriaMatricesList.get(0).size() != 1) {
@@ -447,7 +457,7 @@ public class InputsHandler {
 		}
 
 		@SuppressWarnings("rawtypes")
-		CriteriaMatrix interactions = xmcda.criteriaMatricesList.get(0);
+		CriteriaSetsValues interactions = xmcda.criteriaSetsValuesList.get(0);
 		if (interactions.isEmpty()) {
 			errors.addError("The interactions table cannot be empty");
 		}
@@ -794,13 +804,17 @@ public class InputsHandler {
 
 	private static void extractInteractins(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		@SuppressWarnings({ "unchecked" })
-		CriteriaMatrix<Double> interactions = (CriteriaMatrix<Double>) xmcda.criteriaMatricesList.get(0);
+		CriteriaSetsValues<Double, Double> interactions = (CriteriaSetsValues<Double, Double>) xmcda.criteriaSetsValuesList.get(0);
 		inputs.antagonisticEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.strengtheningEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.strengtheningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.weakeningEffect = new LinkedHashMap<String, Map<String, Double>>();
 		inputs.weakeningEffectReverse = new LinkedHashMap<String, Map<String, Double>>();
-
+		//TODO READ CRITERIASETVALUES
+		for (CriteriaSet criteriaSet: interactions.keySet()){
+			if (criteriaSet.)
+			criteriaSet.mcdaConcept()
+		}
 		for (Criterion row : interactions.getRows()) {
 			for (Criterion column : interactions.getColumns()) {
 				QualifiedValues<Double> values = interactions.get(row, column);

@@ -29,13 +29,15 @@ public class InputFileLoader {
 		}
 		return xmcda;
 	}
-	
+
 	private static org.xmcda.v2_2_1.XMCDA loadFilesV2(ProgramExecutionResult executionResult, String indir,
 			Map<String, InputFile> files) {
 		org.xmcda.v2_2_1.XMCDA xmcda_v2 = new org.xmcda.v2_2_1.XMCDA();
 		for (InputFile file : files.values()) {
-			Utils.loadXMCDAv2(xmcda_v2, new File(indir, file.filename), file.mandatory, executionResult,
-					file.loadTagV2);
+			if (file.loadTagV2 != "") {
+				Utils.loadXMCDAv2(xmcda_v2, new File(indir, file.filename), file.mandatory, executionResult,
+						file.loadTagV2);
+			}
 		}
 		return xmcda_v2;
 	}
@@ -48,7 +50,7 @@ public class InputFileLoader {
 		}
 		return xmcda;
 	}
-	
+
 	private static XMCDA convertToXMCDA_v3(org.xmcda.v2_2_1.XMCDA xmcda_v2, ProgramExecutionResult executionResult) {
 		XMCDA xmcda = null;
 		try {
@@ -57,5 +59,5 @@ public class InputFileLoader {
 			executionResult.addError(Utils.getMessage("Could not convert inputs to XMCDA v3, reason: ", t));
 		}
 		return xmcda;
-	}	
+	}
 }

@@ -105,7 +105,8 @@ public class PreferenceXMCDA {
 		files.put("profilesPerformanceTable",
 				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));
 		files.put("preferenceThresholds", new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
-		files.put("interactions", new InputFile("criteriaValues", "criteriaMatrix", "interactions.xml", true));
+		files.put("interactions", new InputFile("criteriaValues", "criteriaSetsValues", "interactions.xml", true));
+		files.put("criterisSets", new InputFile("", "criteriaSets", "interactions.xml", true));
 		return files;
 	}
 
