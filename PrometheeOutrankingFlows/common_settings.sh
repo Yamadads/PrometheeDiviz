@@ -1,6 +1,6 @@
 # Adapt the two following lines -- NB: Java 8 is required
 JAVA_HOME="/usr/lib/jvm/java-8-oracle/jre"
-XMCDA_LIB="../XMCDA-java.jar"
+XMCDA_LIB="../XMCDA-java-2.0.0-30-g919ccca.jar"
 
 
 # -- You normally do not need to change anything beyond this point --
