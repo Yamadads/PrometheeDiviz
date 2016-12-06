@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2013/XMCDA-3.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2013/XMCDA-3.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.0.xsd">
 
-<criteriaValues name="significance" mcdaConcept="Importance">
+<criteriaValues name="reinforcement_factors" mcdaConcept="reinforcement_factors">
 		<criterionValue>
 			<criterionID>c01</criterionID>
 			<values>
 				<value>
-					<real>1.0</real>
+					<real>1.5</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -14,7 +14,7 @@
 			<criterionID>c02</criterionID>
 			<values>
 				<value>
-					<real>3.0</real>
+					<real>1.5</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -22,7 +22,7 @@
 			<criterionID>c03</criterionID>
 			<values>
 				<value>
-					<real>4.0</real>
+					<real>1.5</real>
 				</value>
 			</values>
 		</criterionValue>

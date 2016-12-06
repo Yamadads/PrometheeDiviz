@@ -25,22 +25,22 @@ public class Preference {
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, pp, rfpc));
 				}
 			}
 		} else {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.profiles_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, pp, rfpc));
-					preferences.putIfAbsent(b, new HashMap<>());
+					preferences.putIfAbsent(b, new LinkedHashMap<>());
 					preferences.get(b).put(a, calcTotalPreference(b, a, inputs, pp, rfpc));
 				}
 			}
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, pp, rfpc));
 				}
 			}
@@ -319,7 +319,7 @@ public class Preference {
 	public static void calcPartialPreferencesReinforcedPreference(
 			Map<String, Map<String, Map<String, Double>>> preference,
 			Map<String, Map<String, Map<String, Double>>> reinforcementPreferenceCrossed,
-			Map<String, Map<String, Map<String, Double>>> partialPreferences) {		
+			Map<String, Map<String, Map<String, Double>>> partialPreferences) {
 		for (String a : partialPreferences.keySet()) {
 			for (String b : partialPreferences.get(a).keySet()) {
 				for (String c : partialPreferences.get(a).get(b).keySet()) {
