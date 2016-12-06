@@ -4,13 +4,13 @@
         <alternativeValue>
             <alternativeID>a01</alternativeID>
             <value>
-                <real>0.3125</real>
+                <real>0.125</real>
             </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a02</alternativeID>
             <value>
-                <real>0.5625</real>
+                <real>0.125</real>
             </value>
         </alternativeValue>
         <alternativeValue>
@@ -22,13 +22,13 @@
         <alternativeValue>
             <alternativeID>pBM</alternativeID>
             <value>
-                <real>0.5</real>
+                <real>0.0</real>
             </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>pMG</alternativeID>
             <value>
-                <real>0.5</real>
+                <real>0.6666666666666666</real>
             </value>
         </alternativeValue>
     </alternativesValues>
