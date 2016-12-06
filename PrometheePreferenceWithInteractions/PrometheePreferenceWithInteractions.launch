@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="pl.poznan.put.promethee.xmcda.PreferenceXMCDA"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--v2 -i ./tests/in1.v2 -o ./tests/out1.v2"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--v3 -i ./tests/in1.v3 -o ./tests/out1.v3"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PrometheePreferenceWithInteractions"/>
 </launchConfiguration>

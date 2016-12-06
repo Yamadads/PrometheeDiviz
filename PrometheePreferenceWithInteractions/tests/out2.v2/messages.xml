@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:XMCDA xmlns:ns2="http://www.decision-deck.org/2012/XMCDA-2.2.1">
-    <methodMessages>
-        <errorMessage>
-            <text>Could not find the mandatory file interactions.xml</text>
-        </errorMessage>
-        <errorMessage>
-            <text>xmcda is null, loading or converting files was wrong</text>
-        </errorMessage>
-    </methodMessages>
+    <methodMessages/>
 </ns2:XMCDA>

@@ -426,10 +426,12 @@ public class InputsHandler {
 				return;
 			}
 		}
-		@SuppressWarnings("unchecked")
-		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
-		if (!generalisedCriteria.isNumeric()) {
-			errors.addError("The generalised criteria table must contain numeric values only");
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+			@SuppressWarnings("unchecked")
+			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
+			if (!generalisedCriteria.isNumeric()) {
+				errors.addError("The generalised criteria table must contain numeric values only");
+			}
 		}
 	}
 
@@ -683,7 +685,7 @@ public class InputsHandler {
 				if (!criteria_ids.contains(x_criterion.id()))
 					continue;
 				Double value = (Double) x_perf_table.getValue(x_alternative, x_criterion);
-				inputs.performanceTable.putIfAbsent(x_alternative.id(), new HashMap<>());
+				inputs.performanceTable.putIfAbsent(x_alternative.id(), new LinkedHashMap<>());
 				inputs.performanceTable.get(x_alternative.id()).put(x_criterion.id(), value);
 			}
 		}
@@ -703,7 +705,7 @@ public class InputsHandler {
 					if (!criteria_ids.contains(x_criterion.id()))
 						continue;
 					Double value = x_perf_table_profiles.getValue(x_alternative, x_criterion);
-					inputs.profilesPerformanceTable.putIfAbsent(x_alternative.id(), new HashMap<>());
+					inputs.profilesPerformanceTable.putIfAbsent(x_alternative.id(), new LinkedHashMap<>());
 					inputs.profilesPerformanceTable.get(x_alternative.id()).put(x_criterion.id(), value);
 				}
 			}
@@ -711,7 +713,7 @@ public class InputsHandler {
 	}
 
 	private static void extractWeights(Inputs inputs, XMCDA xmcda) {
-		inputs.weights = new HashMap<>();
+		inputs.weights = new LinkedHashMap<>();
 		@SuppressWarnings("unchecked")
 		CriteriaValues<Double> weights_table = (CriteriaValues<Double>) xmcda.criteriaValuesList.get(0);
 		for (Criterion criterion : weights_table.getCriteria()) {
@@ -721,7 +723,7 @@ public class InputsHandler {
 
 	private static void extractGeneralisedCriteria(Inputs inputs, XMCDA xmcda,
 			ProgramExecutionResult xmcda_execution_results) {
-		inputs.generalisedCriteria = new HashMap<>();
+		inputs.generalisedCriteria = new LinkedHashMap<>();
 		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 			@SuppressWarnings("unchecked")
 			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
@@ -743,7 +745,7 @@ public class InputsHandler {
 	}
 
 	private static void extractCriteriaDirection(Inputs inputs, XMCDA xmcda) {
-		inputs.preferenceDirections = new HashMap<>();
+		inputs.preferenceDirections = new LinkedHashMap<>();
 		CriteriaScales criteriaDirection = (CriteriaScales) xmcda.criteriaScalesList.get(0);
 		for (Criterion criterion : criteriaDirection.keySet()) {
 			@SuppressWarnings("unchecked")
@@ -808,19 +810,20 @@ public class InputsHandler {
 		initInteractionsMaps(inputs);
 
 		for (CriteriaSet criteriaSet : interactions.keySet()) {
-			if (criteriaSet.size() != 2) {
+			CriteriaSet criteriaSetFromSets = xmcda.criteriaSets.get(criteriaSet.id());
+			if (criteriaSetFromSets.size() != 2) {
 				errors.addError("Criteria Set need exactly 2 criteria");
 				return;
 			}
-			String criterion1 = ((Criterion) criteriaSet.keySet().toArray()[0]).id();
-			String criterion2 = ((Criterion) criteriaSet.keySet().toArray()[1]).id();
+			String criterion1 = ((Criterion) criteriaSetFromSets.keySet().toArray()[0]).id();
+			String criterion2 = ((Criterion) criteriaSetFromSets.keySet().toArray()[1]).id();
 
-			String interactionType = interactions.get(criteriaSet).mcdaConcept();
+			String interactionType = interactions.get(criteriaSetFromSets).mcdaConcept();
 			if (interactionType == null) {
 				errors.addError("mcdaConcept need to be specified in value of interaction");
 				return;
 			}
-			Double interactionCoefficient = getInteractionCoefficient(interactions, criteriaSet, errors);
+			Double interactionCoefficient = getInteractionCoefficient(interactions, criteriaSetFromSets, errors);
 			if (interactionCoefficient == null) {
 				return;
 			}
@@ -836,7 +839,8 @@ public class InputsHandler {
 				antagonisticCase(inputs, criterion1, criterion2, interactionCoefficient, errors);
 				break;
 			default:
-				errors.addError("\""+interactionType+"\""+" unrecognized. Only three interaction types are supported : weakening, strengthening, antagonistic");
+				errors.addError("\"" + interactionType + "\""
+						+ " unrecognized. Only three interaction types are supported : weakening, strengthening, antagonistic");
 				break;
 			}
 

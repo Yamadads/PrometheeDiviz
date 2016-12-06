@@ -52,7 +52,7 @@ public class PreferenceXMCDA {
 		if (!ErrorChecker.checkPartialResultsErrors(executionResult, partialResults))
 			exitProgram(executionResult, prgExecResultsFile, version);
 
-		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
+		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, partialResults, executionResult);
 
 		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
@@ -99,12 +99,15 @@ public class PreferenceXMCDA {
 				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
 		files.put("criteriaScales", new InputFile("criteriaScales", "criteriaScales", "criteria.xml", true));
-		files.put("performanceTable", new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
+		files.put("performanceTable",
+				new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
 		files.put("criteriaWeights", new InputFile("criteriaValues", "criteriaValues", "weights.xml", true));
-		files.put("generalisedCriteria", new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
+		files.put("generalisedCriteria",
+				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
 		files.put("profilesPerformanceTable",
 				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));
-		files.put("preferenceThresholds", new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
+		files.put("preferenceThresholds",
+				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
 		files.put("interactions", new InputFile("criteriaValues", "criteriaSetsValues", "interactions.xml", true));
 		files.put("criterisSets", new InputFile("", "criteriaSets", "interactions.xml", true));
 		return files;

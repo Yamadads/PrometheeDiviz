@@ -13,6 +13,11 @@
       <label>specified</label>
     </value>
   </parameter>
+  <parameter name="z_function" id="z_function">
+    <value>
+      <label>multiplication</label>
+    </value>
+  </parameter>  
 </methodParameters>
 
 </xmcda:XMCDA>

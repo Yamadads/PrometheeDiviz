@@ -354,10 +354,12 @@ public class InputsHandler {
 				return;
 			}
 		}
-		@SuppressWarnings("unchecked")
-		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(2);
-		if (!generalisedCriteria.isNumeric()) {
-			errors.addError("The generalised criteria table must contain numeric values only");
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+			@SuppressWarnings("unchecked")
+			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(2);
+			if (!generalisedCriteria.isNumeric()) {
+				errors.addError("The generalised criteria table must contain numeric values only");
+			}
 		}
 
 	}

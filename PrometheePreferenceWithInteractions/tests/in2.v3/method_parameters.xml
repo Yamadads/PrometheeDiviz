@@ -9,10 +9,17 @@
 				</value>
 			</values>
 		</parameter>
-		<parameter id="criterion" name="generalised_criterion">
+		<parameter id="generalised_criterion" name="generalised_criterion">
 			<values>
 				<value>
 					<label>specified</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter id="z_function" name="z_function">
+			<values>
+				<value>
+					<label>minimum</label>
 				</value>
 			</values>
 		</parameter>
