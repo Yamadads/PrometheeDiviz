@@ -16,7 +16,6 @@ import org.xmcda.QuantitativeScale;
 import org.xmcda.utils.ValueConverters;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -568,7 +567,7 @@ public class InputsHandler {
 				if (!criteria_ids.contains(x_criterion.id()))
 					continue;
 				Double value = (Double) x_perf_table.getValue(x_alternative, x_criterion);
-				inputs.performanceTable.putIfAbsent(x_alternative.id(), new HashMap<>());
+				inputs.performanceTable.putIfAbsent(x_alternative.id(), new LinkedHashMap<>());
 				inputs.performanceTable.get(x_alternative.id()).put(x_criterion.id(), value);
 			}
 		}
@@ -588,7 +587,7 @@ public class InputsHandler {
 					if (!criteria_ids.contains(x_criterion.id()))
 						continue;
 					Double value = x_perf_table_profiles.getValue(x_alternative, x_criterion);
-					inputs.profilesPerformanceTable.putIfAbsent(x_alternative.id(), new HashMap<>());
+					inputs.profilesPerformanceTable.putIfAbsent(x_alternative.id(), new LinkedHashMap<>());
 					inputs.profilesPerformanceTable.get(x_alternative.id()).put(x_criterion.id(), value);
 				}
 			}
@@ -596,7 +595,7 @@ public class InputsHandler {
 	}
 
 	private static void extractWeights(Inputs inputs, XMCDA xmcda) {
-		inputs.weights = new HashMap<>();
+		inputs.weights = new LinkedHashMap<>();
 		@SuppressWarnings("unchecked")
 		CriteriaValues<Double> weights_table = (CriteriaValues<Double>) xmcda.criteriaValuesList.get(0);
 		for (Criterion criterion : weights_table.getCriteria()) {
@@ -606,7 +605,7 @@ public class InputsHandler {
 
 	private static void extractGeneralisedCriteria(Inputs inputs, XMCDA xmcda,
 			ProgramExecutionResult xmcda_execution_results) {
-		inputs.generalisedCriteria = new HashMap<>();
+		inputs.generalisedCriteria = new LinkedHashMap<>();
 		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 			@SuppressWarnings("unchecked")
 			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
@@ -628,7 +627,7 @@ public class InputsHandler {
 	}
 
 	private static void extractCriteriaDirection(Inputs inputs, XMCDA xmcda) {
-		inputs.preferenceDirections = new HashMap<>();
+		inputs.preferenceDirections = new LinkedHashMap<>();
 		CriteriaScales criteriaDirection = (CriteriaScales) xmcda.criteriaScalesList.get(0);
 		for (Criterion criterion : criteriaDirection.keySet()) {
 			@SuppressWarnings("unchecked")
@@ -641,9 +640,9 @@ public class InputsHandler {
 	private static void extractThresholds(Inputs inputs, XMCDA xmcda) {
 		CriteriaThresholds thresholds = (CriteriaThresholds) xmcda.criteriaThresholdsList.get(0);
 
-		inputs.indifferenceThresholds = new HashMap<>();
-		inputs.sigmaThresholds = new HashMap<>();
-		inputs.preferenceThresholds = new HashMap<>();
+		inputs.indifferenceThresholds = new LinkedHashMap<>();
+		inputs.sigmaThresholds = new LinkedHashMap<>();
+		inputs.preferenceThresholds = new LinkedHashMap<>();
 
 		for (Criterion criterion : thresholds.keySet()) {
 			CriterionThresholds critThresholds = thresholds.get(criterion);

@@ -3,7 +3,6 @@ package pl.poznan.put.promethee.preference;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import org.xmcda.Threshold;
@@ -23,22 +22,22 @@ public class Preference {
 		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.alternatives_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, partialPreferences));
 				}
 			}
 		} else {
 			for (String a : inputs.alternatives_ids) {
 				for (String b : inputs.profiles_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, partialPreferences));
-					preferences.putIfAbsent(b, new HashMap<>());
+					preferences.putIfAbsent(b, new LinkedHashMap<>());
 					preferences.get(b).put(a, calcTotalPreference(b, a, inputs, partialPreferences));
 				}
 			}
 			for (String a : inputs.profiles_ids) {
 				for (String b : inputs.profiles_ids) {
-					preferences.putIfAbsent(a, new HashMap<>());
+					preferences.putIfAbsent(a, new LinkedHashMap<>());
 					preferences.get(a).put(b, calcTotalPreference(a, b, inputs, partialPreferences));
 				}
 			}

@@ -163,19 +163,6 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a02</alternativeID>
-                </terminal>
-                <values>
-                    <value>
-                        <real>0.3</real>
-                    </value>
-                </values>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>pBM</alternativeID>
-                </initial>
-                <terminal>
                     <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
@@ -189,11 +176,11 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a04</alternativeID>
+                    <alternativeID>a02</alternativeID>
                 </terminal>
                 <values>
                     <value>
-                        <real>0.49</real>
+                        <real>0.3</real>
                     </value>
                 </values>
             </pair>
@@ -215,11 +202,11 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a06</alternativeID>
+                    <alternativeID>a04</alternativeID>
                 </terminal>
                 <values>
                     <value>
-                        <real>0.3</real>
+                        <real>0.49</real>
                     </value>
                 </values>
             </pair>
@@ -241,6 +228,19 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
+                    <alternativeID>a06</alternativeID>
+                </terminal>
+                <values>
+                    <value>
+                        <real>0.3</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pBM</alternativeID>
+                </initial>
+                <terminal>
                     <alternativeID>pBM</alternativeID>
                 </terminal>
                 <values>
@@ -259,19 +259,6 @@
                 <values>
                     <value>
                         <real>0.0</real>
-                    </value>
-                </values>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>pMG</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>a02</alternativeID>
-                </terminal>
-                <values>
-                    <value>
-                        <real>0.82</real>
                     </value>
                 </values>
             </pair>
@@ -293,11 +280,11 @@
                     <alternativeID>pMG</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a04</alternativeID>
+                    <alternativeID>a02</alternativeID>
                 </terminal>
                 <values>
                     <value>
-                        <real>0.49</real>
+                        <real>0.82</real>
                     </value>
                 </values>
             </pair>
@@ -319,11 +306,11 @@
                     <alternativeID>pMG</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a06</alternativeID>
+                    <alternativeID>a04</alternativeID>
                 </terminal>
                 <values>
                     <value>
-                        <real>0.7</real>
+                        <real>0.49</real>
                     </value>
                 </values>
             </pair>
@@ -337,6 +324,19 @@
                 <values>
                     <value>
                         <real>0.6</real>
+                    </value>
+                </values>
+            </pair>
+            <pair>
+                <initial>
+                    <alternativeID>pMG</alternativeID>
+                </initial>
+                <terminal>
+                    <alternativeID>a06</alternativeID>
+                </terminal>
+                <values>
+                    <value>
+                        <real>0.7</real>
                     </value>
                 </values>
             </pair>

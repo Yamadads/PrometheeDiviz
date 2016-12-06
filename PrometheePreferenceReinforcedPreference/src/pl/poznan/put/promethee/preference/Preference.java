@@ -3,7 +3,6 @@ package pl.poznan.put.promethee.preference;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import org.xmcda.Threshold;

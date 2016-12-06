@@ -85,7 +85,7 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a02</alternativeID>
+                    <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
                     <value>
@@ -98,7 +98,7 @@
                     <alternativeID>pBM</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a01</alternativeID>
+                    <alternativeID>a02</alternativeID>
                 </terminal>
                 <values>
                     <value>
@@ -150,7 +150,7 @@
                     <alternativeID>pMG</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a02</alternativeID>
+                    <alternativeID>a01</alternativeID>
                 </terminal>
                 <values>
                     <value>
@@ -163,7 +163,7 @@
                     <alternativeID>pMG</alternativeID>
                 </initial>
                 <terminal>
-                    <alternativeID>a01</alternativeID>
+                    <alternativeID>a02</alternativeID>
                 </terminal>
                 <values>
                     <value>

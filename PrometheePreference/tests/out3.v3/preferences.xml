@@ -62,7 +62,7 @@
 		<row>
 			<alternativeID>pBM</alternativeID>
 			<column>
-				<alternativeID>a02</alternativeID>
+				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
 						<real>0.375</real>
@@ -70,7 +70,7 @@
 				</values>
 			</column>
 			<column>
-				<alternativeID>a01</alternativeID>
+				<alternativeID>a02</alternativeID>
 				<values>
 					<value>
 						<real>0.375</real>
@@ -105,7 +105,7 @@
 		<row>
 			<alternativeID>pMG</alternativeID>
 			<column>
-				<alternativeID>a02</alternativeID>
+				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
 						<real>0.5</real>
@@ -113,7 +113,7 @@
 				</values>
 			</column>
 			<column>
-				<alternativeID>a01</alternativeID>
+				<alternativeID>a02</alternativeID>
 				<values>
 					<value>
 						<real>0.5</real>

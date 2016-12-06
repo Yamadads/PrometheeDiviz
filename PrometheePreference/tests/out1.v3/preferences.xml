@@ -5,18 +5,18 @@
 		<row>
 			<alternativeID>a01</alternativeID>
 			<column>
-				<alternativeID>a02</alternativeID>
-				<values>
-					<value>
-						<real>3.333333333333333E-4</real>
-					</value>
-				</values>
-			</column>
-			<column>
 				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
 						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value>
+						<real>3.333333333333333E-4</real>
 					</value>
 				</values>
 			</column>
@@ -32,18 +32,18 @@
 		<row>
 			<alternativeID>a02</alternativeID>
 			<column>
-				<alternativeID>a02</alternativeID>
-				<values>
-					<value>
-						<real>0.0</real>
-					</value>
-				</values>
-			</column>
-			<column>
 				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
 						<real>0.75</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value>
+						<real>0.0</real>
 					</value>
 				</values>
 			</column>
@@ -59,18 +59,18 @@
 		<row>
 			<alternativeID>a03</alternativeID>
 			<column>
-				<alternativeID>a02</alternativeID>
-				<values>
-					<value>
-						<real>4.166666666666667E-4</real>
-					</value>
-				</values>
-			</column>
-			<column>
 				<alternativeID>a01</alternativeID>
 				<values>
 					<value>
 						<real>8.333333333333333E-5</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value>
+						<real>4.166666666666667E-4</real>
 					</value>
 				</values>
 			</column>
