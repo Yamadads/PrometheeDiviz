@@ -54,20 +54,25 @@ public class AlternativesProfilesXMCDA {
 
 		final Map<String, XMCDA> xmcdaResults = OutputsHandler.convert(results, executionResult);
 
-		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);		
+		OutputFileWriter.writeResultFiles(xmcdaResults, executionResult, outputDirectory, version);
 
 		exitProgram(executionResult, prgExecResultsFile, version);
 	}
 
 	private static Map<String, InputFile> initFiles() {
 		Map<String, InputFile> files = new LinkedHashMap<>();
-		files.put("methodParameters", new InputFile("methodParameters","programParameters", "method_parameters.xml", true));
+		files.put("methodParameters",
+				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
 		files.put("criteriaScales", new InputFile("criteriaScales", "criteriaScales", "criteria.xml", true));
-		files.put("performanceTable", new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
-		files.put("generalisedCriteria", new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
-		files.put("reinforcementFactors", new InputFile("criteriaValues", "criteriaValues", "reinforcement_factors.xml", false));
-		files.put("preferenceThresholds", new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
+		files.put("performanceTable",
+				new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
+		files.put("generalisedCriteria",
+				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
+		files.put("reinforcementFactors",
+				new InputFile("criteriaValues", "criteriaValues", "reinforcement_factors.xml", false));
+		files.put("preferenceThresholds",
+				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
 		return files;
 	}
 
@@ -101,7 +106,7 @@ public class AlternativesProfilesXMCDA {
 		}
 		return params;
 	}
-	
+
 	private static Utils.XMCDA_VERSION readVersion(String[] args) {
 		Utils.XMCDA_VERSION version = Utils.XMCDA_VERSION.v2;
 		;
