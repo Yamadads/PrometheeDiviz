@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
-import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
-import org.xmcda.parsers.xml.xmcda_2_2_1.XMCDAParser;
+import org.xmcda.converters.v2_v3.XMCDAConverter;
+import org.xmcda.parsers.xml.xmcda_v2.XMCDAParser;
 
 public class OutputFileWriter {
 
@@ -23,7 +23,7 @@ public class OutputFileWriter {
 
 	private static void writeResultFilesV2(Map<String, XMCDA> xmcdaResults, ProgramExecutionResult executionResult,
 			String outputDirectory) {
-		org.xmcda.v2_2_1.XMCDA results_v2;
+		org.xmcda.v2.XMCDA results_v2;
 		for (String outputName : xmcdaResults.keySet()) {
 			File outputFile = new File(outputDirectory, String.format("%s.xml", outputName));
 			try {
@@ -47,7 +47,7 @@ public class OutputFileWriter {
 
 	private static void writeResultFilesV3(Map<String, XMCDA> xmcdaResults, ProgramExecutionResult executionResult,
 			String outputDirectory) {
-		final org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser();
+		final org.xmcda.parsers.xml.xmcda_v3.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_v3.XMCDAParser();
 
 		for (String key : xmcdaResults.keySet()) {
 			File outputFile = new File(outputDirectory, String.format("%s.xml", key));
@@ -60,5 +60,5 @@ public class OutputFileWriter {
 			}
 		}
 	}
-	
+
 }
