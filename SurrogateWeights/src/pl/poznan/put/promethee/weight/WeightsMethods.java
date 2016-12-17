@@ -76,14 +76,15 @@ class RankOrderedCentroid extends Method {
 
 	@Override
 	public Map<String, Double> calculate(Map<String, Integer> ranking) {
-		Map<String, Double> weights = new LinkedHashMap<>();
+		Map<String, Double> weights = new LinkedHashMap<>();		
 		Integer n = ranking.size();
-		Double d = 0.0;
-		for (Integer rank : ranking.values()) {
-			d += 1.0 / rank;
-		}
-		Double result = (1.0 / n) * d;
-		for (String criterion : ranking.keySet()) {
+		for (String criterion : ranking.keySet()){
+			int rank=ranking.get(criterion);
+			Double result = 0.0;
+			for (int j=rank; j<=n; j++){
+				result+=1/(double)j;
+			}
+			result /=n;
 			weights.put(criterion, result);
 		}
 		return weights;

@@ -6,7 +6,7 @@
 			<criterionID>c01</criterionID>
 			<values>
 				<value>
-					<real>0.5208333333333333</real>
+					<real>0.2708333333333333</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -14,7 +14,7 @@
 			<criterionID>c02</criterionID>
 			<values>
 				<value>
-					<real>0.5208333333333333</real>
+					<real>0.14583333333333331</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -30,7 +30,7 @@
 			<criterionID>c04</criterionID>
 			<values>
 				<value>
-					<real>0.5208333333333333</real>
+					<real>0.0625</real>
 				</value>
 			</values>
 		</criterionValue>

@@ -10,26 +10,20 @@
 		<criterionValue>
 			<criterionID>c01</criterionID>
 			<value>
-				<integer>2</integer>
+				<integer>1</integer>
 			</value>
 		</criterionValue>
 		<criterionValue>
 			<criterionID>c02</criterionID>
 			<value>
-				<integer>3</integer>
+				<integer>2</integer>
 			</value>
 		</criterionValue>
 		<criterionValue>
 			<criterionID>c03</criterionID>
 			<value>
-				<integer>1</integer>
+				<integer>3</integer>
 			</value>
-		</criterionValue>
-		<criterionValue>
-			<criterionID>c04</criterionID>
-			<value>
-				<integer>4</integer>
-			</value>
-		</criterionValue>
+		</criterionValue>		
 	</criteriaValues>
 </xmcda:XMCDA>
