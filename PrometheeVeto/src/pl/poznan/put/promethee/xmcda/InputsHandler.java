@@ -544,20 +544,15 @@ public class InputsHandler {
 
 		for (Criterion criterion : thresholds.keySet()) {
 			CriterionThresholds critThresholds = thresholds.get(criterion);
-
-			if (critThresholds == null) {
-				errors.addError("Veto Threshold is not specified in criterion " + criterion.id());
-				break;
+			for (int i=0; i<critThresholds.size();i++){
+				if (critThresholds.get(i).mcdaConcept().equals("veto")) {
+					inputs.vetoThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(0));
+					break;
+				}
 			}
-			if (critThresholds.size() != 1) {
-				errors.addError("Exactly one threshold is expected");
-				break;
-			}
-			if (!critThresholds.get(0).mcdaConcept().equals("veto")) {
-				errors.addError("veto threshold is expected");
-				break;
-			}
-			inputs.vetoThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(0));
+		}
+		if (inputs.vetoThresholds.size()==0){
+			errors.addError("veto thresholds are not defined");
 		}
 	}
 }

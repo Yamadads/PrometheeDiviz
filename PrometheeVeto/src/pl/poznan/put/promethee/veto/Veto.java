@@ -165,59 +165,13 @@ public class Veto {
 		Double v = calcThreshold(direction, ga, gb, vetoThreshold);
 
 		Double veto = 0.0;
-		if ((diff * -1) >= v) {
-			veto = 1.0;
+		if (v != null) {
+			if ((diff * -1) >= v) {
+				veto = 1.0;
+			}
 		}
 		return veto;
 	}
-
-	/**
-	 * @param inputs
-	 * @return matrix of veto - all alternatives with all alternatives(profiles)
-	 *         on all criteria
-	 * @throws WrongPreferenceDirectionException
-	 */
-	/*
-	 * public static Map<String, Double> calcPartialVeto(Inputs inputs) throws
-	 * WrongPreferenceDirectionException { Map<String, Double> vetoMap = new
-	 * HashMap<>(); if (inputs.comparisonWith ==
-	 * ComparisonWithParam.ALTERNATIVES) { for (String a :
-	 * inputs.alternatives_ids) { for (String b : inputs.alternatives_ids) { for
-	 * (String c : inputs.criteria_ids) { vetoMap.put(keyHash(a, b, c),
-	 * calcVetoOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(
-	 * ), inputs.performanceTable.get(b).get(c).doubleValue(),
-	 * inputs.preferenceDirections.get(c), inputs.vetoThresholds.get(c))); } } }
-	 * } else { for (String a : inputs.alternatives_ids) { for (String b :
-	 * inputs.profiles_ids) { for (String c : inputs.criteria_ids) {
-	 * vetoMap.put(keyHash(a, b, c),
-	 * calcVetoOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(
-	 * ), inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-	 * inputs.preferenceDirections.get(c), inputs.vetoThresholds.get(c)));
-	 * vetoMap.put(keyHash(b, a, c),
-	 * calcVetoOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(
-	 * ), inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-	 * inputs.preferenceDirections.get(c), inputs.vetoThresholds.get(c))); } } }
-	 * for (String a : inputs.profiles_ids) { for (String b :
-	 * inputs.profiles_ids) { for (String c : inputs.criteria_ids) {
-	 * vetoMap.put(keyHash(a, b, c),
-	 * calcVetoOnOneCriterion(inputs.profilesPerformanceTable.get(a).get(c).
-	 * doubleValue(),
-	 * inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
-	 * inputs.preferenceDirections.get(c), inputs.vetoThresholds.get(c))); } } }
-	 * } return vetoMap; }
-	 */
-	/*
-	 * private static Double calcTotalVetoOnPair(String alternative1, String
-	 * alternative2, Inputs inputs, Map<String, Double> partialVeto) { Double
-	 * veto = 0.0; if (inputs.weightsParam == WeightsParam.SPECIFIED) { Double
-	 * totalWeight = 0.0; for (String criterion : inputs.criteria_ids) { Double
-	 * weight = inputs.weights.get(criterion); totalWeight += weight; veto +=
-	 * (partialVeto.get(keyHash(alternative1, alternative2, criterion)) *
-	 * weight); } veto = veto / totalWeight; } else { for (String criterion :
-	 * inputs.criteria_ids) { if (partialVeto.get(keyHash(alternative1,
-	 * alternative2, criterion)) == 1.0) { veto = 1.0; break; } } } return veto;
-	 * }
-	 */
 
 	private static Double calcTotalVetoOnPair(String alternative1, String alternative2, Inputs inputs,
 			Map<String, Map<String, Map<String, Double>>> partialVeto) {
@@ -240,9 +194,4 @@ public class Veto {
 		}
 		return veto;
 	}
-
-	/*
-	 * public static String keyHash(String a, String b, String c) { return "_" +
-	 * a + "_*|*_" + b + "_*|*_" + c + "_"; }
-	 */
 }
