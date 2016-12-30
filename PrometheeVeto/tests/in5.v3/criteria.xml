@@ -117,6 +117,11 @@
                         <real>20.0</real>
                     </constant>
                 </threshold>
+                <threshold mcdaConcept="veto">
+                    <constant>
+                        <real>40.0</real>
+                    </constant>
+                </threshold>
         </thresholds>
     </criterionThreshold>
     <criterionThreshold>
@@ -150,6 +155,11 @@
                 <threshold mcdaConcept="preference">
                     <constant>
                         <real>2.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="veto">
+                    <constant>
+                        <real>4.0</real>
                     </constant>
                 </threshold>
         </thresholds>
