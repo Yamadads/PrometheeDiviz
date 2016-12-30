@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
+  <program provider="PUT" name="PrometheeDiscordance" displayName="PrometheeDiscordance" version="0.2.0" />
+  <documentation>
+    <description>Computes discordance indices
+The key feature of this module is its flexibility in terms of the types of
+elements allowed to compare, i.e. alternatives vs alternatives, alternatives vs
+boundary profiles and alternatives vs central (characteristic) profiles.
+    </description>
+    <url>https://github.com/Yamadads/PrometheeDiviz</url>
+  </documentation>
+  <parameters>
+
+    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
+      <documentation>
+        <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
+      </documentation>
+      <xmcda tag="criteria" />
+    </input>
+
+    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
+      <documentation>
+        <description>The performance of alternatives.</description>
+      </documentation>
+      <xmcda tag="performanceTable" />
+    </input>
+
+    <input id="input3" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
+      <documentation>
+        <description>The performance of profiles (boundary or central).</description>
+      </documentation>
+      <xmcda tag="performanceTable" />
+    </input>
+
+    <input id="input4" name="partial_preferences" displayName="partial_preferences" isoptional="0">
+      <documentation>
+        <description>Preferences indices for all pairs of alternatives/ alternatives and profiles on each criterion</description>
+      </documentation>
+      <xmcda tag="alternativesMatrix" />
+    </input>
+    
+    <input id="input5" name="method_parameters" displayName="method_parameters" isoptional="0">
+      <documentation>
+        <description>First parameter specifies the type of elements provided for comparison.
+
+Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'classes_profiles' and 'profiles_performance_table' as well (which are optional by default).
+
+Second parameter specifies the type of function used for comparison of each criterion.
+Choosing 'specified' requires providing inputs "generalised_criterion" which is optional by default.
+Choosing some of numbers sets same function for all criteria.
+        </description>
+      </documentation>
+      <xmcda tag="methodParameters">
+        <![CDATA[
+        <methodParameters>
+          <parameter name="comparison_with">
+            <value>
+              <label>%1</label>
+            </value>
+          </parameter>
+          <parameter name="technical_parameter">
+            <value>
+              <label>%2</label>
+            </value>
+          </parameter>
+        </methodParameters>
+        ]]>
+      </xmcda>
+      <gui status="preferGUI">
+        <entry id="%1" type="enum" displayName="comparison_with">
+          <items>
+            <item id="item0">
+              <description>alternatives vs alternatives</description>
+              <value>alternatives</value>
+            </item>
+            <item id="item1">
+              <description>alternatives vs boundary profiles</description>
+              <value>boundary_profiles</value>
+            </item>
+            <item id="item2">
+              <description>alternatives vs central (characteristic) profiles</description>
+              <value>central_profiles</value>
+            </item>
+          </items>
+          <defaultValue>item0</defaultValue>
+        </entry>
+        <entry id="%2" type="enum" displayName="technical_parameter">          
+        </entry>
+      </gui>
+    </input>
+
+
+    <output id="output1" name="discordance" displayName="veto">
+      <documentation>
+        <description>Aggregated discordance matrix computed from the given data. This matrix aggregates partial discordance indices from all criteria into single discordance index per pair of alternatives or alternatives/profiles.</description>
+      </documentation>
+      <xmcda tag="alternativesMatrix" />
+    </output>
+
+    <output id="output2" name="partial_discordance" displayName="partial_veto">
+      <documentation>
+        <description>Discordance matrix computed from the given data. This matrix shows partial discordance indices for all criteria, for all pairs of alternatives or alternatives/profiles.</description>
+      </documentation>
+      <xmcda tag="alternativesMatrix" />
+    </output>
+
+    <output id="output3" name="messages" displayName="messages">
+      <documentation>
+        <description>Messages or errors generated by this module.</description>
+      </documentation>
+      <xmcda tag="programExecutionResult" />
+    </output>
+
+  </parameters>
+</program_description>
