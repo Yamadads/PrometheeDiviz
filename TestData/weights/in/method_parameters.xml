@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
+
+<programParameters>
+		<parameter name="criteria_weight_ratio">
+			<values>
+				<value>
+					<label>6.5</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter name="decimal_places">
+			<values>
+				<value>
+					<label>1</label>
+				</value>
+			</values>
+		</parameter>
+	</programParameters>
+</xmcda:XMCDA>
