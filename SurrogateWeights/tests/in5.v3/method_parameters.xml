@@ -2,17 +2,10 @@
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
 
 <programParameters>
-		<parameter id="comparison_with" name="comparison_with">
+		<parameter name="method">
 			<values>
 				<value>
-					<label>alternatives</label>
-				</value>
-			</values>
-		</parameter>
-		<parameter id="weights_specified" name="weights_specified">
-			<values>
-				<value>
-					<label>not_specified</label>
+					<label>rank_ordered_centroid</label>
 				</value>
 			</values>
 		</parameter>

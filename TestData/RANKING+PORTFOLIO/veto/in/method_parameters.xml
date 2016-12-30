@@ -12,7 +12,7 @@
 		<parameter id="weights_specified" name="weights_specified">
 			<values>
 				<value>
-					<label>specified</label>
+					<label>not_specified</label>
 				</value>
 			</values>
 		</parameter>
