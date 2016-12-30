@@ -112,6 +112,11 @@
                         <real>6.0</real>
                     </constant>
                 </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>20.0</real>
+                    </constant>
+                </threshold>
         </thresholds>
     </criterionThreshold>
     <criterionThreshold>
@@ -125,6 +130,11 @@
                 <threshold mcdaConcept="preference">
                     <constant>
                         <real>0.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
                     </constant>
                 </threshold>
         </thresholds>
@@ -155,6 +165,11 @@
                 <threshold mcdaConcept="preference">
                     <constant>
                         <real>0.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
                     </constant>
                 </threshold>
         </thresholds>
