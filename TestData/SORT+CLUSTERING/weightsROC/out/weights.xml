@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
 
-<criteriaValues name="ranking" mcdaConcept="Importance">
+<criteriaValues>
 		<criterionValue>
 			<criterionID>g1</criterionID>
 			<values>
 				<value>
-					<integer>5</integer>
+					<real>0.07278911564625849</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -14,7 +14,7 @@
 			<criterionID>g2</criterionID>
 			<values>
 				<value>
-					<integer>1</integer>
+					<real>0.37040816326530607</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -22,7 +22,7 @@
 			<criterionID>g3</criterionID>
 			<values>
 				<value>
-					<integer>2</integer>
+					<real>0.22755102040816325</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -30,7 +30,7 @@
 			<criterionID>g4</criterionID>
 			<values>
 				<value>
-					<integer>4</integer>
+					<real>0.10850340136054422</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -38,7 +38,7 @@
 			<criterionID>g5</criterionID>
 			<values>
 				<value>
-					<integer>3</integer>
+					<real>0.15612244897959182</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -46,7 +46,7 @@
 			<criterionID>g6</criterionID>
 			<values>
 				<value>
-					<integer>7</integer>
+					<real>0.02040816326530612</real>
 				</value>
 			</values>
 		</criterionValue>
@@ -54,7 +54,7 @@
 			<criterionID>g7</criterionID>
 			<values>
 				<value>
-					<integer>6</integer>
+					<real>0.04421768707482993</real>
 				</value>
 			</values>
 		</criterionValue>
