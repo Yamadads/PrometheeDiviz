@@ -3,13 +3,13 @@ package pl.poznan.put.promethee.xmcda;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramExecutionResult.Status;
 import org.xmcda.XMCDA;
-import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
-import org.xmcda.parsers.xml.xmcda_2_2_1.XMCDAParser;
+import org.xmcda.converters.v2_v3.XMCDAConverter;
+import org.xmcda.parsers.xml.xmcda_v2.XMCDAParser;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBException;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -79,7 +79,7 @@ public class Utils {
 
 	public static void loadXMCDAv3(XMCDA xmcda, final File file, boolean mandatory,
 			ProgramExecutionResult x_execution_results, String... load_tags) {
-		final org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser();
+		final org.xmcda.parsers.xml.xmcda_v3.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_v3.XMCDAParser();
 		final String baseFilename = file.getName();
 
 		if (!file.exists()) {
@@ -100,7 +100,7 @@ public class Utils {
 		}
 	}
 
-	public static void loadXMCDAv2(org.xmcda.v2_2_1.XMCDA xmcda_v2, File file, boolean mandatory,
+	public static void loadXMCDAv2(org.xmcda.v2.XMCDA xmcda_v2, File file, boolean mandatory,
 			ProgramExecutionResult x_execution_results, String... load_tags) {		
 		final String baseFilename = file.getName();
 		if (!file.exists()) {
@@ -117,9 +117,9 @@ public class Utils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void readXMCDAv2_and_update(org.xmcda.v2_2_1.XMCDA xmcda_v2, File file,
-			String[] load_tags) throws FileNotFoundException, JAXBException, SAXException {
-		final org.xmcda.v2_2_1.XMCDA new_xmcda = XMCDAParser.readXMCDA(file, load_tags);
+	public static void readXMCDAv2_and_update(org.xmcda.v2.XMCDA xmcda_v2, File file,
+			String[] load_tags) throws JAXBException, SAXException, IOException {
+		final org.xmcda.v2.XMCDA new_xmcda = XMCDAParser.readXMCDA(file, load_tags);
 		@SuppressWarnings("rawtypes")
 		final List new_content = new_xmcda.getProjectReferenceOrMethodMessagesOrMethodParameters();
 		xmcda_v2.getProjectReferenceOrMethodMessagesOrMethodParameters().addAll(new_content);
@@ -168,7 +168,7 @@ public class Utils {
 	 */
 	public static void writeProgramExecutionResults(File prgExecResultsFile, ProgramExecutionResult errors,
 			XMCDA_VERSION xmcdaVersion) throws Throwable {
-		org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser();
+		org.xmcda.parsers.xml.xmcda_v3.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_v3.XMCDAParser();
 
 		XMCDA prgExecResults = new XMCDA();
 		prgExecResults.programExecutionResultsList.add(errors);
@@ -177,7 +177,7 @@ public class Utils {
 			parser.writeXMCDA(prgExecResults, prgExecResultsFile, "programExecutionResult");
 			break;
 		case v2:
-			org.xmcda.v2_2_1.XMCDA xmcda_v2 = XMCDAConverter.convertTo_v2(prgExecResults);
+			org.xmcda.v2.XMCDA xmcda_v2 = XMCDAConverter.convertTo_v2(prgExecResults);
 			XMCDAParser.writeXMCDA(xmcda_v2, prgExecResultsFile, "methodMessages");
 			break;
 		default:

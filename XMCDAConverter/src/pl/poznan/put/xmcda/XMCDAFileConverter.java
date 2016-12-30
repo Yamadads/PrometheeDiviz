@@ -1,7 +1,7 @@
 package pl.poznan.put.xmcda;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import javax.xml.bind.JAXBElement;
@@ -9,8 +9,8 @@ import javax.xml.bind.JAXBException;
 
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
-import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
-import org.xmcda.parsers.xml.xmcda_2_2_1.XMCDAParser;
+import org.xmcda.converters.v2_v3.XMCDAConverter;
+import org.xmcda.parsers.xml.xmcda_v2.XMCDAParser;
 import org.xml.sax.SAXException;
 
 public class XMCDAFileConverter {
@@ -23,7 +23,7 @@ public class XMCDAFileConverter {
 
 		final ProgramExecutionResult executionResult = new ProgramExecutionResult();
 
-		org.xmcda.v2_2_1.XMCDA xmcda_v2 = new org.xmcda.v2_2_1.XMCDA();
+		org.xmcda.v2.XMCDA xmcda_v2 = new org.xmcda.v2.XMCDA();
 		loadXMCDAv2(xmcda_v2, new File(params.inputFile), true, executionResult, params.loadTag);
 
 		if (!(executionResult.isOk() || executionResult.isWarning())) {
@@ -43,7 +43,7 @@ public class XMCDAFileConverter {
 	}
 
 	private static void writeResultFile(String outputFilename, String exportTag, XMCDA xmcda) {
-		final org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_3_0.XMCDAParser();
+		final org.xmcda.parsers.xml.xmcda_v3.XMCDAParser parser = new org.xmcda.parsers.xml.xmcda_v3.XMCDAParser();
 		File outputFile = new File(outputFilename);
 		try {
 			parser.writeXMCDA(xmcda, outputFile, exportTag);
@@ -85,7 +85,7 @@ public class XMCDAFileConverter {
 		public String exportTag;
 	}
 
-	public static void loadXMCDAv2(org.xmcda.v2_2_1.XMCDA xmcda_v2, File file, boolean mandatory,
+	public static void loadXMCDAv2(org.xmcda.v2.XMCDA xmcda_v2, File file, boolean mandatory,
 			ProgramExecutionResult x_execution_results, String... load_tags) {
 		XMCDAParser parser = new XMCDAParser();
 		final String baseFilename = file.getName();
@@ -102,10 +102,10 @@ public class XMCDAFileConverter {
 		}
 	}
 
-	public static void readXMCDAv2_and_update(org.xmcda.v2_2_1.XMCDA xmcda_v2, XMCDAParser parser, File file,
-			String[] load_tags) throws FileNotFoundException, JAXBException, SAXException {
+	public static void readXMCDAv2_and_update(org.xmcda.v2.XMCDA xmcda_v2, XMCDAParser parser, File file,
+			String[] load_tags) throws JAXBException, SAXException, IOException {
 		@SuppressWarnings("static-access")
-		final org.xmcda.v2_2_1.XMCDA new_xmcda = parser.readXMCDA(file, load_tags);
+		final org.xmcda.v2.XMCDA new_xmcda = parser.readXMCDA(file, load_tags);
 		final List<JAXBElement<?>> new_content = new_xmcda.getProjectReferenceOrMethodMessagesOrMethodParameters();
 		xmcda_v2.getProjectReferenceOrMethodMessagesOrMethodParameters().addAll(new_content);
 	}
@@ -124,7 +124,7 @@ public class XMCDAFileConverter {
 		return "unknown";
 	}
 
-	private static XMCDA convertToXMCDA_v3(org.xmcda.v2_2_1.XMCDA xmcda_v2, ProgramExecutionResult executionResult) {
+	private static XMCDA convertToXMCDA_v3(org.xmcda.v2.XMCDA xmcda_v2, ProgramExecutionResult executionResult) {
 		XMCDA xmcda = null;
 		try {
 			xmcda = XMCDAConverter.convertTo_v3(xmcda_v2);

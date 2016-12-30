@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.XMCDA;
-import org.xmcda.converters.v2_2_1_v3_0.XMCDAConverter;
+import org.xmcda.converters.v2_v3.XMCDAConverter;
 
 public class InputFileLoader {
 
@@ -13,7 +13,7 @@ public class InputFileLoader {
 			ProgramExecutionResult executionResult, File prgExecResultsFile, Utils.XMCDA_VERSION version) {
 		XMCDA xmcda = null;
 		if (version.equals(Utils.XMCDA_VERSION.v2)) {
-			org.xmcda.v2_2_1.XMCDA xmcda_v2 = loadFilesV2(executionResult, inputDirectory, files);
+			org.xmcda.v2.XMCDA xmcda_v2 = loadFilesV2(executionResult, inputDirectory, files);
 			if (!ErrorChecker.checkErrors(executionResult))
 				return null;
 			xmcda = convertToXMCDA_v3(xmcda_v2, executionResult);
@@ -30,9 +30,9 @@ public class InputFileLoader {
 		return xmcda;
 	}
 
-	private static org.xmcda.v2_2_1.XMCDA loadFilesV2(ProgramExecutionResult executionResult, String indir,
+	private static org.xmcda.v2.XMCDA loadFilesV2(ProgramExecutionResult executionResult, String indir,
 			Map<String, InputFile> files) {
-		org.xmcda.v2_2_1.XMCDA xmcda_v2 = new org.xmcda.v2_2_1.XMCDA();
+		org.xmcda.v2.XMCDA xmcda_v2 = new org.xmcda.v2.XMCDA();
 		for (InputFile file : files.values()) {
 			if (file.loadTagV2 != "") {
 				Utils.loadXMCDAv2(xmcda_v2, new File(indir, file.filename), file.mandatory, executionResult,
@@ -51,7 +51,7 @@ public class InputFileLoader {
 		return xmcda;
 	}
 
-	private static XMCDA convertToXMCDA_v3(org.xmcda.v2_2_1.XMCDA xmcda_v2, ProgramExecutionResult executionResult) {
+	private static XMCDA convertToXMCDA_v3(org.xmcda.v2.XMCDA xmcda_v2, ProgramExecutionResult executionResult) {
 		XMCDA xmcda = null;
 		try {
 			xmcda = XMCDAConverter.convertTo_v3(xmcda_v2);
