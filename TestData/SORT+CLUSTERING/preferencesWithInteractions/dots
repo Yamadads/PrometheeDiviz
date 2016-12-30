@@ -1,0 +1,8 @@
+DIR="./in/"
+
+  # use "-name '*.java'" instead of "-type f" if you want to match java source files only
+
+  find "${DIR}" -name 'performance_table.xml' -print | while read f; do
+    sed -i -e 's/,/./g' "$f";    
+  done
+
