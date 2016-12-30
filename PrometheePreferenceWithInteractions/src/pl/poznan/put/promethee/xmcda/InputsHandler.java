@@ -661,7 +661,7 @@ public class InputsHandler {
 				}
 				break;
 			case 6:
-				if ((inputs.preferenceThresholds == null) || (inputs.preferenceThresholds.get(criterion) == null)) {
+				if ((inputs.sigmaThresholds == null) || (inputs.sigmaThresholds.get(criterion) == null)) {
 					xmcda_execution_results
 							.addError("Gaussian function (6) specified in generalised_criteria.xml  on Criterion "
 									+ criterion + "requires sigma threshold");
