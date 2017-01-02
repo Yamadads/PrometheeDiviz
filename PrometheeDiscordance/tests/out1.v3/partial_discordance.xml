@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
+
+<alternativesMatrix>
+		<row>
+			<alternativeID>a01</alternativeID>
+			<column>
+				<alternativeID>a01</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>1.0</real>
+					</value>
+					<value id="c03">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a03</alternativeID>
+				<values>
+					<value id="c01">
+						<real>1.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a02</alternativeID>
+			<column>
+				<alternativeID>a01</alternativeID>
+				<values>
+					<value id="c01">
+						<real>1.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a03</alternativeID>
+				<values>
+					<value id="c01">
+						<real>1.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a03</alternativeID>
+			<column>
+				<alternativeID>a01</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>1.0</real>
+					</value>
+					<value id="c03">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a02</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>1.0</real>
+					</value>
+					<value id="c03">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a03</alternativeID>
+				<values>
+					<value id="c01">
+						<real>0.0</real>
+					</value>
+					<value id="c02">
+						<real>0.0</real>
+					</value>
+					<value id="c03">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+	</alternativesMatrix>
+</xmcda:XMCDA>
