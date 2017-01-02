@@ -4,25 +4,10 @@
         xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
     <criteria>
         <criterion id="c01" name="Price">
-            <scale>
-                <quantitative>
-                    <preferenceDirection>max</preferenceDirection>
-                </quantitative>
-            </scale>
         </criterion>
         <criterion id="c02" name="Power">
-            <scale>
-                <quantitative>
-                    <preferenceDirection>min</preferenceDirection>
-                </quantitative>
-            </scale>
         </criterion>
         <criterion id="c03" name="0-100">
-            <scale>
-                <quantitative>
-                    <preferenceDirection>max</preferenceDirection>
-                </quantitative>
-            </scale>
         </criterion>        
     </criteria>
 

@@ -35,32 +35,13 @@ public class Discordance {
 
 	private static Double getTotalDiscordance(Inputs inputs, String alternative1, String alternative2,
 			Map<String, Map<String, Map<String, Double>>> discordances) {
-		Double result = 1.0;
-		Boolean discordantSetEmpty = true;
+		Double result = 1.0;		
 		Double power = inputs.technicalParam / inputs.criteria_ids.size();
 		for (String criterion : inputs.criteria_ids) {
-			Double ga = getAlternativeEvaluation(alternative1, criterion, inputs);
-			Double gb = getAlternativeEvaluation(alternative2, criterion, inputs);
-			if (ga < gb) {
-				discordantSetEmpty = false;
-				Double disc = discordances.get(alternative1).get(alternative2).get(criterion);
-				result *= Math.pow((1.0 - disc), power);
-			}
+			Double disc = discordances.get(alternative1).get(alternative2).get(criterion);
+			result *= Math.pow((1.0 - disc), power);			
 		}
-		result = 1.0 - result;
-		if (discordantSetEmpty) {
-			return 0.0;
-		}
+		result = 1.0 - result;		
 		return result;
-	}
-
-	private static Double getAlternativeEvaluation(String alternative, String criterion, Inputs inputs) {
-		if (inputs.alternatives_ids.contains(alternative)) {
-			return inputs.performanceTable.get(alternative).get(criterion).doubleValue();
-		}
-		if (inputs.profiles_ids.contains(alternative)) {
-			return inputs.profilesPerformanceTable.get(alternative).get(criterion).doubleValue();
-		}
-		return null;
 	}
 }

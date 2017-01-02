@@ -24,7 +24,7 @@
                 </terminal>
                 <values>
                     <value>
-                        <real>1.0</real>
+                        <real>0.0</real>
                     </value>
                 </values>
             </pair>
@@ -76,7 +76,7 @@
                 </terminal>
                 <values>
                     <value>
-                        <real>1.0</real>
+                        <real>0.2928932188134524</real>
                     </value>
                 </values>
             </pair>
