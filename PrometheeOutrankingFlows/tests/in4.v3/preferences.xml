@@ -40,7 +40,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -48,7 +48,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3939393939393939</real>
 					</value>
 				</values>
 			</column>
@@ -96,7 +96,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -104,7 +104,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -120,7 +120,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -128,7 +128,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -144,7 +144,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -152,7 +152,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -160,7 +160,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -203,7 +203,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.29292929292929293</real>
 					</value>
 				</values>
 			</column>
@@ -227,7 +227,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -259,7 +259,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -283,7 +283,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -291,7 +291,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -299,7 +299,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -307,7 +307,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -323,7 +323,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.40404040404040403</real>
 					</value>
 				</values>
 			</column>
@@ -382,7 +382,7 @@
 				<alternativeID>a17</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6262626262626263</real>
 					</value>
 				</values>
 			</column>
@@ -398,7 +398,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -430,7 +430,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6565656565656566</real>
 					</value>
 				</values>
 			</column>
@@ -438,7 +438,7 @@
 				<alternativeID>a4</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -454,7 +454,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -470,7 +470,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.47706422018348627</real>
 					</value>
 				</values>
 			</column>
@@ -505,7 +505,7 @@
 				<alternativeID>a10</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -513,7 +513,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -529,7 +529,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5412844036697247</real>
 					</value>
 				</values>
 			</column>
@@ -537,7 +537,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -553,7 +553,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -577,7 +577,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -585,7 +585,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -609,7 +609,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -625,7 +625,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.26262626262626265</real>
 					</value>
 				</values>
 			</column>
@@ -641,7 +641,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -649,7 +649,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -692,7 +692,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -700,7 +700,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -748,7 +748,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -756,7 +756,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -772,7 +772,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -780,7 +780,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -796,7 +796,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -804,7 +804,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -812,7 +812,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -831,7 +831,7 @@
 				<alternativeID>a10</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -839,7 +839,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.37373737373737376</real>
 					</value>
 				</values>
 			</column>
@@ -847,7 +847,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.37373737373737376</real>
 					</value>
 				</values>
 			</column>
@@ -871,7 +871,7 @@
 				<alternativeID>a17</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -879,7 +879,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5321100917431193</real>
 					</value>
 				</values>
 			</column>
@@ -887,7 +887,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1717171717171717</real>
 					</value>
 				</values>
 			</column>
@@ -895,7 +895,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -903,7 +903,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -951,7 +951,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3302752293577982</real>
 					</value>
 				</values>
 			</column>
@@ -967,7 +967,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.40404040404040403</real>
 					</value>
 				</values>
 			</column>
@@ -1002,7 +1002,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2222222222222222</real>
 					</value>
 				</values>
 			</column>
@@ -1010,7 +1010,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5050505050505051</real>
 					</value>
 				</values>
 			</column>
@@ -1042,7 +1042,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2222222222222222</real>
 					</value>
 				</values>
 			</column>
@@ -1058,7 +1058,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3939393939393939</real>
 					</value>
 				</values>
 			</column>
@@ -1066,7 +1066,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -1106,7 +1106,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5454545454545454</real>
 					</value>
 				</values>
 			</column>
@@ -1114,7 +1114,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -1122,7 +1122,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2222222222222222</real>
 					</value>
 				</values>
 			</column>
@@ -1138,7 +1138,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -1165,7 +1165,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1173,7 +1173,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -1181,7 +1181,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.494949494949495</real>
 					</value>
 				</values>
 			</column>
@@ -1189,7 +1189,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -1221,7 +1221,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -1229,7 +1229,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1237,7 +1237,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.20202020202020202</real>
 					</value>
 				</values>
 			</column>
@@ -1261,7 +1261,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.43434343434343436</real>
 					</value>
 				</values>
 			</column>
@@ -1269,7 +1269,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.43434343434343436</real>
 					</value>
 				</values>
 			</column>
@@ -1277,7 +1277,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -1285,7 +1285,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1301,7 +1301,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3333333333333333</real>
 					</value>
 				</values>
 			</column>
@@ -1320,7 +1320,7 @@
 				<alternativeID>a10</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -1328,7 +1328,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.43119266055045874</real>
 					</value>
 				</values>
 			</column>
@@ -1336,7 +1336,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -1368,7 +1368,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -1376,7 +1376,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -1384,7 +1384,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -1392,7 +1392,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3302752293577982</real>
 					</value>
 				</values>
 			</column>
@@ -1440,7 +1440,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3302752293577982</real>
 					</value>
 				</values>
 			</column>
@@ -1456,7 +1456,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -1483,7 +1483,7 @@
 				<alternativeID>a10</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -1491,7 +1491,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -1499,7 +1499,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -1507,7 +1507,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.494949494949495</real>
 					</value>
 				</values>
 			</column>
@@ -1515,7 +1515,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -1531,7 +1531,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6565656565656566</real>
 					</value>
 				</values>
 			</column>
@@ -1555,7 +1555,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.4428706326723324</real>
 					</value>
 				</values>
 			</column>
@@ -1563,7 +1563,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6422018348623854</real>
 					</value>
 				</values>
 			</column>
@@ -1587,7 +1587,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5454545454545454</real>
 					</value>
 				</values>
 			</column>
@@ -1603,7 +1603,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.26262626262626265</real>
 					</value>
 				</values>
 			</column>
@@ -1627,7 +1627,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -1638,7 +1638,7 @@
 				<alternativeID>a11</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -1646,7 +1646,7 @@
 				<alternativeID>a10</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -1654,7 +1654,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -1670,7 +1670,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.48623853211009177</real>
 					</value>
 				</values>
 			</column>
@@ -1694,7 +1694,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -1718,7 +1718,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -1726,7 +1726,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -1750,7 +1750,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -1766,7 +1766,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>
@@ -1782,7 +1782,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -1790,7 +1790,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5871559633027523</real>
 					</value>
 				</values>
 			</column>
@@ -1825,7 +1825,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -1833,7 +1833,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1857,7 +1857,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -1873,7 +1873,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -1913,7 +1913,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1921,7 +1921,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -1929,7 +1929,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -1937,7 +1937,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -1953,7 +1953,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -1980,7 +1980,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -1988,7 +1988,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3939393939393939</real>
 					</value>
 				</values>
 			</column>
@@ -2004,7 +2004,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2020,7 +2020,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2222222222222222</real>
 					</value>
 				</values>
 			</column>
@@ -2036,7 +2036,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2044,7 +2044,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -2084,7 +2084,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5454545454545454</real>
 					</value>
 				</values>
 			</column>
@@ -2092,7 +2092,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2100,7 +2100,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2222222222222222</real>
 					</value>
 				</values>
 			</column>
@@ -2127,7 +2127,7 @@
 				<alternativeID>a11</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -2175,7 +2175,7 @@
 				<alternativeID>a17</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -2191,7 +2191,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -2231,7 +2231,7 @@
 				<alternativeID>a4</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -2271,7 +2271,7 @@
 				<alternativeID>a9</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2354,7 +2354,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6262626262626263</real>
 					</value>
 				</values>
 			</column>
@@ -2469,7 +2469,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1717171717171717</real>
 					</value>
 				</values>
 			</column>
@@ -2477,7 +2477,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2485,7 +2485,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -2509,7 +2509,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -2525,7 +2525,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2533,7 +2533,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.29292929292929293</real>
 					</value>
 				</values>
 			</column>
@@ -2573,7 +2573,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.43434343434343436</real>
 					</value>
 				</values>
 			</column>
@@ -2581,7 +2581,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -2589,7 +2589,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -2605,7 +2605,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1717171717171717</real>
 					</value>
 				</values>
 			</column>
@@ -2640,7 +2640,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2648,7 +2648,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -2672,7 +2672,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2688,7 +2688,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3939393939393939</real>
 					</value>
 				</values>
 			</column>
@@ -2728,7 +2728,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -2744,7 +2744,7 @@
 				<alternativeID>a7</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -2752,7 +2752,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -2768,7 +2768,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1717171717171717</real>
 					</value>
 				</values>
 			</column>
@@ -2795,7 +2795,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2803,7 +2803,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2811,7 +2811,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.43434343434343436</real>
 					</value>
 				</values>
 			</column>
@@ -2819,7 +2819,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6262626262626263</real>
 					</value>
 				</values>
 			</column>
@@ -2835,7 +2835,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -2851,7 +2851,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1111111111111111</real>
 					</value>
 				</values>
 			</column>
@@ -2859,7 +2859,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.4900849858356941</real>
 					</value>
 				</values>
 			</column>
@@ -2867,7 +2867,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6880733944954128</real>
 					</value>
 				</values>
 			</column>
@@ -2875,7 +2875,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.4900849858356941</real>
 					</value>
 				</values>
 			</column>
@@ -2891,7 +2891,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6565656565656566</real>
 					</value>
 				</values>
 			</column>
@@ -2899,7 +2899,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6117342536669543</real>
 					</value>
 				</values>
 			</column>
@@ -2915,7 +2915,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.45454545454545453</real>
 					</value>
 				</values>
 			</column>
@@ -2931,7 +2931,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5454545454545454</real>
 					</value>
 				</values>
 			</column>
@@ -2958,7 +2958,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3434343434343434</real>
 					</value>
 				</values>
 			</column>
@@ -2966,7 +2966,7 @@
 				<alternativeID>a12</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -2982,7 +2982,7 @@
 				<alternativeID>a14</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5151515151515151</real>
 					</value>
 				</values>
 			</column>
@@ -3014,7 +3014,7 @@
 				<alternativeID>a18</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.2828282828282828</real>
 					</value>
 				</values>
 			</column>
@@ -3022,7 +3022,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.5757575757575758</real>
 					</value>
 				</values>
 			</column>
@@ -3038,7 +3038,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.23232323232323232</real>
 					</value>
 				</values>
 			</column>
@@ -3121,7 +3121,7 @@
 				<alternativeID>a13</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3137,7 +3137,7 @@
 				<alternativeID>a15</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3302752293577982</real>
 					</value>
 				</values>
 			</column>
@@ -3153,7 +3153,7 @@
 				<alternativeID>a17</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.6262626262626263</real>
 					</value>
 				</values>
 			</column>
@@ -3161,7 +3161,7 @@
 				<alternativeID>a16</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3169,7 +3169,7 @@
 				<alternativeID>a19</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.1717171717171717</real>
 					</value>
 				</values>
 			</column>
@@ -3185,7 +3185,7 @@
 				<alternativeID>a1</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3193,7 +3193,7 @@
 				<alternativeID>a2</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3201,7 +3201,7 @@
 				<alternativeID>a3</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.31313131313131315</real>
 					</value>
 				</values>
 			</column>
@@ -3209,7 +3209,7 @@
 				<alternativeID>a4</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.06060606060606061</real>
 					</value>
 				</values>
 			</column>
@@ -3217,7 +3217,7 @@
 				<alternativeID>a5</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3225,7 +3225,7 @@
 				<alternativeID>a6</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3241,7 +3241,7 @@
 				<alternativeID>a8</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.3761467889908257</real>
 					</value>
 				</values>
 			</column>
@@ -3257,7 +3257,7 @@
 				<alternativeID>a20</alternativeID>
 				<values>
 					<value>
-						<real>0.0</real>
+						<real>0.27522935779816515</real>
 					</value>
 				</values>
 			</column>

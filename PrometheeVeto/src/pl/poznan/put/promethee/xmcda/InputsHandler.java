@@ -545,8 +545,8 @@ public class InputsHandler {
 		for (Criterion criterion : thresholds.keySet()) {
 			CriterionThresholds critThresholds = thresholds.get(criterion);
 			for (int i=0; i<critThresholds.size();i++){
-				if (critThresholds.get(i).mcdaConcept().equals("veto")) {
-					inputs.vetoThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(0));
+				if ("veto".equals(critThresholds.get(i).mcdaConcept())) {
+					inputs.vetoThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(i));
 					break;
 				}
 			}
