@@ -8,7 +8,7 @@
       <label>boundary_profiles</label>
     </value>
   </parameter>
-  <parameter name="generalised_criterion" id="criterion">
+  <parameter name="generalised_criterion" id="generalised_criterion">
     <value>
       <label>specified</label>
     </value>
