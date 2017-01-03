@@ -3,7 +3,7 @@
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
   <program provider="PUT" name="PrometheePreferenceWithInteractions" displayName="PrometheePreferenceWithInteractions" version="0.2.0" />
   <documentation>
-    <description>Computes aggregated preference indices
+    <description>Computes aggregated preference indices with interactions between criteria
 The key feature of this module is its flexibility in terms of the types of
 elements allowed to compare, i.e. alternatives vs alternatives, alternatives vs
 boundary profiles and alternatives vs central (characteristic) profiles.

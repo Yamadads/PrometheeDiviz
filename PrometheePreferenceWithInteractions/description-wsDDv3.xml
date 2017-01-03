@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="PrometheePreferenceReinforcedPreference" displayName="PrometheePreferenceReinforcedPreference" version="0.2.0" />
+  <program provider="PUT" name="PrometheePreferenceWithInteractions" displayName="PrometheePreferenceWithInteractions" version="0.2.0" />
   <documentation>
-    <description>Computes aggregated preference indices with reinforced preference effect
-
-This module is an extended version of 'PrometheePreference' - it brings the concept of 'reinforced_preference', which boils down to the new threshold of the same name and a new input file where the 'reinforcement factors' are defined (one for each criterion where 'reinforced_preference' threshold is present).</description>
-    <reference>Bernard Roy and Roman Slowinski; Handling effects of reinforced preference and counter-veto in credibility of outranking; European Journal of Operational Research 188(1):185?190; 2008; doi:10.1016/j.ejor.2007.04.005</reference>
+    <description>Computes aggregated preference indices with interactions between criteria
+The key feature of this module is its flexibility in terms of the types of
+elements allowed to compare, i.e. alternatives vs alternatives, alternatives vs
+boundary profiles and alternatives vs central (characteristic) profiles.
+Each criterion can have its own preference function (one of six predefined functions).
+    </description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
+
     <input id="input1" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
-        <description>Criteria to consider, possibly with 'preference', 'indifference' and 'reinforced preference' thresholds (see also 'reinforcement_factors' input below). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
+        <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
@@ -45,16 +48,45 @@ This module is an extended version of 'PrometheePreference' - it brings the conc
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input6" name="reinforcement_factors" displayName="reinforcement_factors" isoptional="0">
+	<input id="input6" name="interactions" displayName="interactions" isoptional="0">
       <documentation>
-        <description>Definitions of so-called 'reinforcement factors', one per each criterion for which 'reinforcement threshold' has been defined. For more regarding these concepts see the paper from 'Reference' section.
+        <description>Declarations of criteria interactions which should be taken into account. Possible interactions are: &quot;strengthening&quot;, &quot;weakening&quot; and &quot;antagonistic&quot;.
 
-This input is mandatory, if you don't need need the concept of reinforced preference please use 'PrometheePreference'.</description>
+Every such declaration contains a pair of criteria and a numerical value for the interaction coefficient. This value should be negative for &quot;weakening&quot; and positive for &quot;strenghtening&quot; and &quot;antagonistic&quot;. 
+This coefficient should be interpreted as follows: the larger its absolute value, the more important the interaction effect.  All interaction coefficients should fulfill positive net balance condition.
+
+The order in which each criterion appears in its interaction definition is significant for antagonistic interactions (it designates the direction in which certain criterion affects the other).
+For strengthening and weakening order is not important. (Coefficients k_ij = k_ji and only one of this is needed).  
+
+There are no limits on the number of interactions that can be declared, but keep in mind that it should be rather small to make sense.
+
+It is possible to declare more than one interactions of the same type, although please note that considering the same pair of criteria involved, the &quot;strengthening&quot; and &quot;weakening&quot; interactions are mutually exclusive.</description>
       </documentation>
-      <xmcda tag="criteriaValues" />
+      <xmcda tag="criteriaSetsValues">
+ 	<criteriaSets>
+		<criteriaSet id="criteriaSet_generatedID_1">
+			<element>
+				<criterionID>c01</criterionID>
+			</element>
+			<element>
+				<criterionID>c02</criterionID>
+			</element>
+		</criteriaSet>		
+	</criteriaSets>
+	<criteriaSetsValues mcdaConcept="criteriaInteractions">
+		<criteriaSetValue mcdaConcept="strengthening">
+			<criteriaSetID>criteriaSet_generatedID_1</criteriaSetID>
+			<values>
+				<value>
+					<real>1.5</real>
+				</value>
+			</values>
+		</criteriaSetValue>		
+	</criteriaSetsValues>
+      </xmcda>
     </input>
-
-    <input id="input9" name="method_parameters" displayName="method_parameters" isoptional="0">
+    
+    <input id="input7" name="method_parameters" displayName="method_parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 
@@ -63,22 +95,34 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'cl
 Second parameter specifies the type of function used for comparison of each criterion.
 Choosing 'specified' requires providing inputs "generalised_criterion" which is optional by default.
 Choosing some of numbers sets same function for all criteria.
+Third parameter specifies type of Z function in computing criteria interaction effect. 
         </description>
       </documentation>
       <xmcda tag="methodParameters">
         <![CDATA[
-        <methodParameters>
-          <parameter name="comparison_with">
-            <value>
-              <label>%1</label>
-            </value>
-          </parameter>
-          <parameter name="generalised_criterion">
-            <value>
-              <label>%2</label>
-            </value>
-          </parameter>
-        </methodParameters>
+        <programParameters>
+		<parameter id="comparison_with" name="comparison_with">
+			<values>
+				<value>
+					<label>alternatives</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter id="criterion" name="generalised_criterion">
+			<values>
+				<value>
+					<label>3</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter name="z_function" id="z_function">
+			<values>
+		    		<value>
+		      			<label>multiplication</label>
+		    		</value>
+			</values>
+		  </parameter>  
+		</programParameters>
         ]]>
       </xmcda>
       <gui status="preferGUI">
@@ -124,7 +168,27 @@ Choosing some of numbers sets same function for all criteria.
             <item id="item5">
               <description>V-Shape with Indifference Criterion, needs both indifference and strict preference thresholds specified in criterion.</description>
               <value>5</value>
-            </item>         
+            </item>
+            <item id="item6">
+              <description>Gaussian Criterion, needs the inflection point of the preference function specified in criterion.</description>
+              <value>6</value>
+            </item>
+          </items>
+          <defaultValue>item0</defaultValue>
+        </entry>
+        <entry id="%3" type="enum" displayName="z_function">
+          <documentation>
+            <description>Z(x, y) - function used to capture interaction effects in the ambiguity zone. There are multiple forms that can be chosen for it, but two of them have intuitive and meaningful interpretation: Z(x, y) = min{x, y} Z(x, y) = xy - the last one is prefereable, though.</description>
+          </documentation>
+          <items>
+            <item id="item0">
+              <description>Z(x, y) = xy</description>
+              <value>multiplication</value>
+            </item>
+            <item id="item1">
+              <description>Z(x, y) = min{x, y}</description>
+              <value>minimum</value>
+            </item>
           </items>
           <defaultValue>item0</defaultValue>
         </entry>
@@ -136,21 +200,21 @@ Choosing some of numbers sets same function for all criteria.
       <documentation>
         <description>Aggregated preference matrix computed from the given data. This matrix aggregates partial preference indices from all criteria into single preference index per pair of alternatives or alternatives/profiles.</description>
       </documentation>
-      <xmcda tag="alternativesComparisons" />
+      <xmcda tag="alternativesMatrix" />
     </output>
 
     <output id="output2" name="partial_preferences" displayName="partial_preferences">
       <documentation>
         <description>Preference matrix computed from the given data. This matrix contains partial preference indices for all criteria and all pairs of alternatives or alternatives/profiles.</description>
       </documentation>
-      <xmcda tag="alternativesComparisons" />
+      <xmcda tag="alternativesMatrix" />
     </output>
     
     <output id="output3" name="messages" displayName="messages">
       <documentation>
         <description>Messages or errors generated by this module.</description>
       </documentation>
-      <xmcda tag="methodMessages" />
+      <xmcda tag="programExecutionResult" />
     </output>
 
   </parameters>

@@ -53,18 +53,22 @@ Choosing some of numbers sets same function for all criteria.
       </documentation>
       <xmcda tag="programParameters">
         <![CDATA[
-        <methodParameters>
-          <parameter name="comparison_with">
-            <value>
-              <label>%1</label>
-            </value>
-          </parameter>
-          <parameter name="weights_specified">
-            <value>
-              <label>%2</label>
-            </value>
-          </parameter>
-        </methodParameters>
+        <programParameters>
+		<parameter id="comparison_with" name="comparison_with">
+			<values>
+				<value>
+					<label>alternatives</label>
+				</value>
+			</values>
+		</parameter>
+		<parameter id="weights_specified" name="weights_specified">
+			<values>
+				<value>
+					<label>specified</label>
+				</value>
+			</values>
+		</parameter>
+		</programParameters>
         ]]>
       </xmcda>
       <gui status="preferGUI">
