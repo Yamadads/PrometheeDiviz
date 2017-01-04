@@ -1,0 +1,8874 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
+
+<alternativesMatrix>
+		<row>
+			<alternativeID>a1</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>b12</alternativeID>
+			<column>
+				<alternativeID>a1</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a2</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a3</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a4</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a5</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a6</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a7</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a8</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a9</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a10</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a11</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a13</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a14</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a15</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a16</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a17</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a18</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a19</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a20</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a21</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a22</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a24</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a25</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a26</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a27</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a28</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a29</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a30</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a31</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a32</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.7000000000000005</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a33</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a35</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a36</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a37</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a38</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a39</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a40</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>b23</alternativeID>
+			<column>
+				<alternativeID>a1</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a2</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a3</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a4</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a5</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a6</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a7</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a8</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a9</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.3000000000000007</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a10</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a11</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a13</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a14</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a15</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a16</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a17</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a18</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a19</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a20</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a21</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a22</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.7000000000000002</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a24</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a25</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a26</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a27</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a28</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a29</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a30</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a31</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a32</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a33</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.5999999999999996</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a35</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.5499999999999998</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a36</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a37</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.75</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a38</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a39</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a40</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.6500000000000004</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>b34</alternativeID>
+			<column>
+				<alternativeID>a1</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a2</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.10000000000000009</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a3</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a4</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a5</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a6</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a7</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a8</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a9</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a10</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a11</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a13</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a14</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.1499999999999999</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a15</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a16</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.5499999999999998</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a17</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a18</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a19</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a20</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a21</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a22</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.8000000000000007</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a24</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a25</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a26</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.2999999999999998</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a27</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a28</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.2999999999999998</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a29</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a30</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a31</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.7000000000000002</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a32</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a33</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a35</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.09999999999999964</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a36</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a37</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a38</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a39</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a40</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.40000000000000036</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>b45</alternativeID>
+			<column>
+				<alternativeID>a1</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a2</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a3</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a4</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a5</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a6</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a7</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.10000000000000142</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a8</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.75</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a9</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a10</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a11</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a13</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a14</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a15</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a16</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a17</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.4</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a18</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a19</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.7333333333333331</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a20</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a21</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.4</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a22</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a24</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a25</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a26</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a27</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.6333333333333334</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a28</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a29</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a30</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a31</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a32</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a33</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.3000000000000007</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.6999999999999998</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.6666666666666666</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a35</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a36</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a37</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a38</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a39</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>0.9666666666666668</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>a40</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a2</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.8999999999999999</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.3999999999999986</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.8333333333333334</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a3</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a4</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a5</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.5</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a6</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a7</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a8</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.25</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a9</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a10</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a11</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a12</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a13</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a14</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.8500000000000001</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.5</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a15</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a16</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.4500000000000002</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.6999999999999998</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a17</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.6000000000000001</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a18</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a19</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.6999999999999993</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a20</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a21</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.6000000000000001</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a22</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a23</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.2999999999999998</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a24</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a25</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.9000000000000004</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.4666666666666662</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a26</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.7000000000000002</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.8999999999999986</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a27</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.6999999999999993</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a28</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.7000000000000002</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a29</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.09999999999999964</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a30</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>1.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a31</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.2999999999999998</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a32</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a33</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.40000000000000036</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a34</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>1.0</real>
+					</value>
+					<value id="g6">
+						<real>1.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a35</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.4500000000000002</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a36</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.6000000000000002</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a37</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.25</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a38</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.4666666666666668</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a39</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>1.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.5</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+		<row>
+			<alternativeID>a40</alternativeID>
+			<column>
+				<alternativeID>b12</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>1.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.34999999999999964</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b23</alternativeID>
+				<values>
+					<value id="g1">
+						<real>1.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>1.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b34</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.29999999999999954</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+			<column>
+				<alternativeID>b45</alternativeID>
+				<values>
+					<value id="g1">
+						<real>0.0</real>
+					</value>
+					<value id="g2">
+						<real>0.0</real>
+					</value>
+					<value id="g3">
+						<real>0.0</real>
+					</value>
+					<value id="g4">
+						<real>0.0</real>
+					</value>
+					<value id="g5">
+						<real>0.0</real>
+					</value>
+					<value id="g6">
+						<real>0.0</real>
+					</value>
+					<value id="g7">
+						<real>0.0</real>
+					</value>
+				</values>
+			</column>
+		</row>
+	</alternativesMatrix>
+</xmcda:XMCDA>
