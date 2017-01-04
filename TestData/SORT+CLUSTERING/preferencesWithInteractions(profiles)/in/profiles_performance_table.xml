@@ -7,7 +7,7 @@
             <criterionID>g1</criterionID>
             <values>
                <value>
-                  <real>-10</real>
+                  <real>4</real>
                </value>
             </values>
          </performance>
@@ -15,7 +15,7 @@
             <criterionID>g2</criterionID>
             <values>
                <value>
-                  <real>-60</real>
+                  <real>0</real>
                </value>
             </values>
          </performance>
@@ -23,7 +23,7 @@
             <criterionID>g3</criterionID>
             <values>
                <value>
-                  <real>90</real>
+                  <real>65</real>
                </value>
             </values>
          </performance>
@@ -39,7 +39,7 @@
             <criterionID>g5</criterionID>
             <values>
                <value>
-                  <real>40</real>
+                  <real>12</real>
                </value>
             </values>
          </performance>
@@ -47,7 +47,7 @@
             <criterionID>g6</criterionID>
             <values>
                <value>
-                  <real>1</real>
+                  <real>2</real>
                </value>
             </values>
          </performance>
@@ -55,7 +55,7 @@
             <criterionID>g7</criterionID>
             <values>
                <value>
-                  <real>0</real>
+                  <real>3</real>
                </value>
             </values>
          </performance>
@@ -66,7 +66,7 @@
             <criterionID>g1</criterionID>
             <values>
                <value>
-                  <real>0</real>
+                  <real>10</real>
                </value>
             </values>
          </performance>
@@ -74,7 +74,7 @@
             <criterionID>g2</criterionID>
             <values>
                <value>
-                  <real>-40</real>
+                  <real>10</real>
                </value>
             </values>
          </performance>
@@ -82,7 +82,7 @@
             <criterionID>g3</criterionID>
             <values>
                <value>
-                  <real>75</real>
+                  <real>45</real>
                </value>
             </values>
          </performance>
@@ -98,7 +98,7 @@
             <criterionID>g5</criterionID>
             <values>
                <value>
-                  <real>32</real>
+                  <real>8</real>
                </value>
             </values>
          </performance>
@@ -106,7 +106,7 @@
             <criterionID>g6</criterionID>
             <values>
                <value>
-                  <real>2</real>
+                  <real>3</real>
                </value>
             </values>
          </performance>
@@ -114,7 +114,7 @@
             <criterionID>g7</criterionID>
             <values>
                <value>
-                  <real>2</real>
+                  <real>4</real>
                </value>
             </values>
          </performance>
@@ -125,7 +125,7 @@
             <criterionID>g1</criterionID>
             <values>
                <value>
-                  <real>8</real>
+                  <real>15</real>
                </value>
             </values>
          </performance>
@@ -133,7 +133,7 @@
             <criterionID>g2</criterionID>
             <values>
                <value>
-                  <real>-20</real>
+                  <real>20</real>
                </value>
             </values>
          </performance>
@@ -141,7 +141,7 @@
             <criterionID>g3</criterionID>
             <values>
                <value>
-                  <real>60</real>
+                  <real>40</real>
                </value>
             </values>
          </performance>
@@ -157,7 +157,7 @@
             <criterionID>g5</criterionID>
             <values>
                <value>
-                  <real>18</real>
+                  <real>4</real>
                </value>
             </values>
          </performance>
@@ -173,7 +173,7 @@
             <criterionID>g7</criterionID>
             <values>
                <value>
-                  <real>4</real>
+                  <real>5</real>
                </value>
             </values>
          </performance>
@@ -216,7 +216,7 @@
             <criterionID>g5</criterionID>
             <values>
                <value>
-                  <real>14</real>
+                  <real>0</real>
                </value>
             </values>
          </performance>
@@ -232,7 +232,7 @@
             <criterionID>g7</criterionID>
             <values>
                <value>
-                  <real>5</real>
+                  <real>6</real>
                </value>
             </values>
          </performance>
