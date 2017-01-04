@@ -14,7 +14,8 @@ public class GeneralisedCriteria {
 		generalisedCriteria.put(2, new UShapeCriterion());
 		generalisedCriteria.put(3, new VShapeCriterion());
 		generalisedCriteria.put(4, new LevelCriterion());
-		generalisedCriteria.put(5, new VShapeWithIndifferenceCriterion());		
+		generalisedCriteria.put(5, new VShapeWithIndifferenceCriterion());
+		generalisedCriteria.put(6, new GaussianCriterion());
 	}
 
 	/**
@@ -22,24 +23,25 @@ public class GeneralisedCriteria {
 	 * @param differenceBetweenEvaluations
 	 * @param p preferenceThreshold
 	 * @param q indefferenceThreshold
+	 * @param s sigmaThreshold
 	 * @return
 	 * @throws NullThresholdException
 	 */
-	public Double calculate(Integer functionNumber, Double differenceBetweenEvaluations, Double p, Double q)
+	public Double calculate(Integer functionNumber, Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
-		return generalisedCriteria.get(functionNumber).calculate(differenceBetweenEvaluations, p, q);
+		return generalisedCriteria.get(functionNumber).calculate(differenceBetweenEvaluations, p, q, s);
 	}
 }
 
 abstract class GeneralisedCriterion {
-	public abstract Double calculate(Double differenceBetweenEvaluations, Double p, Double q)
+	public abstract Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException;
 }
 
 class UsualCriterion extends GeneralisedCriterion {
 
 	@Override
-	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q) {
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s) {
 		if (differenceBetweenEvaluations <= 0) {
 			return 0.0;
 		} else {
@@ -51,7 +53,7 @@ class UsualCriterion extends GeneralisedCriterion {
 class UShapeCriterion extends GeneralisedCriterion {
 
 	@Override
-	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q)
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
 		if (q == null)
 			throw new NullThresholdException();
@@ -66,7 +68,7 @@ class UShapeCriterion extends GeneralisedCriterion {
 class VShapeCriterion extends GeneralisedCriterion {
 
 	@Override
-	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q)
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
 		if (p == null)
 			throw new NullThresholdException();
@@ -83,7 +85,7 @@ class VShapeCriterion extends GeneralisedCriterion {
 class LevelCriterion extends GeneralisedCriterion {
 
 	@Override
-	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q)
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
 		if ((p == null) || (q == null)) {
 			throw new NullThresholdException();
@@ -101,7 +103,7 @@ class LevelCriterion extends GeneralisedCriterion {
 class VShapeWithIndifferenceCriterion extends GeneralisedCriterion {
 
 	@Override
-	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q)
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
 		if ((p == null) || (q == null)) {
 			throw new NullThresholdException();
@@ -113,5 +115,19 @@ class VShapeWithIndifferenceCriterion extends GeneralisedCriterion {
 			return 1.0;
 		}
 		return (differenceBetweenEvaluations - q) / (p - q);
+	}
+}
+
+class GaussianCriterion extends GeneralisedCriterion {
+
+	@Override
+	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
+			throws NullThresholdException {
+		if (s == null)
+			throw new NullThresholdException();
+		if (differenceBetweenEvaluations <= 0) {
+			return 0.0;
+		}
+		return 1 - Math.exp(-(differenceBetweenEvaluations * differenceBetweenEvaluations / 2 * s * s));
 	}
 }

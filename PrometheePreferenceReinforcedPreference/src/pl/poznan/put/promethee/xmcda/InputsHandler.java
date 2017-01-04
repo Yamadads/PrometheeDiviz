@@ -146,6 +146,7 @@ public class InputsHandler {
 		public Map<String, Threshold<Double>> preferenceThresholds;
 		public Map<String, Threshold<Double>> indifferenceThresholds;
 		public Map<String, Threshold<Double>> reinforcedPreferenceThresholds;
+		public Map<String, Threshold<Double>> sigmaThresholds;
 
 	}
 
@@ -404,6 +405,9 @@ public class InputsHandler {
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
 		}
+		if (!reintorcementFactorsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)){
+			return null;
+		}
 		return inputs;
 	}
 
@@ -487,8 +491,7 @@ public class InputsHandler {
 
 			if (!xmcda.performanceTablesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("performance_table.xml file doesn't contain criterion: " + criterion);
+				xmcda_execution_results.addError("performance_table.xml file doesn't contain criterion: " + criterion);
 			}
 			if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 				if (!xmcda.performanceTablesList.get(1).getCriteria().contains(criterion)) {
@@ -499,19 +502,21 @@ public class InputsHandler {
 			}
 			if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("weights.xml file doesn't contain criterion: " + criterion);
+				xmcda_execution_results.addError("weights.xml file doesn't contain criterion: " + criterion);
 			}
-//			if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
-//				criteriaIdentical = false;
-//				xmcda_execution_results
-//						.addError("reinforcement_factors.xml file doesn't contain criterion: " + criterion);
-//			}
+			// if
+			// (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion))
+			// {
+			// criteriaIdentical = false;
+			// xmcda_execution_results
+			// .addError("reinforcement_factors.xml file doesn't contain
+			// criterion: " + criterion);
+			// }
 			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 				if (!xmcda.criteriaValuesList.get(2).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
-					xmcda_execution_results.addError(
-							"generalised_criteria.xm file doesn't contain criterion: " + criterion);
+					xmcda_execution_results
+							.addError("generalised_criteria.xm file doesn't contain criterion: " + criterion);
 				}
 			}
 
@@ -519,6 +524,20 @@ public class InputsHandler {
 				return criteriaIdentical;
 		}
 		return criteriaIdentical;
+	}
+	
+	private static Boolean reintorcementFactorsCompatibleWithGeneralisedCriteria(Inputs inputs, ProgramExecutionResult xmcda_execution_results){
+		if (inputs.generalisedCriteria == null)
+			return false;
+		for (String criterion : inputs.generalisedCriteria.keySet()){
+			if (inputs.generalisedCriteria.get(criterion)==6){
+				if (inputs.reinforcementFactors.containsKey(criterion)){
+					xmcda_execution_results.addError("Gaussian function cannot exist with Reinforcement Factor");
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	private static Boolean thresholdsCompatibleWithGeneralisedCriteria(Inputs inputs,
@@ -561,6 +580,14 @@ public class InputsHandler {
 					xmcda_execution_results.addError(
 							"V-Shape With Indifference function (5) specified in generalised_criteria.xml  on Criterion "
 									+ criterion + "requires indifference and preference thresholds");
+					compatible = false;
+				}
+				break;
+			case 6:
+				if ((inputs.sigmaThresholds == null) || (inputs.sigmaThresholds.get(criterion) == null)) {
+					xmcda_execution_results
+							.addError("Gaussian function (6) specified in generalised_criteria.xml  on Criterion "
+									+ criterion + "requires sigma threshold");
 					compatible = false;
 				}
 				break;
@@ -635,11 +662,11 @@ public class InputsHandler {
 			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(2);
 			for (Criterion criterion : generalisedCriteria.getCriteria()) {
 				Integer value = generalisedCriteria.get(criterion).get(0).getValue();
-				if ((value >= 1) && (value <= 5)) {
+				if ((value >= 1) && (value <= 6)) {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
 					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 5 in file generalised_criteria.xml");
+							"Generalised criteria must be integers between 1 and 6 in file generalised_criteria.xml");
 					break;
 				}
 			}
@@ -666,6 +693,7 @@ public class InputsHandler {
 
 		inputs.indifferenceThresholds = new LinkedHashMap<>();
 		inputs.reinforcedPreferenceThresholds = new LinkedHashMap<>();
+		inputs.sigmaThresholds = new LinkedHashMap<>();
 		inputs.preferenceThresholds = new LinkedHashMap<>();
 
 		for (Criterion criterion : thresholds.keySet()) {
@@ -676,6 +704,7 @@ public class InputsHandler {
 			int prefThresholdID = -1;
 			int indiffThresholdID = -1;
 			int reinforcedPreferenceThresholdID = -1;
+			int sigmaThresholdID = -1;
 
 			for (int i = 0; i < critThresholds.size(); i++) {
 				if (critThresholds.get(i).mcdaConcept().equals("indifference")) {
@@ -686,6 +715,9 @@ public class InputsHandler {
 				}
 				if (critThresholds.get(i).mcdaConcept().equals("reinforced_preference")) {
 					reinforcedPreferenceThresholdID = i;
+				}
+				if (critThresholds.get(i).mcdaConcept().equals("sigma")) {
+					sigmaThresholdID = i;
 				}
 			}
 			if (prefThresholdID != -1) {
@@ -700,14 +732,19 @@ public class InputsHandler {
 			} else {
 				inputs.indifferenceThresholds.put(criterion.id(), null);
 			}
+			if (sigmaThresholdID != -1) {
+				inputs.sigmaThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(sigmaThresholdID));
+			} else {
+				inputs.sigmaThresholds.put(criterion.id(), null);
+			}
 			if (reinforcedPreferenceThresholdID != -1) {
 				inputs.reinforcedPreferenceThresholds.put(criterion.id(),
 						(Threshold<Double>) critThresholds.get(reinforcedPreferenceThresholdID));
 			} else {
-				if (inputs.reinforcementFactors.containsKey(criterion)){
-					xmcda_execution_results
-					.addError("Reinforced preference threshold is not specified on criterion " + criterion.id());	
-				}				
+				if (inputs.reinforcementFactors.containsKey(criterion)) {
+					xmcda_execution_results.addError(
+							"Reinforced preference threshold is not specified on criterion " + criterion.id());
+				}
 				inputs.reinforcedPreferenceThresholds.put(criterion.id(), null);
 			}
 		}

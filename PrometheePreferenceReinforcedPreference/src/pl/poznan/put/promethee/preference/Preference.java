@@ -111,15 +111,16 @@ public class Preference {
 	}
 
 	private static Double calcPreferenceOnOneCriterion(Double ga, Double gb, String direction, Integer functionNumber,
-			Threshold<Double> preferenceThreshold, Threshold<Double> indifferenceThreshold)
-			throws WrongPreferenceDirectionException, NullThresholdException {
+			Threshold<Double> preferenceThreshold, Threshold<Double> indifferenceThreshold,
+			Threshold<Double> sigmaThreshold) throws WrongPreferenceDirectionException, NullThresholdException {
 		GeneralisedCriteria generalisedCriteria = new GeneralisedCriteria();
 
 		Double diff = calcDifferenceBetweenEvaluations(direction, ga, gb);
 		Double p = calcThreshold(direction, ga, gb, preferenceThreshold);
 		Double q = calcThreshold(direction, ga, gb, indifferenceThreshold);
+		Double s = calcThreshold(direction, ga, gb, sigmaThreshold);
 
-		Double preference = generalisedCriteria.calculate(functionNumber, diff, p, q);
+		Double preference = generalisedCriteria.calculate(functionNumber, diff, p, q, s);
 		return preference;
 	}
 
@@ -152,12 +153,11 @@ public class Preference {
 					for (String c : inputs.criteria_ids) {
 						preferenceMap.putIfAbsent(a, new LinkedHashMap<>());
 						preferenceMap.get(a).putIfAbsent(b, new LinkedHashMap<>());
-						preferenceMap.get(a).get(b).put(c,
-								calcPreferenceOnOneCriterion(inputs.performanceTable.get(a).get(c).doubleValue(),
-										inputs.performanceTable.get(b).get(c).doubleValue(),
-										inputs.preferenceDirections.get(c),
-										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c)));
+						preferenceMap.get(a).get(b).put(c, calcPreferenceOnOneCriterion(
+								inputs.performanceTable.get(a).get(c).doubleValue(),
+								inputs.performanceTable.get(b).get(c).doubleValue(), inputs.preferenceDirections.get(c),
+								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
+								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
@@ -172,14 +172,15 @@ public class Preference {
 										inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 										inputs.preferenceDirections.get(c),
 										inputs.generalisedCriteria.get(c).intValue(),
-										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c)));
+										inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+										inputs.sigmaThresholds.get(c)));
 						preferenceMap.putIfAbsent(b, new LinkedHashMap<>());
 						preferenceMap.get(b).putIfAbsent(a, new LinkedHashMap<>());
 						preferenceMap.get(b).get(a).put(c, calcPreferenceOnOneCriterion(
 								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 								inputs.performanceTable.get(a).get(c).doubleValue(), inputs.preferenceDirections.get(c),
 								inputs.generalisedCriteria.get(c).intValue(), inputs.preferenceThresholds.get(c),
-								inputs.indifferenceThresholds.get(c)));
+								inputs.indifferenceThresholds.get(c), inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
@@ -192,7 +193,8 @@ public class Preference {
 								inputs.profilesPerformanceTable.get(a).get(c).doubleValue(),
 								inputs.profilesPerformanceTable.get(b).get(c).doubleValue(),
 								inputs.preferenceDirections.get(c), inputs.generalisedCriteria.get(c).intValue(),
-								inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c)));
+								inputs.preferenceThresholds.get(c), inputs.indifferenceThresholds.get(c),
+								inputs.sigmaThresholds.get(c)));
 					}
 				}
 			}
