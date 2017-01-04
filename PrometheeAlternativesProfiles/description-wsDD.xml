@@ -11,7 +11,7 @@
 
     <input id="input1" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
-        <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). If reinforced preference mode is set also reinforced threshold is needed. Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
+        <description>Criteria to consider.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
