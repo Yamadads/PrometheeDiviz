@@ -118,6 +118,8 @@ public class Weights {
 				if (!ratioLplusGTLmins.contains(criterion)) {
 					normalizedWeightsUpTo100.put(criterion,
 							customRound(normalizedWeights.get(criterion), decimalPlaces, true));
+				}else{
+					lastCriterion--;
 				}
 				i--;
 			}
@@ -130,6 +132,11 @@ public class Weights {
 				}
 				i++;
 			}
+			if (checkSum(normalizedWeightsUpTo100)<100){
+				String criterion = sortedLminus.get(i);
+				normalizedWeightsUpTo100.put(criterion,
+						customRound(normalizedWeights.get(criterion), decimalPlaces, false));
+			}	
 		} else {
 			Integer i = 0;
 			Integer lastCriterion = v.intValue();
@@ -138,6 +145,8 @@ public class Weights {
 				if (!ratioLplusGTLmins.contains(criterion)) {
 					normalizedWeightsUpTo100.put(criterion,
 							customRound(normalizedWeights.get(criterion), decimalPlaces, false));
+				}else{
+					lastCriterion++;
 				}
 				i++;
 			}
@@ -150,8 +159,21 @@ public class Weights {
 				}
 				i++;
 			}
+			if (checkSum(normalizedWeightsUpTo100)>100){
+				String criterion = sortedLminus.get(i);
+				normalizedWeightsUpTo100.put(criterion,
+						customRound(normalizedWeights.get(criterion), decimalPlaces, true));
+			}						
 		}
 		return normalizedWeightsUpTo100;
+	}
+	
+	private static Double checkSum(Map<String, Double> sumUpTo100){
+		Double sum=0.0;
+		for (Double value: sumUpTo100.values()){
+			sum+=value;
+		}		
+		return sum;
 	}
 
 	private static ArrayList<String> sortMapKeysByValue(Map<String, Double> map, Boolean ascending) {
