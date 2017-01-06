@@ -102,20 +102,15 @@
     <criterionThreshold>
 	<criterionID>g2</criterionID>
 	<thresholds>
-                <threshold mcdaConcept="indifference">
+                <threshold mcdaConcept="sigma">
                     <constant>
-                        <real>2.0</real>
-                    </constant>
+                        <real>4.0</real>
+                    </constant>               
                 </threshold>
-                <threshold mcdaConcept="preference">
+                <threshold mcdaConcept="veto">
                     <constant>
-                        <real>6.0</real>
-                    </constant>
-                </threshold>
-		<threshold mcdaConcept="reinforced_preference">
-                    <constant>
-                        <real>20.0</real>
-                    </constant>
+                        <real>40.0</real>
+                    </constant>               
                 </threshold>
         </thresholds>
     </criterionThreshold>
@@ -152,6 +147,16 @@
                         <real>2.0</real>
                     </constant>
                 </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="veto">
+                    <constant>
+                        <real>4.0</real>
+                    </constant>
+                </threshold>
         </thresholds>
     </criterionThreshold>
     <criterionThreshold>
@@ -176,12 +181,17 @@
     </criterionThreshold>
     <criterionThreshold>
 	<criterionID>g6</criterionID>
-	<thresholds>
-                <threshold mcdaConcept="sigma">
+	<thresholds>      
+		<threshold mcdaConcept="indifference">
                     <constant>
-                        <real>1.5</real>
+                        <real>0.0</real>
                     </constant>
-                </threshold>                
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>          
         </thresholds>
     </criterionThreshold>
 </criteriaThresholds>

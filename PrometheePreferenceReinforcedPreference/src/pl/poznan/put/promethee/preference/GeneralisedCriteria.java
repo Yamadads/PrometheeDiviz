@@ -124,10 +124,10 @@ class GaussianCriterion extends GeneralisedCriterion {
 	public Double calculate(Double differenceBetweenEvaluations, Double p, Double q, Double s)
 			throws NullThresholdException {
 		if (s == null)
-			throw new NullThresholdException();
+			throw new NullThresholdException();				
 		if (differenceBetweenEvaluations <= 0) {
 			return 0.0;
 		}
-		return 1 - Math.exp(-(differenceBetweenEvaluations * differenceBetweenEvaluations / 2 * s * s));
+		return 1 - Math.exp(-((differenceBetweenEvaluations * differenceBetweenEvaluations) / (2 * s * s)));
 	}
 }
