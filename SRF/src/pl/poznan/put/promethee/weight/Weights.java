@@ -160,7 +160,7 @@ public class Weights {
 				i++;
 			}
 			if (checkSum(normalizedWeightsUpTo100)>100){
-				String criterion = sortedLminus.get(i);
+				String criterion = sortedLminus.get(lastCriterion);
 				normalizedWeightsUpTo100.put(criterion,
 						customRound(normalizedWeights.get(criterion), decimalPlaces, true));
 			}						
