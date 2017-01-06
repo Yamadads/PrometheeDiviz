@@ -3,15 +3,15 @@
 
 <criteriaValues name="reinforcement_factors" mcdaConcept="reinforcement_factors">
 		<criterionValue>
-			<criterionID>g2</criterionID>
+			<criterionID>g3</criterionID>
 			<values>
 				<value>
-					<real>1.5</real>
+					<real>1.2</real>
 				</value>
 			</values>
 		</criterionValue>
 		<criterionValue>
-			<criterionID>g3</criterionID>
+			<criterionID>g4</criterionID>
 			<values>
 				<value>
 					<real>1.5</real>
