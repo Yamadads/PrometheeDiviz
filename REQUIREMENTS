@@ -1,0 +1,30 @@
+1. Libraries
+- XMCDA - to compile and run each module you need to provide to project XMCDA library which supports xml files with tags 2.2.2 and 3.0.2 
+or above. All modules was tested with library: XMCDA-java-2.0.0-30-g919ccca.jar
+
+2. Java version
+To run modules from the repository you need to provide JAVA version at least 1.8
+
+3. Build and run modules
+The easiest way to build and run all modules from the repository is to import them using Intellij IDE or Eclipse (tested with Eclipse Neon.1a Release (4.6.1)) While running module you need to 
+specify main class (in each module it is the one with "XMCDA" in the name) and version of xmcda library and inputs and outputs files like 
+in following example:
+
+--v3 -i tests/in6.v3 -o tests/out6.v3
+
+Where:
+- "--v3" means that we are using xmcda v3 standard
+- "-i tests/in6.v3" informs us that we are using files from folder tests/in6.v3 as input; "-i" stands for input
+- "-o tests/out6.v3" informs us that we are using files from folder tests/out6.v3 as output; "-o" stands for output
+
+You can run existed in repository scripts after you specify the requirements in common_settings.sh:
+JAVA_HOME="/usr/lib/jvm/java-8-oracle/jre"  
+XMCDA_LIB="../XMCDA-java-2.0.0-30-g919ccca.jar"
+
+You can run module with run.sh :
+
+bash run.sh --v3 -i tests/in6.v3 -o tests/out6.v3
+
+You can run all existed tests with tests.sh :
+
+bash tests.sh --v3 
