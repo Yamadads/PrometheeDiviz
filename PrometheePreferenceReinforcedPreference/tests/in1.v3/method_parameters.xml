@@ -12,7 +12,7 @@
 		<parameter id="criterion" name="generalised_criterion">
 			<values>
 				<value>
-					<label>3</label>
+					<label>v-shape</label>
 				</value>
 			</values>
 		</parameter>
