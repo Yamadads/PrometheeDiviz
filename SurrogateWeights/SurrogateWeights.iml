@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="jar://$MODULE_DIR$/../PrometheeSurrogateWeights/lib/jopt-simple-4.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../SurrogateWeights/lib/jopt-simple-4.6.jar!/" />
     <src_description expected_position="0">
-      <src_folder value="file://$MODULE_DIR$/../PrometheeSurrogateWeights/src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/../SurrogateWeights/src" expected_position="0" />
     </src_description>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
