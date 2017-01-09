@@ -36,7 +36,7 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'ca
 			<parameter id="comparison_with" name="comparison_with">
 				<values>
 					<value>
-						<label>alternatives</label>
+						<label>%1</label>
 					</value>
 				</values>
 			</parameter>
@@ -67,14 +67,14 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'ca
 
     <output id="output1" name="positive_flows" displayName="positive_flows">
       <documentation>
-        <description>Positive outraning flows.</description>
+        <description>Positive outranking flows.</description>
       </documentation>
       <xmcda tag="alternativesValues" />
     </output>
 
     <output id="output2" name="negative_flows" displayName="negative_flows">
       <documentation>
-        <description>Negative outraning flows.</description>
+        <description>Negative outranking flows.</description>
       </documentation>
       <xmcda tag="alternativesValues" />
     </output>
