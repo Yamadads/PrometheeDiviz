@@ -57,14 +57,14 @@
 		<parameter name="criteria_weight_ratio">
 			<values>
 				<value>
-					<label>6.5</label>
+					<label>%1</label>
 				</value>
 			</values>
 		</parameter>
 		<parameter name="decimal_places">
 			<values>
 				<value>
-					<label>1</label>
+					<label>%2</label>
 				</value>
 			</values>
 		</parameter>

@@ -50,12 +50,12 @@
         <methodParameters>
           <parameter name="criteria_weight_ratio">
             <value>
-              <label>6.5</label>
+              <label>%1</label>
             </value>
           </parameter>
           <parameter name="decimal_places">
             <value>
-              <label>1</label>
+              <label>%2</label>
             </value>
           </parameter>
         </methodParameters>
