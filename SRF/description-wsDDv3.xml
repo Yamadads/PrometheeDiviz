@@ -57,14 +57,14 @@
 		<parameter name="criteria_weight_ratio">
 			<values>
 				<value>
-					<label>6.5</label>
+					<label>%1</label>
 				</value>
 			</values>
 		</parameter>
 		<parameter name="decimal_places">
 			<values>
 				<value>
-					<label>1</label>
+					<label>%2</label>
 				</value>
 			</values>
 		</parameter>
@@ -72,7 +72,7 @@
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="real" displayName="criteria_weight_ratio">
+        <entry id="%1" type="float" displayName="criteria_weight_ratio">
           <description>How many times the last criterion is more important than the first one in the ranking</description>
           <value>6.5</value>
         </entry>

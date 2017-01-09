@@ -3,7 +3,7 @@
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
   <program provider="PUT" name="SurrogateWeights" displayName="SurrogateWeights" version="0.2.0" />
   <documentation>
-    <description>SurrogateWeights - computes weights of criteria using ranking specified by user. Module allows to choose one of four method.
+    <description>SurrogateWeights - computes weights of criteria using ranking specified by user. Module allows to choose one of four methods.
     </description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
@@ -38,7 +38,7 @@
 					<integer>3</integer>
 				</value>
 			</values>
-		</criterionValue>		
+		</criterionValue>
 	</criteriaValues>
         ]]>
       </xmcda>
@@ -46,8 +46,7 @@
 
     <input id="input2" name="method_parameters" displayName="method_parameters" isoptional="0">
       <documentation>
-        <description>
-         PrometheeSurrogateWeigts module creates weights for criteria using several methods. In this parameter you can choose this method.
+        <description>PrometheeSurrogateWeigts module creates weights for criteria using several methods. In this parameter you can choose this method.
         </description>
       </documentation>
       <xmcda tag="programParameters">
@@ -56,7 +55,7 @@
 			<parameter name="method">
 				<values>
 					<value>
-						<label>equal_weights</label>
+						<label>%1</label>
 					</value>
 				</values>
 			</parameter>
@@ -71,18 +70,15 @@
               <value>equal_weights</value>
             </item>
             <item id="item1">
-              <description>Rank sum - provides normalized weights from the relationship between the ranking
-position of the criterion and the sum of ranks.</description>
+              <description>Rank sum - provides normalized weights from the relationship between the ranking position of the criterion and the sum of ranks.</description>
               <value>rank_sum</value>
             </item>
             <item id="item2">
-              <description>Reciprocal of the Ranks -  This method uses the reciprocal of the ranks which are normalized by dividing
-each term by the sum of the reciprocals.</description>
+              <description>Reciprocal of the Ranks -  This method uses the reciprocal of the ranks which are normalized by dividing each term by the sum of the reciprocals.</description>
               <value>rank_reciprocal</value>
             </item>
             <item id="item3">
-              <description>Rank-Order Centroid - This method uses the vertices from the simplex to define the centroid weight for the
-criteria.</description>
+              <description>Rank-Order Centroid - This method uses the vertices from the simplex to define the centroid weight for the criteria.</description>
               <value>rank_ordered_centroid</value>
             </item>
           </items>
