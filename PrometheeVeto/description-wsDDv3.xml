@@ -57,14 +57,14 @@ Choosing some of numbers sets same function for all criteria.
 		<parameter id="comparison_with" name="comparison_with">
 			<values>
 				<value>
-					<label>alternatives</label>
+					<label>%1</label>
 				</value>
 			</values>
 		</parameter>
 		<parameter id="weights_specified" name="weights_specified">
 			<values>
 				<value>
-					<label>specified</label>
+					<label>%2</label>
 				</value>
 			</values>
 		</parameter>
