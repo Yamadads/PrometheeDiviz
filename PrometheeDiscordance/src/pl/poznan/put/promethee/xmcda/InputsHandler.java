@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class InputsHandler {	
 	public static class Inputs {		
-		public Double technicalParam;			
+		public Integer technicalParam;			
 		public List<String> criteria_ids;					
 		public Map<String, Map<String, Map<String, Double>>> partialPreferences;
 	}
@@ -57,7 +57,7 @@ public class InputsHandler {
 	}
 
 	private static void checkParameters(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {		
-		Double technicalParam = null;
+		Integer technicalParam = null;
 		if (xmcda.programParametersList.size() > 1) {
 			errors.addError("Only one programParameters is expected");
 			return;
@@ -85,9 +85,9 @@ public class InputsHandler {
 
 		try {
 			final String parameterValue = (String) prgParam2.getValues().get(0).getValue();
-			technicalParam = Double.parseDouble(parameterValue);
+			technicalParam = Integer.parseInt(parameterValue);
 		} catch (Throwable throwable) {
-			String err = "Invalid value for parameter operator, it must be a Double value";
+			String err = "Invalid value for parameter operator, it must be an Integer value";
 			errors.addError(err);
 			technicalParam = null;
 		}

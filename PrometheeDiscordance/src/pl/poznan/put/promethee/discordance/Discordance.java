@@ -36,7 +36,7 @@ public class Discordance {
 	private static Double getTotalDiscordance(Inputs inputs, String alternative1, String alternative2,
 			Map<String, Map<String, Map<String, Double>>> discordances) {
 		Double result = 1.0;		
-		Double power = inputs.technicalParam / inputs.criteria_ids.size();
+		Double power = inputs.technicalParam.doubleValue() / inputs.criteria_ids.size();
 		for (String criterion : inputs.criteria_ids) {
 			Double disc = discordances.get(alternative1).get(alternative2).get(criterion);
 			result *= Math.pow((1.0 - disc), power);			

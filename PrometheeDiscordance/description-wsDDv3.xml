@@ -40,7 +40,7 @@
 ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="integer" displayName="technical_parameter">
+        <entry id="%1" type="int" displayName="technical_parameter">
         </entry>
       </gui>
     </input>
