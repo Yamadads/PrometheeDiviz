@@ -79,13 +79,12 @@ public class InputsHandler {
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter operator must have a single value only");
 			return;
 		}
 
-		try {
-			final String parameterValue = (String) prgParam2.getValues().get(0).getValue();
-			technicalParam = Integer.parseInt(parameterValue);
+		try {			
+			technicalParam = (Integer) prgParam2.getValues().get(0).getValue();
 		} catch (Throwable throwable) {
 			String err = "Invalid value for parameter operator, it must be an Integer value";
 			errors.addError(err);

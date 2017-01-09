@@ -32,7 +32,7 @@
 			<parameter id="technical_parameter" name="technical_parameter">
 				<values>
 					<value>
-						<int>%1</int>
+						<integer>%1</integer>
 					</value>
 				</values>
 			</parameter>

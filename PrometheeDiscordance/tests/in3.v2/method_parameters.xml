@@ -5,7 +5,7 @@
 <methodParameters>
   <parameter name="technical_parameter" id="technical_parameter">
     <value>
-      <label>1</label>
+      <integer>1</integer>
     </value>
   </parameter>
 </methodParameters>
