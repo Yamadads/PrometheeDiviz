@@ -3,8 +3,7 @@
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
   <program provider="PUT" name="PrometheeDiscordance" displayName="PrometheeDiscordance" version="0.2.0" />
   <documentation>
-    <description>Computes aggregated discordance indices and partial discordance indices.
-    </description>
+    <description>Computes aggregated discordance indices and partial discordance indices.</description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
@@ -22,26 +21,26 @@
       </documentation>
       <xmcda tag="alternativesMatrix" />
     </input>
-    
+
     <input id="input3" name="method_parameters" displayName="method_parameters" isoptional="0">
       <documentation>
-        <description>Parameter specifies the technical prameter for aggregating discordances.         </description>
+        <description>Parameter specifies the technical parameter for aggregating discordances.</description>
       </documentation>
       <xmcda tag="methodParameters">
         <![CDATA[
-        <programParameters>
+		<programParameters>
 			<parameter id="technical_parameter" name="technical_parameter">
 				<values>
 					<value>
-						<label>1</label>
+						<label>%1</label>
 					</value>
 				</values>
 			</parameter>
 		</programParameters>
-        ]]>
+]]>
       </xmcda>
-      <gui status="preferGUI">        
-        <entry id="%t" type="integer" displayName="technical_parameter">          
+      <gui status="preferGUI">
+        <entry id="%1" type="integer" displayName="technical_parameter">
         </entry>
       </gui>
     </input>
