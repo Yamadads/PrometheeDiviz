@@ -1,4 +1,4 @@
-package pl.poznan.put.promethee.xmcda;
+package pl.poznan.put.weights.xmcda;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package pl.poznan.put.promethee.xmcda;
+package pl.poznan.put.weights.xmcda;
 
 import org.xmcda.CriteriaValues;
 import org.xmcda.Criterion;
@@ -6,7 +6,7 @@ import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramParameter;
 import org.xmcda.XMCDA;
 
-import pl.poznan.put.promethee.exceptions.WrongParamValue;
+import pl.poznan.put.weights.exceptions.WrongParamValue;
 
 import java.util.ArrayList;
 import java.util.HashMap;

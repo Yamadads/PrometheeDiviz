@@ -1,4 +1,4 @@
-package pl.poznan.put.promethee.exceptions;
+package pl.poznan.put.weights.exceptions;
 
 public class WrongParamValue extends Exception {
 
