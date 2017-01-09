@@ -1,4 +1,4 @@
-package pl.poznan.put.promethee.xmcda;
+package pl.poznan.put.weights.xmcda;
 
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramExecutionResult.Status;

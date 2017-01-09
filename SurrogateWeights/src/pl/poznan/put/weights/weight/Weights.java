@@ -1,11 +1,11 @@
-package pl.poznan.put.promethee.weight;
+package pl.poznan.put.weights.weight;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import pl.poznan.put.promethee.xmcda.InputsHandler.Inputs;
+import pl.poznan.put.weights.xmcda.InputsHandler.Inputs;
 
 public class Weights {
 

@@ -1,4 +1,4 @@
-package pl.poznan.put.promethee.xmcda;
+package pl.poznan.put.weights.xmcda;
 
 public class InputFile {
 	public String loadTagV2;
