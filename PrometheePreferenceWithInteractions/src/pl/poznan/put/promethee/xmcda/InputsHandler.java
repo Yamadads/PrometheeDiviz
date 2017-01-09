@@ -79,8 +79,8 @@ public class InputsHandler {
 		}
 	}
 
-	public enum GeneralisedCriterionParam {
-		SPECIFIED("specified"), F1("1"), F2("2"), F3("3"), F4("4"), F5("5"), F6("6");
+	public enum GeneralisedCriterionParam {		
+		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6("gaussian");
 
 		private String label;
 
@@ -503,7 +503,7 @@ public class InputsHandler {
 		if (!thresholdsCompatibleWithGeneralisedCriteria(inputs, xmcda_execution_results)) {
 			return null;
 		}
-		extractInteractins(inputs, xmcda, xmcda_execution_results);
+		extractInteractions(inputs, xmcda, xmcda_execution_results);
 		return inputs;
 	}
 
@@ -739,7 +739,7 @@ public class InputsHandler {
 			}
 		} else {
 			for (String criterion : inputs.criteria_ids) {
-				inputs.generalisedCriteria.put(criterion, Integer.parseInt(inputs.generalisedCriterion.label));
+				inputs.generalisedCriteria.put(criterion, inputs.generalisedCriterion.ordinal());
 			}
 		}
 	}
@@ -803,7 +803,7 @@ public class InputsHandler {
 	}
 
 	@SuppressWarnings("rawtypes")
-	private static void extractInteractins(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+	private static void extractInteractions(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		@SuppressWarnings({ "unchecked" })
 		CriteriaSetsValues<Double, Double> interactions = (CriteriaSetsValues<Double, Double>) xmcda.criteriaSetsValuesList
 				.get(0);
