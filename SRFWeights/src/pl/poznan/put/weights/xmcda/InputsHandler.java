@@ -165,15 +165,15 @@ public class InputsHandler {
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter operator must have a single float value only");
 			return;
 		}
 
 		try {
-			final String parameterValue = (String) prgParam2.getValues().get(0).getValue();
-			criteriaWeightRatio = Double.parseDouble((String) parameterValue);
-			if (criteriaWeightRatio <= 0)
+			final Double parameterValue = (Double) prgParam2.getValues().get(0).getValue();			
+			if (parameterValue <= 0)
 				throw new WrongParamValue();
+			criteriaWeightRatio = parameterValue;
 		} catch (Throwable throwable) {
 			String err = "Invalid value for parameter operator, it must be a real value greater than 0 ";
 			errors.addError(err);

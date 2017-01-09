@@ -5,7 +5,7 @@
 		<parameter name="criteria_weight_ratio">
 			<values>
 				<value>
-					<label>5</label>
+					<real>5.0</real>
 				</value>
 			</values>
 		</parameter>

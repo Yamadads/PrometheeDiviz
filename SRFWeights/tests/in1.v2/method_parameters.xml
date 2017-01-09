@@ -5,7 +5,7 @@
 <methodParameters>
   <parameter name="criteria_weight_ratio">
     <value>
-      <label>6.5</label>
+      <real>6.5</real>
     </value>
   </parameter>
   <parameter name="decimal_places">

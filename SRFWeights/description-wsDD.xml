@@ -50,7 +50,7 @@
         <methodParameters>
           <parameter name="criteria_weight_ratio">
             <value>
-              <label>%1</label>
+              <real>%1</real>
             </value>
           </parameter>
           <parameter name="decimal_places">
@@ -63,8 +63,7 @@
       </xmcda>
       <gui status="preferGUI">
         <entry id="%1" type="float" displayName="criteria_weight_ratio">
-          <description>How many times the last criterion is more important than the first one in the ranking</description>
-          <value>6.5</value>
+          <description>How many times the last criterion is more important than the first one in the ranking</description>          
         </entry>
         <entry id="%2" type="enum" displayName="decimal_places">
           <items>
