@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="SRF" displayName="SRF" version="0.2.0" />
+  <program provider="PUT" name="SRFWeights" displayName="SRFWeights" version="0.2.0" />
   <documentation>
-    <description>SRF - computes weights of criteria using the revised Simos procedure
+    <description>SRFWeights - computes weights of criteria using the revised Simos procedure
     </description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
