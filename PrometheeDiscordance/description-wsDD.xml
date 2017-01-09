@@ -31,7 +31,7 @@
         <methodParameters>
           <parameter name="technical_parameter">
             <value>
-              <label>%1</label>
+              <int>%1</int>
             </value>
           </parameter>
         </methodParameters>
