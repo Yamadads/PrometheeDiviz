@@ -10,7 +10,7 @@
   </parameter>
   <parameter name="generalised_criterion" id="criterion">
     <value>
-      <label>1</label>
+      <label>usual</label>
     </value>
   </parameter>
 </methodParameters>

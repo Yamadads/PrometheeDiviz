@@ -101,27 +101,27 @@ Choosing some of numbers sets same function for all criteria.
             </item>
             <item id="item1">
               <description>Usual Criterion</description>
-              <value>1</value>
+              <value>usual</value>
             </item>
             <item id="item2">
               <description>U-Shape Criterion, needs indifference threshold specified in criterion.</description>
-              <value>2</value>
+              <value>u-shape</value>
             </item>
             <item id="item3">
               <description>V-Shape Criterion, needs threshold of strict preference specified in criterion.</description>
-              <value>3</value>
+              <value>v-shap</value>
             </item>
             <item id="item4">
               <description>Level Criterion, needs both indifference and strict preference thresholds specified in criterion.</description>
-              <value>4</value>
+              <value>level</value>
             </item>
             <item id="item5">
               <description>V-Shape with Indifference Criterion, needs both indifference and strict preference thresholds specified in criterion.</description>
-              <value>5</value>
+              <value>v-shape-ind</value>
             </item>
             <item id="item6">
               <description>Gaussian Criterion, needs the inflection point of the preference function specified in criterion.</description>
-              <value>6</value>
+              <value>gaussian</value>
             </item>
           </items>
           <defaultValue>item0</defaultValue>

@@ -76,7 +76,7 @@ public class InputsHandler {
 	}
 
 	public enum GeneralisedCriterionParam {
-		SPECIFIED("specified"), F1("1"), F2("2"), F3("3"), F4("4"), F5("5"), F6("6");
+		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6("gaussian");
 
 		private String label;
 
@@ -621,7 +621,7 @@ public class InputsHandler {
 			}
 		} else {
 			for (String criterion : inputs.criteria_ids) {
-				inputs.generalisedCriteria.put(criterion, Integer.parseInt(inputs.generalisedCriterion.label));
+				inputs.generalisedCriteria.put(criterion, inputs.generalisedCriterion.ordinal());				
 			}
 		}
 	}
