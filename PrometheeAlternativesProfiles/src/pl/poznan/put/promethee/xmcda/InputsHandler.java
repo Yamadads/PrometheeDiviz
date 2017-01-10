@@ -21,11 +21,6 @@ import java.util.Map;
  */
 public class InputsHandler {
 
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
 	public static class Inputs {
 		public List<String> alternatives_ids;
 		public List<String> criteria_ids;
@@ -48,12 +43,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -73,18 +65,18 @@ public class InputsHandler {
 
 	private static void checkPartialPreferences(XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.alternativesMatricesList.size() == 0) {
-			errors.addError("No partial preferences has been supplied");
+			errors.addError("Partial preferences has not been supplied");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.size() != 1) {
-			errors.addError("Exactly one partial preferences list is expected");
+			errors.addError("Exactly one list of partial preferences is expected");
 			return;
 		}
 		@SuppressWarnings("unchecked")
 		AlternativesMatrix<Double> matrix = (AlternativesMatrix<Double>) xmcda.alternativesMatricesList.get(0);
 
 		if (matrix.isEmpty()) {
-			errors.addError("Partial preferences list is empty");
+			errors.addError("List of partial preferences is empty");
 			return;
 		}
 	}
@@ -162,24 +154,24 @@ public class InputsHandler {
 		Coord<Alternative, Alternative> coord = new Coord<Alternative, Alternative>(alt1, alt2);
 		QualifiedValues<Double> values = matrix.getOrDefault(coord, null);
 		if (values == null) {
-			errors.addError("Partial Preferences list does not contain value for coord (" + a + "," + b + ")");
+			errors.addError("List of partial preferences does not contain value for coord (" + a + "," + b + ")");
 			return false;
 		}
 		if (values.size() != inputs.criteria_ids.size()) {
-			errors.addError("Partial Preferences list does not contain correct criteria list");
+			errors.addError("List of partial preferences does not contain correct criteria list");
 			return false;
 		}
 		for (QualifiedValue<Double> value : values) {
 			if (inputs.criteria_ids.contains(value.id())) {
 				if (inputs.partialPreferences.get(a).get(b).containsKey(value.id())) {
-					errors.addError("Partial Preferences list contains duplicates of criteria");
+					errors.addError("List of partial preferences contains duplicates of criteria");
 					return false;
 				} else {
 					inputs.partialPreferences.get(a).get(b).put(value.id(), value.getValue().doubleValue());
 				}
 
 			} else {
-				errors.addError("Partial Preferences list contains unexpected criterion id " + value.id());
+				errors.addError("List of partial preferences contains unexpected criterion id " + value.id());
 				return false;
 			}
 		}

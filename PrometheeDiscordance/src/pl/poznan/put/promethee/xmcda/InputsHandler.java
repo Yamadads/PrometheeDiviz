@@ -96,14 +96,14 @@ public class InputsHandler {
 			return;
 		}
 		if (xmcda.alternativesMatricesList.size() != 1) {
-			errors.addError("Exactly one partial preferences list is expected");
+			errors.addError("Exactly one list of partial preferences is expected");
 			return;
 		}
 		@SuppressWarnings("unchecked")
 		AlternativesMatrix<Double> matrix = (AlternativesMatrix<Double>) xmcda.alternativesMatricesList.get(0);
 
 		if (matrix.isEmpty()) {
-			errors.addError("Partial preferences list is empty");
+			errors.addError("List of partial preferences is empty");
 			return;
 		}
 	}
@@ -170,11 +170,11 @@ public class InputsHandler {
 		Coord<Alternative, Alternative> coord = new Coord<Alternative, Alternative>(alt1, alt2);
 		QualifiedValues<Double> values = matrix.getOrDefault(coord, null);
 		if (values == null) {
-			errors.addError("Partial Preferences list does not contain value for pair of alternatives (" + a + "," + b + ")");
+			errors.addError("List of partial preferences does not contain value for pair of alternatives (" + a + "," + b + ")");
 			return false;
 		}
 		if (values.size() != inputs.criteria_ids.size()) {
-			errors.addError("Partial Preferences list does not contain correct criteria list");
+			errors.addError("List of partial preferences does not contain correct criteria list");
 			return false;
 		}
 		for (QualifiedValue<Double> value : values) {
@@ -187,7 +187,7 @@ public class InputsHandler {
 				}
 
 			} else {
-				errors.addError("Partial Preferences list contains unexpected criterion id " + value.id());
+				errors.addError("List of partial preferences contains unexpected criterion id " + value.id());
 				return false;
 			}
 		}
