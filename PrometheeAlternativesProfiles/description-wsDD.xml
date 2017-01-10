@@ -16,14 +16,14 @@
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="partial_preferences" displayName="partial_preferences" isoptional="0">
+    <input id="input2" name="partial_preferences" displayName="partial preferences" isoptional="0">
       <documentation>
         <description>Preferences indices for all pairs of alternatives/ alternatives and profiles on each criterion</description>
       </documentation>
       <xmcda tag="alternativesComparisons" />
     </input>
 
-    <output id="output1" name="alternatives_profiles" displayName="alternatives_profiles">
+    <output id="output1" name="alternatives_profiles" displayName="alternatives profiles">
       <documentation>
         <description>profiles of the alternatives</description>
       </documentation>

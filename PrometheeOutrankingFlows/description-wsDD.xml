@@ -9,7 +9,7 @@
   </documentation>
   <parameters>
 
-    <input id="input1" name="categories_profiles" displayName="categories_profiles" isoptional="1">
+    <input id="input1" name="categories_profiles" displayName="categories profiles" isoptional="1">
       <documentation>
         <description>Definitions of profiles (boundary or central) which should be used for classes (categories) representation.</description>
       </documentation>
@@ -23,7 +23,7 @@
       <xmcda tag="alternativesComparisons" />
     </input>
 
-    <input id="input3" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input3" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>Parameter specifies the type of elements provided for comparison.
 
@@ -42,7 +42,7 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'ca
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="enum" displayName="comparison_with">
+        <entry id="%1" type="enum" displayName="comparison with">
           <items>
             <item id="item0">
               <description>alternatives vs alternatives</description>
@@ -63,14 +63,14 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'ca
     </input>
 
 
-    <output id="output1" name="positive_flows" displayName="positive_flows">
+    <output id="output1" name="positive_flows" displayName="positive flows">
       <documentation>
         <description>Positive outranking flows.</description>
       </documentation>
       <xmcda tag="alternativesValues" />
     </output>
 
-    <output id="output2" name="negative_flows" displayName="negative_flows">
+    <output id="output2" name="negative_flows" displayName="negative flows">
       <documentation>
         <description>Negative outranking flows.</description>
       </documentation>

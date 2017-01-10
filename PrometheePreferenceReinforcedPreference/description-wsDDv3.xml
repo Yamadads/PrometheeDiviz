@@ -17,14 +17,14 @@ This module is an extended version of 'PrometheePreference' - it brings the conc
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
+    <input id="input2" name="performance_table" displayName="performance table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input3" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
+    <input id="input3" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
@@ -38,14 +38,14 @@ This module is an extended version of 'PrometheePreference' - it brings the conc
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input5" name="generalised_criteria" displayName="generalised_criteria" isoptional="1">
+    <input id="input5" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input6" name="reinforcement_factors" displayName="reinforcement_factors" isoptional="0">
+    <input id="input6" name="reinforcement_factors" displayName="reinforcement factors" isoptional="0">
       <documentation>
         <description>Definitions of so-called 'reinforcement factors', one per each criterion for which 'reinforcement threshold' has been defined. For more regarding these concepts see the paper from 'Reference' section.
 
@@ -54,7 +54,7 @@ This input is mandatory, if you don't need need the concept of reinforced prefer
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input9" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input9" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 
@@ -86,7 +86,7 @@ Choosing some of numbers sets same function for all criteria.
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="enum" displayName="comparison_with">
+        <entry id="%1" type="enum" displayName="comparison with">
           <items>
             <item id="item0">
               <description>alternatives vs alternatives</description>
@@ -103,7 +103,7 @@ Choosing some of numbers sets same function for all criteria.
           </items>
           <defaultValue>item0</defaultValue>
         </entry>
-        <entry id="%2" type="enum" displayName="generalised_criterion">
+        <entry id="%2" type="enum" displayName="generalised criterion">
           <items>
             <item id="item0">
               <description>Each criterion needs its own function</description>
@@ -143,7 +143,7 @@ Choosing some of numbers sets same function for all criteria.
       <xmcda tag="alternativesMatrix" />
     </output>
 
-    <output id="output2" name="partial_preferences" displayName="partial_preferences">
+    <output id="output2" name="partial_preferences" displayName="partial preferences">
       <documentation>
         <description>Preference matrix computed from the given data. This matrix contains partial preference indices for all criteria and all pairs of alternatives or alternatives/profiles.</description>
       </documentation>

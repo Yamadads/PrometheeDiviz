@@ -19,14 +19,14 @@ boundary profiles and alternatives vs central (characteristic) profiles.
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="performance_table" displayName="performance_table" isoptional="0">
+    <input id="input2" name="performance_table" displayName="performance table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input3" name="profiles_performance_table" displayName="profiles_performance_table" isoptional="1">
+    <input id="input3" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
@@ -40,7 +40,7 @@ boundary profiles and alternatives vs central (characteristic) profiles.
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input5" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input5" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 
@@ -72,7 +72,7 @@ Choosing some of numbers sets same function for all criteria.
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="enum" displayName="comparison_with">
+        <entry id="%1" type="enum" displayName="comparison with">
           <items>
             <item id="item0">
               <description>alternatives vs alternatives</description>
@@ -89,7 +89,7 @@ Choosing some of numbers sets same function for all criteria.
           </items>
           <defaultValue>item0</defaultValue>
         </entry>
-        <entry id="%2" type="enum" displayName="weights_specified">
+        <entry id="%2" type="enum" displayName="weights specified">
           <items>
             <item id="item0">
               <description>Total veto coeficient is weighted average of veto on each criterion</description>
@@ -113,7 +113,7 @@ Choosing some of numbers sets same function for all criteria.
       <xmcda tag="alternativesMatrix" />
     </output>
 
-    <output id="output2" name="partial_veto" displayName="partial_veto">
+    <output id="output2" name="partial_veto" displayName="partial veto">
       <documentation>
         <description>Veto matrix computed from the given data. This matrix shows partial veto indices for all criteria, for all pairs of alternatives or alternatives/profiles.</description>
       </documentation>

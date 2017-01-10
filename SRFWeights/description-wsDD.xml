@@ -8,7 +8,7 @@
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
-    <input id="input1" name="criteria_ranking" displayName="criteria_ranking" isoptional="0">
+    <input id="input1" name="criteria_ranking" displayName="criteria ranking" isoptional="0">
       <documentation>
         <description>Criteria Values listing full ranking of criteria and containing information about blank cards.</description>
       </documentation>
@@ -38,7 +38,7 @@
       </xmcda>
     </input>
 
-    <input id="input2" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input2" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>Simos? procedure needs some parameters from users.
           First parameter is telling how many times the last criterion is more important than the first one in the ranking
@@ -62,10 +62,10 @@
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="float" displayName="criteria_weight_ratio">
+        <entry id="%1" type="float" displayName="criteria weight ratio">
           <description>How many times the last criterion is more important than the first one in the ranking</description>          
         </entry>
-        <entry id="%2" type="enum" displayName="decimal_places">
+        <entry id="%2" type="enum" displayName="decimal places">
           <items>
             <item id="item0">
               <description>Integer value</description>

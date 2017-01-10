@@ -15,14 +15,14 @@
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="partial_preferences" displayName="partial_preferences" isoptional="0">
+    <input id="input2" name="partial_preferences" displayName="partial preferences" isoptional="0">
       <documentation>
         <description>Preferences indices for all pairs of alternatives/ alternatives and profiles on each criterion</description>
       </documentation>
       <xmcda tag="alternativesComparisons" />
     </input>
 
-    <input id="input3" name="method_parameters" displayName="method_parameters" isoptional="0">
+    <input id="input3" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>Parameter specifies the technical parameter for aggregating discordances.</description>
       </documentation>
@@ -38,7 +38,7 @@
         ]]>
       </xmcda>
       <gui status="preferGUI">
-        <entry id="%1" type="int" displayName="technical_parameter">
+        <entry id="%1" type="int" displayName="technical parameter">
         </entry>
       </gui>
     </input>
@@ -51,7 +51,7 @@
       <xmcda tag="alternativesComparisons" />
     </output>
 
-    <output id="output2" name="partial_discordance" displayName="partial_discordance">
+    <output id="output2" name="partial_discordance" displayName="partial discordance">
       <documentation>
         <description>Discordance matrix computed from the given data. This matrix shows partial discordance indices for all criteria, for all pairs of alternatives or alternatives/profiles.</description>
       </documentation>
