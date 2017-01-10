@@ -23,6 +23,11 @@ public class OutputFileWriter {
 
 	private static void writeResultFilesV2(Map<String, XMCDA> xmcdaResults, ProgramExecutionResult executionResult,
 			String outputDirectory) {
+		
+		if (!executionResult.isError()) {
+            executionResult.addDebug("Success");
+        }
+		
 		org.xmcda.v2.XMCDA results_v2;
 		for (String outputName : xmcdaResults.keySet()) {
 			File outputFile = new File(outputDirectory, String.format("%s.xml", outputName));
