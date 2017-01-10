@@ -75,12 +75,14 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ComparisonWithParam with label " + parameterLabel);
+			throw new IllegalArgumentException(
+					"Enum ComparisonWithParam with label " + parameterLabel + "was not found");
 		}
 	}
 
-	public enum GeneralisedCriterionParam {		
-		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6("gaussian");
+	public enum GeneralisedCriterionParam {
+		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6(
+				"gaussian");
 
 		private String label;
 
@@ -126,7 +128,8 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum GeneralisedCriterionParam with label " + parameterLabel);
+			throw new IllegalArgumentException(
+					"Enum GeneralisedCriterionParam with label " + parameterLabel + "was not found");
 		}
 	}
 
@@ -177,15 +180,10 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ZFunctionParam with label " + parameterLabel);
+			throw new IllegalArgumentException("Enum ZFunctionParam with label " + parameterLabel + "was not found");
 		}
 	}
 
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public GeneralisedCriterionParam generalisedCriterion;
@@ -224,12 +222,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -247,27 +242,27 @@ public class InputsHandler {
 		GeneralisedCriterionParam generalisedCriterion = null;
 		ZFunctionParam zFunction = null;
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters was not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 3) {
-			errors.addError("Exactly three programParameters are expected");
+			errors.addError("Exactly three parameters are expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(0);
 
 		if (!"comparison_with".equals(prgParam.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam.id()));
 			return;
 		}
 
 		if (prgParam.getValues() == null || (prgParam.getValues() != null && prgParam.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"comparison_with\" must have a single (label) value only");
 			return;
 		}
 
@@ -279,7 +274,7 @@ public class InputsHandler {
 			for (ComparisonWithParam op : ComparisonWithParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"comparison_with\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			comparisonWith = null;
@@ -289,12 +284,12 @@ public class InputsHandler {
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(1);
 
 		if (!"generalised_criterion".equals(prgParam2.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam2.id()));
 			return;
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"generalised_criterion\" must have a single (label) value only");
 			return;
 		}
 
@@ -306,7 +301,7 @@ public class InputsHandler {
 			for (GeneralisedCriterionParam op : GeneralisedCriterionParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"generalised_criterion\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			generalisedCriterion = null;
@@ -316,12 +311,12 @@ public class InputsHandler {
 		final ProgramParameter<?> prgParam3 = xmcda.programParametersList.get(0).get(2);
 
 		if (!"z_function".equals(prgParam3.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam3.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam3.id()));
 			return;
 		}
 
 		if (prgParam3.getValues() == null || (prgParam3.getValues() != null && prgParam3.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"z_function\" must have a single (label) value only");
 			return;
 		}
 
@@ -333,7 +328,7 @@ public class InputsHandler {
 			for (ZFunctionParam op : ZFunctionParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"z_function\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			zFunction = null;
@@ -343,7 +338,7 @@ public class InputsHandler {
 
 	private static void checkPerformanceTables(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.performanceTablesList.size() == 0) {
-			errors.addError("No performance table has been supplied");
+			errors.addError("Performance table has not been supplied");
 			return;
 		} else if (xmcda.performanceTablesList.size() > 2) {
 			errors.addError("More than two performance tables have been supplied");
@@ -370,7 +365,7 @@ public class InputsHandler {
 					PerformanceTable<Double> perfTable = p.asDouble();
 					xmcda.performanceTablesList.set(0, perfTable);
 				} catch (ValueConverters.ConversionException e) {
-					final String msg = "Error when converting the performance table's value to Double, reason:";
+					final String msg = "Error when converting the performance value to Double, reason:";
 					errors.addError(Utils.getMessage(msg, e));
 					return;
 				}
@@ -389,7 +384,7 @@ public class InputsHandler {
 						PerformanceTable<Double> perfTable = p2.asDouble();
 						xmcda.performanceTablesList.set(1, perfTable);
 					} catch (ValueConverters.ConversionException e) {
-						final String msg = "Error when converting the performance table's value to Double, reason:";
+						final String msg = "Error when converting the performance value to Double, reason:";
 						errors.addError(Utils.getMessage(msg, e));
 					}
 				}
@@ -399,7 +394,7 @@ public class InputsHandler {
 
 	private static void checkCriteriaValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaValuesList.size() == 0) {
-			errors.addError("No criteria values has been supplied");
+			errors.addError("Criteria values has not been supplied");
 			return;
 		} else if ((inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED)
 				&& (xmcda.criteriaValuesList.size() != 2)) {
@@ -414,14 +409,14 @@ public class InputsHandler {
 		@SuppressWarnings("rawtypes")
 		CriteriaValues weights = xmcda.criteriaValuesList.get(0);
 		if (!weights.isNumeric()) {
-			errors.addError("The weights table must contain numeric values only");
+			errors.addError("The list of weights must contain numeric values only");
 		} else {
 			try {
 				@SuppressWarnings("unchecked")
 				CriteriaValues<Double> weightsDouble = weights.asDouble();
 				xmcda.criteriaValuesList.set(0, weightsDouble);
 			} catch (ValueConverters.ConversionException e) {
-				final String msg = "Error when converting the weights table's value to Double, reason:";
+				final String msg = "Error when converting the weight's value to Double, reason:";
 				errors.addError(Utils.getMessage(msg, e));
 				return;
 			}
@@ -430,7 +425,7 @@ public class InputsHandler {
 			@SuppressWarnings("unchecked")
 			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
 			if (!generalisedCriteria.isNumeric()) {
-				errors.addError("The generalised criteria table must contain numeric values only");
+				errors.addError("The list of generalised criteria must contain numeric values only");
 			}
 		}
 	}
@@ -444,15 +439,15 @@ public class InputsHandler {
 
 	private static void checkCriteriaSetsValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaSetsValuesList.size() == 0) {
-			errors.addError("No criteriaSetsValues has been supplied");
+			errors.addError("Criteria sets values has not been supplied");
 			return;
 		}
 		if (xmcda.criteriaSetsValuesList.size() != 1) {
-			errors.addError("Exactly one criteriaSetsValues is expected");
+			errors.addError("Exactly one list of criteria sets values is expected");
 			return;
 		}
 		if (xmcda.criteriaSetsValuesList.get(0).size() == 0) {
-			errors.addError("No criteriaSetsValues has been supplied");
+			errors.addError("List of criteria sets values is empty");
 			return;
 		}
 
@@ -465,7 +460,7 @@ public class InputsHandler {
 
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaScalesList.size() == 0) {
-			errors.addError("No scales list has been supplied");
+			errors.addError("Scales list has not been supplied");
 			return;
 		}
 		if (xmcda.criteriaScalesList.size() != 1) {
@@ -545,13 +540,13 @@ public class InputsHandler {
 			return true;
 		}
 		if (inputs.profiles_ids == null) {
-			errors.addError("Profile IDs is null");
+			errors.addError("List of profiles is empty");
 			return false;
 		}
 		Boolean unique = true;
 		for (String profile : inputs.profiles_ids) {
 			if (inputs.alternatives_ids.contains(profile)) {
-				errors.addError("Profile IDs are not unique");
+				errors.addError("List of active profiles is empty");
 				unique = false;
 				break;
 			}
@@ -563,16 +558,16 @@ public class InputsHandler {
 			ProgramExecutionResult xmcda_execution_results) {
 		Boolean allExists = true;
 		if (inputs.alternatives_ids.size() == 0) {
-			xmcda_execution_results.addError("No active alternatives in performance_table.xml");
+			xmcda_execution_results.addError("List of active alternatives is empty");
 			allExists = false;
 		}
 		if (inputs.criteria_ids.size() == 0) {
-			xmcda_execution_results.addError("No active criteria in criteria.xml");
+			xmcda_execution_results.addError("List of active criteria is empty");
 			allExists = false;
 		}
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			if (inputs.profiles_ids.size() == 0) {
-				xmcda_execution_results.addError("No active profiles in profiles_performance_table.xml");
+				xmcda_execution_results.addError("List of active profiles is empty");
 				allExists = false;
 			}
 		}
@@ -627,7 +622,7 @@ public class InputsHandler {
 			case 2:
 				if ((inputs.indifferenceThresholds == null) || (inputs.indifferenceThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("U-Shape function (2) specified in generalised_criteria.xml  on Criterion "
+							.addError("U-Shape function (2) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference threshold");
 					compatible = false;
 				}
@@ -635,7 +630,7 @@ public class InputsHandler {
 			case 3:
 				if ((inputs.preferenceThresholds == null) || (inputs.preferenceThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("V-Shape function (3) specified in generalised_criteria.xml  on Criterion "
+							.addError("V-Shape function (3) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires preference threshold");
 					compatible = false;
 				}
@@ -645,7 +640,7 @@ public class InputsHandler {
 						|| ((inputs.preferenceThresholds == null)
 								|| (inputs.preferenceThresholds.get(criterion) == null))) {
 					xmcda_execution_results
-							.addError("Level function (4) specified in generalised_criteria.xml  on Criterion "
+							.addError("Level function (4) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference and preference thresholds");
 					compatible = false;
 				}
@@ -655,7 +650,7 @@ public class InputsHandler {
 						|| ((inputs.preferenceThresholds == null)
 								|| (inputs.preferenceThresholds.get(criterion) == null))) {
 					xmcda_execution_results.addError(
-							"V-Shape With Indifference function (5) specified in generalised_criteria.xml  on Criterion "
+							"V-Shape With Indifference function (5) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference and preference thresholds");
 					compatible = false;
 				}
@@ -663,7 +658,7 @@ public class InputsHandler {
 			case 6:
 				if ((inputs.sigmaThresholds == null) || (inputs.sigmaThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("Gaussian function (6) specified in generalised_criteria.xml  on Criterion "
+							.addError("Gaussian function (6) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires sigma threshold");
 					compatible = false;
 				}
@@ -733,7 +728,7 @@ public class InputsHandler {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
 					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 6 in file generalised_criteria.xml");
+							"Generalised criteria must be integers between 1 and 6");
 					break;
 				}
 			}
@@ -812,7 +807,7 @@ public class InputsHandler {
 		for (CriteriaSet criteriaSet : interactions.keySet()) {
 			CriteriaSet criteriaSetFromSets = xmcda.criteriaSets.get(criteriaSet.id());
 			if (criteriaSetFromSets.size() != 2) {
-				errors.addError("Criteria Set need exactly 2 criteria");
+				errors.addError("Criteria Set needs exactly 2 criteria");
 				return;
 			}
 			String criterion1 = ((Criterion) criteriaSetFromSets.keySet().toArray()[0]).id();
@@ -820,7 +815,7 @@ public class InputsHandler {
 
 			String interactionType = interactions.get(criteriaSetFromSets).mcdaConcept();
 			if (interactionType == null) {
-				errors.addError("mcdaConcept need to be specified in value of interaction");
+				errors.addError("mcdaConcept has to be specified in value of interaction");
 				return;
 			}
 			Double interactionCoefficient = getInteractionCoefficient(interactions, criteriaSetFromSets, errors);
@@ -873,7 +868,7 @@ public class InputsHandler {
 	private static void weakeningCase(Inputs inputs, String criterion1, String criterion2,
 			Double interactionCoefficient, ProgramExecutionResult errors) {
 		if (interactionCoefficient >= 0) {
-			errors.addError("weakening coefficient must be less than zero");
+			errors.addError("Weakening coefficient must be less than zero");
 			return;
 		}
 		inputs.weakeningEffect.putIfAbsent(criterion1, new LinkedHashMap<String, Double>());
@@ -906,7 +901,7 @@ public class InputsHandler {
 	private static void strengtheningCase(Inputs inputs, String criterion1, String criterion2,
 			Double interactionCoefficient, ProgramExecutionResult errors) {
 		if (interactionCoefficient <= 0) {
-			errors.addError("strengthening coefficient must be greater than zero");
+			errors.addError("Strengthening coefficient must be greater than zero");
 			return;
 		}
 		inputs.strengtheningEffect.putIfAbsent(criterion1, new LinkedHashMap<String, Double>());

@@ -71,12 +71,13 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ComparisonWithParam with label " + parameterLabel);
+			throw new IllegalArgumentException("Enum ComparisonWithParam with label " + parameterLabel + "not found");
 		}
 	}
 
 	public enum GeneralisedCriterionParam {
-		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6("gaussian");
+		SPECIFIED("specified"), F1("usual"), F2("u-shape"), F3("v-shape"), F4("level"), F5("v-shape-ind"), F6(
+				"gaussian");
 
 		private String label;
 
@@ -122,15 +123,11 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum GeneralisedCriterionParam with label " + parameterLabel);
+			throw new IllegalArgumentException(
+					"Enum GeneralisedCriterionParam with label " + parameterLabel + " not found");
 		}
 	}
-
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
+	
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public GeneralisedCriterionParam generalisedCriterion;
@@ -162,14 +159,11 @@ public class InputsHandler {
 
 		return extractInputs(inputsDict, xmcda, xmcda_exec_results);
 	}
-
+	
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -184,27 +178,27 @@ public class InputsHandler {
 		ComparisonWithParam comparisonWith = null;
 		GeneralisedCriterionParam generalisedCriterion = null;
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 2) {
-			errors.addError("Exactly two programParameters are expected");
+			errors.addError("Exactly two parameters are expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(0);
 
 		if (!"comparison_with".equals(prgParam.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam.id()));
 			return;
 		}
 
 		if (prgParam.getValues() == null || (prgParam.getValues() != null && prgParam.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("comparison_with patemater must have a single (label) value only");
 			return;
 		}
 
@@ -216,7 +210,7 @@ public class InputsHandler {
 			for (ComparisonWithParam op : ComparisonWithParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"comparison_with\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			comparisonWith = null;
@@ -226,12 +220,12 @@ public class InputsHandler {
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(1);
 
 		if (!"generalised_criterion".equals(prgParam2.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam2.id()));
 			return;
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"generalised_criterion\" must have a single (label) value only");
 			return;
 		}
 
@@ -243,7 +237,7 @@ public class InputsHandler {
 			for (GeneralisedCriterionParam op : GeneralisedCriterionParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"generalised_criterion\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			generalisedCriterion = null;
@@ -253,7 +247,7 @@ public class InputsHandler {
 
 	private static void checkPerformanceTables(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.performanceTablesList.size() == 0) {
-			errors.addError("No performance table has been supplied");
+			errors.addError("Performance table has not been supplied");
 			return;
 		} else if (xmcda.performanceTablesList.size() > 2) {
 			errors.addError("More than two performance tables have been supplied");
@@ -310,7 +304,7 @@ public class InputsHandler {
 	@SuppressWarnings("unchecked")
 	private static void checkCriteriaValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaValuesList.size() == 0) {
-			errors.addError("No criteria values has been supplied");
+			errors.addError("Criteria values has not been supplied");
 			return;
 		} else if ((inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED)
 				&& (xmcda.criteriaValuesList.size() != 2)) {
@@ -319,42 +313,42 @@ public class InputsHandler {
 		}
 		if ((inputs.generalisedCriterion != GeneralisedCriterionParam.SPECIFIED)
 				&& (xmcda.criteriaValuesList.size() != 1)) {
-			errors.addError("More than one criteriaValues have been supplied. Only Criteria weights is expected. ");
+			errors.addError("More than one criteria values have been supplied. Only weights of criteria are expected. ");
 			return;
 		}
 		@SuppressWarnings("rawtypes")
 		CriteriaValues weights = xmcda.criteriaValuesList.get(0);
 		if (!weights.isNumeric()) {
-			errors.addError("The weights table must contain numeric values only");
+			errors.addError("The table of weights must contain numeric values only");
 		} else {
 			try {
 				CriteriaValues<Double> weightsDouble = weights.asDouble();
 				xmcda.criteriaValuesList.set(0, weightsDouble);
 			} catch (ValueConverters.ConversionException e) {
-				final String msg = "Error when converting the weights table's value to Double, reason:";
+				final String msg = "Error when converting the value of weight to Double, reason:";
 				errors.addError(Utils.getMessage(msg, e));
 				return;
 			}
 		}
-		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED){
-			if (xmcda.criteriaValuesList.get(0)==null){
+		if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
+			if (xmcda.criteriaValuesList.get(0) == null) {
 				errors.addError("generalised_criteria.xml file not found");
 				return;
 			}
 			CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(1);
 			if (!generalisedCriteria.isNumeric()) {
-				errors.addError("The generalised criteria table must contain numeric values only");
+				errors.addError("The table of generalised criteria must contain numeric values only");
 			}
-		}		
+		}
 	}
 
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaScalesList.size() == 0) {
-			errors.addError("No scales list has been supplied");
+			errors.addError("List of scales has not been supplied");
 			return;
 		}
 		if (xmcda.criteriaScalesList.size() != 1) {
-			errors.addError("Exactly one scales list is expected");
+			errors.addError("Exactly one list of scales is expected");
 			return;
 		}
 	}
@@ -429,13 +423,13 @@ public class InputsHandler {
 			return true;
 		}
 		if (inputs.profiles_ids == null) {
-			errors.addError("Profile IDs is null");
+			errors.addError("List of profiles is null");
 			return false;
 		}
 		Boolean unique = true;
 		for (String profile : inputs.profiles_ids) {
 			if (inputs.alternatives_ids.contains(profile)) {
-				errors.addError("Profile IDs are not unique");
+				errors.addError("Ids of profiles are not unique");
 				unique = false;
 				break;
 			}
@@ -447,16 +441,16 @@ public class InputsHandler {
 			ProgramExecutionResult xmcda_execution_results) {
 		Boolean allExists = true;
 		if (inputs.alternatives_ids.size() == 0) {
-			xmcda_execution_results.addError("No active alternatives in performance_table.xml");
+			xmcda_execution_results.addError("List of active alternatives is empty");
 			allExists = false;
 		}
 		if (inputs.criteria_ids.size() == 0) {
-			xmcda_execution_results.addError("No active criteria in criteria.xml");
+			xmcda_execution_results.addError("List of active criteria is empty");
 			allExists = false;
 		}
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			if (inputs.profiles_ids.size() == 0) {
-				xmcda_execution_results.addError("No active profiles in profiles_performance_table.xml");
+				xmcda_execution_results.addError("List of active profiles is empty");
 				allExists = false;
 			}
 		}
@@ -471,26 +465,28 @@ public class InputsHandler {
 
 			if (!xmcda.performanceTablesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
-				xmcda_execution_results
-						.addError("Criteria are not identical, performance_table.xml doesn't contain criterion "+ criterionID);
+				xmcda_execution_results.addError(
+						"Criteria are not identical, performance_table.xml doesn't contain criterion " + criterionID);
 			}
 			if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 				if (!xmcda.performanceTablesList.get(1).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
 					xmcda_execution_results.addError(
-							"Criteria are not identical, profiles_performance_table.xml doesn't contain criterion "+ criterionID);
+							"Criteria are not identical, profiles_performance_table.xml doesn't contain criterion "
+									+ criterionID);
 				}
 			}
 			if (!xmcda.criteriaValuesList.get(0).getCriteria().contains(criterion)) {
 				criteriaIdentical = false;
 				xmcda_execution_results
-						.addError("Criteria are not identical, weights.xml doesn't contain criterion "+ criterionID);
+						.addError("Criteria are not identical, weights.xml doesn't contain criterion " + criterionID);
 			}
 			if (inputs.generalisedCriterion == GeneralisedCriterionParam.SPECIFIED) {
 				if (!xmcda.criteriaValuesList.get(1).getCriteria().contains(criterion)) {
 					criteriaIdentical = false;
-					xmcda_execution_results.addError(
-							"Criteria are not identical, generalised_criteria.xm doesn't contain criterion "+ criterionID);
+					xmcda_execution_results
+							.addError("Criteria are not identical, generalised_criteria.xm doesn't contain criterion "
+									+ criterionID);
 				}
 			}
 			if (!criteriaIdentical)
@@ -509,7 +505,7 @@ public class InputsHandler {
 			case 2:
 				if ((inputs.indifferenceThresholds == null) || (inputs.indifferenceThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("U-Shape function (2) specified in generalised_criteria.xml  on Criterion "
+							.addError("U-Shape function (2) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference threshold");
 					compatible = false;
 				}
@@ -517,7 +513,7 @@ public class InputsHandler {
 			case 3:
 				if ((inputs.preferenceThresholds == null) || (inputs.preferenceThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("V-Shape function (3) specified in generalised_criteria.xml  on Criterion "
+							.addError("V-Shape function (3) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires preference threshold");
 					compatible = false;
 				}
@@ -527,7 +523,7 @@ public class InputsHandler {
 						|| ((inputs.preferenceThresholds == null)
 								|| (inputs.preferenceThresholds.get(criterion) == null))) {
 					xmcda_execution_results
-							.addError("Level function (4) specified in generalised_criteria.xml  on Criterion "
+							.addError("Level function (4) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference and preference thresholds");
 					compatible = false;
 				}
@@ -537,7 +533,7 @@ public class InputsHandler {
 						|| ((inputs.preferenceThresholds == null)
 								|| (inputs.preferenceThresholds.get(criterion) == null))) {
 					xmcda_execution_results.addError(
-							"V-Shape With Indifference function (5) specified in generalised_criteria.xml  on Criterion "
+							"V-Shape With Indifference function (5) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires indifference and preference thresholds");
 					compatible = false;
 				}
@@ -545,7 +541,7 @@ public class InputsHandler {
 			case 6:
 				if ((inputs.sigmaThresholds == null) || (inputs.sigmaThresholds.get(criterion) == null)) {
 					xmcda_execution_results
-							.addError("Gaussian function (6) specified in generalised_criteria.xml  on Criterion "
+							.addError("Gaussian function (6) specified in generalised_criteria.xml on criterion "
 									+ criterion + "requires sigma threshold");
 					compatible = false;
 				}
@@ -615,13 +611,13 @@ public class InputsHandler {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
 					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 6 in file generalised_criteria.xml");
+							"Generalised criteria must be integers between 1 and 6");
 					break;
 				}
 			}
 		} else {
 			for (String criterion : inputs.criteria_ids) {
-				inputs.generalisedCriteria.put(criterion, inputs.generalisedCriterion.ordinal());				
+				inputs.generalisedCriteria.put(criterion, inputs.generalisedCriterion.ordinal());
 			}
 		}
 	}

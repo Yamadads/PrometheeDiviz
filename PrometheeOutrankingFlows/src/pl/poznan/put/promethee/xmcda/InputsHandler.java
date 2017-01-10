@@ -65,15 +65,10 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ComparisonWithParam with label " + parameterLabel);
+			throw new IllegalArgumentException("Enum ComparisonWithParam with label " + parameterLabel + " not found");
 		}
 	}
 
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public List<String> alternatives_ids;
@@ -95,14 +90,11 @@ public class InputsHandler {
 
 		return extractInputs(inputsDict, xmcda, xmcda_exec_results);
 	}
-
+	
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -117,27 +109,27 @@ public class InputsHandler {
 		ComparisonWithParam comparisonWith = null;
 
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 1) {
-			errors.addError("Exactly one programParameters are expected");
+			errors.addError("Exactly one parameter is expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(0);
 
 		if (!"comparison_with".equals(prgParam.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam.id()));
 			return;
 		}
 
 		if (prgParam.getValues() == null || (prgParam.getValues() != null && prgParam.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("comparison_with parameter must have a single (label) value only");
 			return;
 		}
 
@@ -149,7 +141,7 @@ public class InputsHandler {
 			for (ComparisonWithParam op : ComparisonWithParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for comparison_with parameter, it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			comparisonWith = null;
@@ -159,41 +151,41 @@ public class InputsHandler {
 
 	private static void checkAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.alternatives.size() == 0) {
-			errors.addError("No alternatives found");
+			errors.addError("Alternatives not found");
 			return;
 		}
 		if (xmcda.alternatives.getActiveAlternatives().size() == 0) {
-			errors.addError("No active alternatives found");
+			errors.addError("Active alternatives not found");
 			return;
 		}
 	}
 
 	private static void checkPreferences(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.alternativesMatricesList.size() == 0) {
-			errors.addError("No preference table has been supplied");
+			errors.addError("List of preferences has not been supplied");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.size() != 1) {
-			errors.addError("Exactly one performance table is expected");
+			errors.addError("Exactly one list of preferences is expected");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.get(0).isEmpty()) {
-			errors.addError("Preferences table is empty");
+			errors.addError("List of preferences is empty");
 		}
 	}
 
 	private static void checkCategoriesProfiles(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			if (xmcda.categoriesProfilesList.size() == 0) {
-				errors.addError("No preference table has been supplied");
+				errors.addError("List of categories profiles has not been supplied");
 				return;
 			}
 			if (xmcda.categoriesProfilesList.size() != 1) {
-				errors.addError("Exactly one performance table is expected");
+				errors.addError("Exactly one list of categories profiles is expected");
 				return;
 			}
 			if (xmcda.categoriesProfilesList.get(0).isEmpty()) {
-				errors.addError("Categories Profiles list is empty");
+				errors.addError("List of categories rofiles is empty");
 				return;
 			}
 		}
@@ -220,15 +212,15 @@ public class InputsHandler {
 			inputs.profiles_ids = new ArrayList<String>();
 			for (CategoryProfile catProf : xmcda.categoriesProfilesList.get(0)) {
 				if (inputs.comparisonWith == ComparisonWithParam.BOUNDARY_PROFILES) {
-					if ((catProf.getLowerBound() == null)&&(catProf.getUpperBound() == null)){
+					if ((catProf.getLowerBound() == null) && (catProf.getUpperBound() == null)) {
 						errors.addError("Upper Bound or Lower Bound Profile in categories profiles must be specified");
 						return;
-					}						
+					}
 					if (catProf.getLowerBound() != null) {
 						if (catProf.getLowerBound().getAlternative() != null) {
 							inputs.profiles_ids.add(catProf.getLowerBound().getAlternative().id());
 						} else {
-							errors.addError("Alternative in Category Profile must be specified");
+							errors.addError("Alternative in one of categories profiles is not specified");
 							return;
 						}
 					}
@@ -236,7 +228,7 @@ public class InputsHandler {
 						if (catProf.getUpperBound().getAlternative() != null) {
 							inputs.profiles_ids.add(catProf.getUpperBound().getAlternative().id());
 						} else {
-							errors.addError("Alternative in Category Profile must be specified");
+							errors.addError("Alternative in one of categories profiles is not specified");
 							return;
 						}
 					}
@@ -246,17 +238,17 @@ public class InputsHandler {
 						if (catProf.getCentralProfile().getAlternative() != null) {
 							inputs.profiles_ids.add(catProf.getCentralProfile().getAlternative().id());
 						} else {
-							errors.addError("Alternative in Category Profile must be specified");
+							errors.addError("Alternative in one of categories profiles is not specified");
 							return;
 						}
 					} else {
-						errors.addError("Central Profile in categories profiles must be specified");
+						errors.addError("Central Profile in one of categories profiles must be specified");
 						return;
 					}
 				}
 			}
 			if (inputs.profiles_ids.isEmpty()) {
-				errors.addError("Profiles IDs is empty");
+				errors.addError("List of profiles is empty");
 			}
 		}
 	}
@@ -275,7 +267,7 @@ public class InputsHandler {
 		}
 		inputs.alternatives_ids = alternatives_ids;
 		if (alternatives_ids.isEmpty()) {
-			errors.addError("Profiles IDs is empty");
+			errors.addError("List of alternatives is empty");
 		}
 	}
 
@@ -301,13 +293,13 @@ public class InputsHandler {
 						for (String alternative2 : inputs.alternatives_ids) {
 							if (alternative != alternative2) {
 								if (!inputs.preferences.get(alternative).containsKey(alternative2)) {
-									errors.addError("In preferences table doesn't exist alternative: " + alternative2);
+									errors.addError("In list of preferences doesn't exist alternative: " + alternative2);
 									return;
 								}
 							}
 						}
 					} else {
-						errors.addError("In preferences table doesn't exist alternative: " + alternative);
+						errors.addError("In list of preferences doesn't exist alternative: " + alternative);
 						return;
 					}
 				}
@@ -318,13 +310,13 @@ public class InputsHandler {
 							for (String profile2 : inputs.profiles_ids) {
 								if (profile != profile2) {
 									if (!inputs.preferences.get(profile).containsKey(profile2)) {
-										errors.addError("In preferences table doesn't exist profile: " + profile2);
+										errors.addError("In list of preferences doesn't exist profile: " + profile2);
 										return;
 									}
 								}
 							}
 						} else {
-							errors.addError("In preferences table doesn't exist profile: " + profile);
+							errors.addError("In list of preferences doesn't exist profile: " + profile);
 							return;
 						}
 					}
@@ -332,12 +324,12 @@ public class InputsHandler {
 						if (inputs.preferences.containsKey(alternative)) {
 							for (String profile : inputs.profiles_ids) {
 								if (!inputs.preferences.get(alternative).containsKey(profile)) {
-									errors.addError("In preferences table doesn't exist profile: " + profile);
+									errors.addError("In list of preferences doesn't exist profile: " + profile);
 									return;
 								}
 							}
 						} else {
-							errors.addError("In preferences table doesn't exist alternative: " + alternative);
+							errors.addError("In list of preferences doesn't exist alternative: " + alternative);
 							return;
 						}
 					}
@@ -345,12 +337,12 @@ public class InputsHandler {
 						if (inputs.preferences.containsKey(profile)) {
 							for (String alternative : inputs.alternatives_ids) {
 								if (!inputs.preferences.get(profile).containsKey(alternative)) {
-									errors.addError("In preferences table doesn't exist alternative: " + alternative);
+									errors.addError("In list of preferences doesn't exist alternative: " + alternative);
 									return;
 								}
 							}
 						} else {
-							errors.addError("In preferences table doesn't exist profile: " + profile);
+							errors.addError("In list of preferences doesn't exist profile: " + profile);
 							return;
 						}
 					}

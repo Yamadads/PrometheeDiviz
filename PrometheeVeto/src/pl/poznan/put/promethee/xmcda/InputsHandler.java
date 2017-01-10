@@ -72,7 +72,8 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum ComparisonWithParam with label " + parameterLabel);
+			throw new IllegalArgumentException(
+					"Enum ComparisonWithParam with label " + parameterLabel + "was not found");
 		}
 	}
 
@@ -123,15 +124,10 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum WeightsParam with label " + parameterLabel);
+			throw new IllegalArgumentException("Enum WeightsParam with label " + parameterLabel + "was not found");
 		}
 	}
 
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public WeightsParam weightsParam;
@@ -161,12 +157,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -181,27 +174,27 @@ public class InputsHandler {
 		ComparisonWithParam comparisonWith = null;
 		WeightsParam weightsParam = null;
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters was not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 2) {
-			errors.addError("Exactly two programParameters are expected");
+			errors.addError("Exactly two parameters are expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(0);
 
 		if (!"comparison_with".equals(prgParam.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam.id()));
 			return;
 		}
 
 		if (prgParam.getValues() == null || (prgParam.getValues() != null && prgParam.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"comparison_with\" must have a single (label) value only");
 			return;
 		}
 
@@ -213,7 +206,7 @@ public class InputsHandler {
 			for (ComparisonWithParam op : ComparisonWithParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"comparison_with\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			comparisonWith = null;
@@ -223,12 +216,12 @@ public class InputsHandler {
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(1);
 
 		if (!"weights_specified".equals(prgParam2.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam2.id()));
 			return;
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"weights_specified\" must have a single (label) value only");
 			return;
 		}
 
@@ -240,7 +233,7 @@ public class InputsHandler {
 			for (WeightsParam op : WeightsParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"weights_specified\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			weightsParam = null;
@@ -250,7 +243,7 @@ public class InputsHandler {
 
 	private static void checkPerformanceTables(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.performanceTablesList.size() == 0) {
-			errors.addError("No performance table has been supplied");
+			errors.addError("Performance table has not been supplied");
 			return;
 		} else if (xmcda.performanceTablesList.size() > 2) {
 			errors.addError("More than two performance tables have been supplied");
@@ -277,7 +270,7 @@ public class InputsHandler {
 					PerformanceTable<Double> perfTable = p.asDouble();
 					xmcda.performanceTablesList.set(0, perfTable);
 				} catch (ValueConverters.ConversionException e) {
-					final String msg = "Error when converting the performance table's value to Double, reason:";
+					final String msg = "Error when converting the performance value to Double, reason:";
 					errors.addError(Utils.getMessage(msg, e));
 					return;
 				}
@@ -296,7 +289,7 @@ public class InputsHandler {
 						PerformanceTable<Double> perfTable = p2.asDouble();
 						xmcda.performanceTablesList.set(1, perfTable);
 					} catch (ValueConverters.ConversionException e) {
-						final String msg = "Error when converting the performance table's value to Double, reason:";
+						final String msg = "Error when converting the performance value to Double, reason:";
 						errors.addError(Utils.getMessage(msg, e));
 					}
 				}
@@ -313,7 +306,7 @@ public class InputsHandler {
 			errors.addError("Criteria Weights is required");
 			return;
 		}
-		if (inputs.weightsParam == WeightsParam.NOT_SPECIFIED) {
+		if ((inputs.weightsParam == WeightsParam.NOT_SPECIFIED) && (xmcda.criteriaValuesList.size() != 0)) {
 			return;
 		}
 		@SuppressWarnings("rawtypes")
@@ -326,7 +319,7 @@ public class InputsHandler {
 				CriteriaValues<Double> weightsDouble = weights.asDouble();
 				xmcda.criteriaValuesList.set(0, weightsDouble);
 			} catch (ValueConverters.ConversionException e) {
-				final String msg = "Error when converting the weights table's value to Double, reason:";
+				final String msg = "Error when converting the value of weight to Double, reason:";
 				errors.addError(Utils.getMessage(msg, e));
 				return;
 			}
@@ -335,11 +328,11 @@ public class InputsHandler {
 
 	private static void checkCriteriaScales(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaScalesList.size() == 0) {
-			errors.addError("No scales list has been supplied");
+			errors.addError("List of scales has not been supplied");
 			return;
 		}
 		if (xmcda.criteriaScalesList.size() != 1) {
-			errors.addError("Exactly one scales list is expected");
+			errors.addError("Exactly one list of scales is expected");
 			return;
 		}
 	}
@@ -410,13 +403,13 @@ public class InputsHandler {
 			return true;
 		}
 		if (inputs.profiles_ids == null) {
-			errors.addError("Profile IDs is null");
+			errors.addError("List of profiles is null");
 			return false;
 		}
 		Boolean unique = true;
 		for (String profile : inputs.profiles_ids) {
 			if (inputs.alternatives_ids.contains(profile)) {
-				errors.addError("Profile IDs are not unique");
+				errors.addError("Ids of profiles are not unique");
 				unique = false;
 				break;
 			}
@@ -428,16 +421,16 @@ public class InputsHandler {
 			ProgramExecutionResult xmcda_execution_results) {
 		Boolean allExists = true;
 		if (inputs.alternatives_ids.size() == 0) {
-			xmcda_execution_results.addError("No active alternatives in performance_table.xml");
+			xmcda_execution_results.addError("List of active alternatives is empty");
 			allExists = false;
 		}
 		if (inputs.criteria_ids.size() == 0) {
-			xmcda_execution_results.addError("No active criteria in criteria.xml");
+			xmcda_execution_results.addError("List of active criteria is empty");
 			allExists = false;
 		}
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			if (inputs.profiles_ids.size() == 0) {
-				xmcda_execution_results.addError("No active profiles in profiles_performance_table.xml");
+				xmcda_execution_results.addError("List of active profiles is empty");
 				allExists = false;
 			}
 		}
@@ -544,14 +537,14 @@ public class InputsHandler {
 
 		for (Criterion criterion : thresholds.keySet()) {
 			CriterionThresholds critThresholds = thresholds.get(criterion);
-			for (int i=0; i<critThresholds.size();i++){
+			for (int i = 0; i < critThresholds.size(); i++) {
 				if ("veto".equals(critThresholds.get(i).mcdaConcept())) {
 					inputs.vetoThresholds.put(criterion.id(), (Threshold<Double>) critThresholds.get(i));
 					break;
 				}
 			}
 		}
-		if (inputs.vetoThresholds.size()==0){
+		if (inputs.vetoThresholds.size() == 0) {
 			errors.addError("veto thresholds are not defined");
 		}
 	}

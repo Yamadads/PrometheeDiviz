@@ -13,12 +13,7 @@ import java.util.Map;
 /**
  * 
  */
-public class InputsHandler {
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
+public class InputsHandler {	
 	public static class Inputs {
 		public Map<String, Map<String, Double>> preferences;
 		public Map<String, Map<String, Double>> discordances;
@@ -40,12 +35,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -55,11 +47,11 @@ public class InputsHandler {
 
 	private static void checkPreferences(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.alternativesMatricesList.size() == 0) {
-			errors.addError("No preference table has been supplied");
+			errors.addError("List of preferences has not been supplied");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.size() != 2) {
-			errors.addError("Exactly two performance tables are expected");
+			errors.addError("List of preferences and list of discordances are expected");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.get(0).isEmpty()) {

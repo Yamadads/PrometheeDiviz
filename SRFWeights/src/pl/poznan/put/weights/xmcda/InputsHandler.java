@@ -64,15 +64,11 @@ public class InputsHandler {
 				if (op.toString().equals(parameterLabel))
 					return op;
 			}
-			throw new IllegalArgumentException("No enum DecimalPlacesParam with label " + parameterLabel);
+			throw new IllegalArgumentException(
+					"Enum DecimalPlacesParam with label " + parameterLabel + "was not found");
 		}
 	}
 
-	/**
-	 * This class contains every element which are needed to compute the
-	 * weighted sum. It is populated by
-	 * {@link InputsHandler#checkAndExtractInputs(XMCDA, ProgramExecutionResult)}.
-	 */
 	public static class Inputs {
 		public Integer decimalPlaces;
 		public Double criteriaWeightRatio;
@@ -96,12 +92,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -115,27 +108,27 @@ public class InputsHandler {
 		Double criteriaWeightRatio = null;
 
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters was not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 2) {
-			errors.addError("Exactly two programParameters are expected");
+			errors.addError("Exactly two parameters are expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam = xmcda.programParametersList.get(0).get(1);
 
 		if (!"decimal_places".equals(prgParam.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam.id()));
 			return;
 		}
 
 		if (prgParam.getValues() == null || (prgParam.getValues() != null && prgParam.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single (label) value only");
+			errors.addError("Parameter \"decimal_places\" must have a single (label) value only");
 			return;
 		}
 
@@ -147,7 +140,7 @@ public class InputsHandler {
 			for (DecimalPlacesParam op : DecimalPlacesParam.values()) {
 				valid_values.append(op.getLabel()).append(", ");
 			}
-			String err = "Invalid value for parameter operator, it must be a label, ";
+			String err = "Invalid value for parameter \"decimal_places\", it must be a label, ";
 			err += "possible values are: " + valid_values.substring(0, valid_values.length() - 2);
 			errors.addError(err);
 			decimalPlaces = null;
@@ -160,22 +153,22 @@ public class InputsHandler {
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(0);
 
 		if (!"criteria_weight_ratio".equals(prgParam2.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam2.id()));
 			return;
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single float value only");
+			errors.addError("Parameter \"criteria_weight_ratio\" must have a single float value only");
 			return;
 		}
 
 		try {
-			final Double parameterValue = (Double) prgParam2.getValues().get(0).getValue();			
+			final Double parameterValue = (Double) prgParam2.getValues().get(0).getValue();
 			if (parameterValue <= 0)
 				throw new WrongParamValue();
 			criteriaWeightRatio = parameterValue;
 		} catch (Throwable throwable) {
-			String err = "Invalid value for parameter operator, it must be a real value greater than 0 ";
+			String err = "Invalid value for parameter \"criteria_weight_ratio\", it must be a float value greater than 0 ";
 			errors.addError(err);
 			criteriaWeightRatio = null;
 		}
@@ -187,7 +180,7 @@ public class InputsHandler {
 
 	private static void checkCriteriaValues(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.criteriaValuesList.size() == 0) {
-			errors.addError("No criteria values has been supplied");
+			errors.addError("Criteria values has not been supplied");
 			return;
 		} else if (xmcda.criteriaValuesList.size() != 1) {
 			errors.addError("Criteria ranking is expected");
@@ -196,7 +189,7 @@ public class InputsHandler {
 		@SuppressWarnings("unchecked")
 		CriteriaValues<Integer> generalisedCriteria = (CriteriaValues<Integer>) xmcda.criteriaValuesList.get(0);
 		if (!generalisedCriteria.isNumeric()) {
-			errors.addError("The criteria ranking table must contain numeric values only");
+			errors.addError("The criteria ranking must contain numeric values only");
 		}
 	}
 
@@ -232,7 +225,7 @@ public class InputsHandler {
 				inputs.criteriaRanking.put(criterion.id(), value);
 			} else {
 				xmcda_execution_results.addError(
-						"Criteria ranking position must be integers greater than 0 in file criteria_ranking.xml");
+						"Criteria ranking position must be integers greater than 0");
 				break;
 			}
 		}

@@ -76,7 +76,7 @@ public class InputsHandler {
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("technical_parameter must have a single value only");
+			errors.addError("technical_parameter must have a single (Integer) value only");
 			return;
 		}
 
