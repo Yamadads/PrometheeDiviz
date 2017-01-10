@@ -42,12 +42,9 @@ public class InputsHandler {
 	}
 
 	/**
-	 * Checks the inputs
-	 *
 	 * @param xmcda
 	 * @param errors
-	 * @return a map containing a key "operator" with the appropriate
-	 *         {@link AggregationOperator operator}
+	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
@@ -59,34 +56,34 @@ public class InputsHandler {
 	private static void checkParameters(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {		
 		Integer technicalParam = null;
 		if (xmcda.programParametersList.size() > 1) {
-			errors.addError("Only one programParameters is expected");
+			errors.addError("Only one list of parameters is expected");
 			return;
 		}
 		if (xmcda.programParametersList.size() == 0) {
-			errors.addError("No programParameter found");
+			errors.addError("List of parameters not found");
 			return;
 		}
 		if (xmcda.programParametersList.get(0).size() != 1) {
-			errors.addError("Exactly one programParameter is expected");
+			errors.addError("Exactly one parameter is expected");
 			return;
 		}
 
 		final ProgramParameter<?> prgParam2 = xmcda.programParametersList.get(0).get(0);
 
 		if (!"technical_parameter".equals(prgParam2.name())) {
-			errors.addError(String.format("Invalid parameter w/ id '%s'", prgParam2.id()));
+			errors.addError(String.format("Invalid parameter '%s'", prgParam2.id()));
 			return;
 		}
 
 		if (prgParam2.getValues() == null || (prgParam2.getValues() != null && prgParam2.getValues().size() != 1)) {
-			errors.addError("Parameter operator must have a single value only");
+			errors.addError("technical_parameter must have a single value only");
 			return;
 		}
 
 		try {			
 			technicalParam = (Integer) prgParam2.getValues().get(0).getValue();
 		} catch (Throwable throwable) {
-			String err = "Invalid value for parameter operator, it must be an Integer value";
+			String err = "Invalid value for technical_parameter, it must be an Integer value";
 			errors.addError(err);
 			technicalParam = null;
 		}
@@ -95,7 +92,7 @@ public class InputsHandler {
 
 	private static void checkPartialPreferences(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (xmcda.alternativesMatricesList.size() == 0) {
-			errors.addError("No partial preferences has been supplied");
+			errors.addError("Partial preferences has not been supplied");
 			return;
 		}
 		if (xmcda.alternativesMatricesList.size() != 1) {
@@ -173,7 +170,7 @@ public class InputsHandler {
 		Coord<Alternative, Alternative> coord = new Coord<Alternative, Alternative>(alt1, alt2);
 		QualifiedValues<Double> values = matrix.getOrDefault(coord, null);
 		if (values == null) {
-			errors.addError("Partial Preferences list does not contain value for coord (" + a + "," + b + ")");
+			errors.addError("Partial Preferences list does not contain value for pair of alternatives (" + a + "," + b + ")");
 			return false;
 		}
 		if (values.size() != inputs.criteria_ids.size()) {
