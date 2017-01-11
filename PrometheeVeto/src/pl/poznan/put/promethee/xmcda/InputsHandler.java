@@ -306,7 +306,7 @@ public class InputsHandler {
 			errors.addError("Criteria Weights is required");
 			return;
 		}
-		if ((inputs.weightsParam == WeightsParam.NOT_SPECIFIED) && (xmcda.criteriaValuesList.size() != 0)) {
+		if ((inputs.weightsParam == WeightsParam.NOT_SPECIFIED) && (xmcda.criteriaValuesList.size() == 0)) {
 			return;
 		}
 		@SuppressWarnings("rawtypes")
