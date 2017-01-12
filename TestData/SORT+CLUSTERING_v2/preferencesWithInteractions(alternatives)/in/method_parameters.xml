@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2016/XMCDA-2.2.2'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
+
+<methodParameters>
+		<parameter id="comparison_with" name="comparison_with">
+				<value>
+					<label>alternatives</label>
+				</value>
+		</parameter>
+		<parameter id="generalised_criterion" name="generalised_criterion">
+				<value>
+					<label>specified</label>
+				</value>
+		</parameter>
+		<parameter id="z_function" name="z_function">
+				<value>
+					<label>minimum</label>
+				</value>
+		</parameter>
+	</methodParameters>
+</xmcda:XMCDA>
