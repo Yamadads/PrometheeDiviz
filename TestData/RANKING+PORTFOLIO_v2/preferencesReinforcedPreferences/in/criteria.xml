@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2016/XMCDA-2.2.2'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
+
+<criteria>
+    <criterion id="g1" name="writing quality">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>2.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+	<active>true</active>	
+    </criterion>
+    <criterion id="g2" name="publication score">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>
+                <threshold mcdaConcept="sigma">
+                    <constant>
+                        <real>4.0</real>
+                    </constant>               
+                </threshold>
+                <threshold mcdaConcept="veto">
+                    <constant>
+                        <real>40.0</real>
+                    </constant>               
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g3" name="adequacy">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g4" name="scientific quality">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>2.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="veto">
+                    <constant>
+                        <real>4.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g5" name="experience">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+		<threshold mcdaConcept="reinforced_preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g6" name="adequacy">
+	    <scale>
+		<quantitative>
+		    <preferenceDirection>max</preferenceDirection>
+		</quantitative>
+	    </scale>
+	<thresholds>      
+		<threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>          
+        </thresholds>
+    </criterion>
+</criteria>
+</xmcda:XMCDA>
