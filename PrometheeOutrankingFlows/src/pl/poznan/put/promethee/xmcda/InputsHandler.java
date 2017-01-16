@@ -218,15 +218,19 @@ public class InputsHandler {
 					}
 					if (catProf.getLowerBound() != null) {
 						if (catProf.getLowerBound().getAlternative() != null) {
-							inputs.profiles_ids.add(catProf.getLowerBound().getAlternative().id());
+							if (!inputs.profiles_ids.contains(catProf.getLowerBound().getAlternative().id())){
+								inputs.profiles_ids.add(catProf.getLowerBound().getAlternative().id());
+							}							
 						} else {
 							errors.addError("Alternative in one of categories profiles is not specified");
 							return;
 						}
 					}
 					if (catProf.getUpperBound() != null) {
-						if (catProf.getUpperBound().getAlternative() != null) {
-							inputs.profiles_ids.add(catProf.getUpperBound().getAlternative().id());
+						if (catProf.getUpperBound().getAlternative() != null) {							
+							if (!inputs.profiles_ids.contains(catProf.getUpperBound().getAlternative().id())){
+								inputs.profiles_ids.add(catProf.getUpperBound().getAlternative().id());
+							}
 						} else {
 							errors.addError("Alternative in one of categories profiles is not specified");
 							return;
@@ -236,7 +240,9 @@ public class InputsHandler {
 				if (inputs.comparisonWith == ComparisonWithParam.CENTRAL_PROFILES) {
 					if (catProf.getCentralProfile() != null) {
 						if (catProf.getCentralProfile().getAlternative() != null) {
-							inputs.profiles_ids.add(catProf.getCentralProfile().getAlternative().id());
+							if (!inputs.profiles_ids.contains(catProf.getCentralProfile().getAlternative().id())){
+								inputs.profiles_ids.add(catProf.getCentralProfile().getAlternative().id());
+							}
 						} else {
 							errors.addError("Alternative in one of categories profiles is not specified");
 							return;

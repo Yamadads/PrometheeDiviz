@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="pl.poznan.put.promethee.xmcda.FlowsXMCDA"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--v2 -i tests/in2.v2 -o tests/out2.v2"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--v2 -i tests/in4.v2 -o tests/out4.v2"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="PrometheeOutrankingFlows"/>
 </launchConfiguration>
