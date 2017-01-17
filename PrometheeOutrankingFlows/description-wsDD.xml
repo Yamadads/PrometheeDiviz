@@ -9,21 +9,28 @@
   </documentation>
   <parameters>
 
-    <input id="input1" name="categories_profiles" displayName="categories profiles" isoptional="1">
+	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+      <documentation>
+        <description>Alternatives to consider.</description>
+      </documentation>
+      <xmcda tag="alternatives" />
+    </input>
+    
+    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
       <documentation>
         <description>Definitions of profiles (boundary or central) which should be used for classes (categories) representation.</description>
       </documentation>
       <xmcda tag="categoriesProfiles" />
     </input>
 
-    <input id="input2" name="preferences" displayName="preferences" isoptional="0">
+    <input id="input3" name="preferences" displayName="preferences" isoptional="0">
       <documentation>
         <description>Aggregated preferences indices computed for alternetives or for criteria_profiles if necessary.</description>
       </documentation>
       <xmcda tag="alternativesComparisons" />
     </input>
 
-    <input id="input3" name="method_parameters" displayName="method parameters" isoptional="0">
+    <input id="input4" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>Parameter specifies the type of elements provided for comparison.
 

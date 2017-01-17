@@ -2,11 +2,6 @@
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2016/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2016/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
 
 <programExecutionResult>
-		<status>error</status>
-		<messages>
-			<message level="error">
-				<text>Upper Bound or Lower Bound Profile in categories profiles must be specified</text>
-			</message>
-		</messages>
+		<status>ok</status>
 	</programExecutionResult>
 </xmcda:XMCDA>

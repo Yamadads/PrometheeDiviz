@@ -2,17 +2,16 @@ package pl.poznan.put.promethee.xmcda;
 
 import org.xmcda.Alternative;
 import org.xmcda.AlternativesMatrix;
-import org.xmcda.CategoryProfile;
 import org.xmcda.ProgramExecutionResult;
 import org.xmcda.ProgramParameter;
 import org.xmcda.XMCDA;
 import org.xmcda.utils.Coord;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -90,7 +89,7 @@ public class InputsHandler {
 
 		return extractInputs(inputsDict, xmcda, xmcda_exec_results);
 	}
-	
+
 	/**
 	 * @param xmcda
 	 * @param errors
@@ -175,17 +174,22 @@ public class InputsHandler {
 	}
 
 	private static void checkCategoriesProfiles(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
-		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			if (xmcda.categoriesProfilesList.size() == 0) {
+
+		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
+			if (!xmcda.categoriesProfilesList.isEmpty()) {
+				errors.addError("Categories profiles list is not needed");
+			}
+		} else {
+			if (xmcda.categoriesProfilesList.isEmpty()) {
 				errors.addError("List of categories profiles has not been supplied");
 				return;
 			}
-			if (xmcda.categoriesProfilesList.size() != 1) {
-				errors.addError("Exactly one list of categories profiles is expected");
+			if (xmcda.categoriesProfilesList.size() > 1) {
+				errors.addError("You can not supply more then 1 categories profiles list");
 				return;
 			}
 			if (xmcda.categoriesProfilesList.get(0).isEmpty()) {
-				errors.addError("List of categories rofiles is empty");
+				errors.addError("List of categories profiles is empty");
 				return;
 			}
 		}
@@ -206,75 +210,30 @@ public class InputsHandler {
 		return inputs;
 	}
 
-	@SuppressWarnings("rawtypes")
 	private static void extractProfiles(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
-			inputs.profiles_ids = new ArrayList<String>();
-			for (CategoryProfile catProf : xmcda.categoriesProfilesList.get(0)) {
-				if (inputs.comparisonWith == ComparisonWithParam.BOUNDARY_PROFILES) {
-					if ((catProf.getLowerBound() == null) && (catProf.getUpperBound() == null)) {
-						errors.addError("Upper Bound or Lower Bound Profile in categories profiles must be specified");
-						return;
-					}
-					if (catProf.getLowerBound() != null) {
-						if (catProf.getLowerBound().getAlternative() != null) {
-							if (!inputs.profiles_ids.contains(catProf.getLowerBound().getAlternative().id())){
-								inputs.profiles_ids.add(catProf.getLowerBound().getAlternative().id());
-							}							
-						} else {
-							errors.addError("Alternative in one of categories profiles is not specified");
-							return;
-						}
-					}
-					if (catProf.getUpperBound() != null) {
-						if (catProf.getUpperBound().getAlternative() != null) {							
-							if (!inputs.profiles_ids.contains(catProf.getUpperBound().getAlternative().id())){
-								inputs.profiles_ids.add(catProf.getUpperBound().getAlternative().id());
-							}
-						} else {
-							errors.addError("Alternative in one of categories profiles is not specified");
-							return;
-						}
-					}
-				}
-				if (inputs.comparisonWith == ComparisonWithParam.CENTRAL_PROFILES) {
-					if (catProf.getCentralProfile() != null) {
-						if (catProf.getCentralProfile().getAlternative() != null) {
-							if (!inputs.profiles_ids.contains(catProf.getCentralProfile().getAlternative().id())){
-								inputs.profiles_ids.add(catProf.getCentralProfile().getAlternative().id());
-							}
-						} else {
-							errors.addError("Alternative in one of categories profiles is not specified");
-							return;
-						}
-					} else {
-						errors.addError("Central Profile in one of categories profiles must be specified");
-						return;
-					}
-				}
-			}
+			List<String> profilesIds = xmcda.alternatives.getActiveAlternatives().stream()
+					.filter(a -> "categories_profiles.xml".equals(a.getMarker())).map(Alternative::id)
+					.collect(Collectors.toList());
+			if (profilesIds.isEmpty())
+				errors.addError("The alternatives list can not be empty.");
+			inputs.profiles_ids = profilesIds;
+			
 			if (inputs.profiles_ids.isEmpty()) {
 				errors.addError("List of profiles is empty");
 			}
-		}
+		} else {
+			inputs.profiles_ids = null;
+		}		
 	}
 
 	private static void extractAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
-		List<String> alternatives_ids = new ArrayList<>();
-		for (Alternative alternative : xmcda.alternatives) {
-			if (alternative.isActive()) {
-				alternatives_ids.add(alternative.id());
-			}
-		}
-		if (inputs.profiles_ids != null) {
-			for (String profile : inputs.profiles_ids) {
-				alternatives_ids.remove(profile);
-			}
-		}
-		inputs.alternatives_ids = alternatives_ids;
-		if (alternatives_ids.isEmpty()) {
-			errors.addError("List of alternatives is empty");
-		}
+		List<String> alternativesIds = xmcda.alternatives.getActiveAlternatives().stream()
+				.filter(a -> "alternatives.xml".equals(a.getMarker())).map(Alternative::id)
+				.collect(Collectors.toList());
+		if (alternativesIds.isEmpty())
+			errors.addError("The alternatives list can not be empty.");
+		inputs.alternatives_ids = alternativesIds;
 	}
 
 	private static void extractPreferences(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
@@ -299,7 +258,8 @@ public class InputsHandler {
 						for (String alternative2 : inputs.alternatives_ids) {
 							if (alternative != alternative2) {
 								if (!inputs.preferences.get(alternative).containsKey(alternative2)) {
-									errors.addError("In list of preferences doesn't exist alternative: " + alternative2);
+									errors.addError(
+											"In list of preferences doesn't exist alternative: " + alternative2);
 									return;
 								}
 							}
