@@ -8,15 +8,22 @@
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
+  
+  	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+      <documentation>
+        <description>Alternatives to consider.</description>
+      </documentation>
+      <xmcda tag="alternatives" />
+    </input>
 
-    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
+    <input id="input2" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="partial_preferences" displayName="partial preferences" isoptional="0">
+    <input id="input3" name="partial_preferences" displayName="partial preferences" isoptional="0">
       <documentation>
         <description>Preferences indices for all pairs of alternatives/ alternatives and profiles on each criterion</description>
       </documentation>

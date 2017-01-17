@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -50,6 +51,7 @@ public class InputsHandler {
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
 		Inputs inputs = new Inputs();
 		checkCriteria(inputs, xmcda, errors);
+		checkAlternatives(inputs, xmcda, errors);
 		checkPartialPreferences(xmcda, errors);
 		return inputs;
 	}
@@ -60,6 +62,12 @@ public class InputsHandler {
 		}
 		if (xmcda.criteria.getActiveCriteria().isEmpty()) {
 			errors.addError("No active criteria");
+		}
+	}
+	
+	private static void checkAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (xmcda.alternatives.isEmpty()) {
+			errors.addError("No alternatives list has been supplied.");
 		}
 	}
 
@@ -89,24 +97,21 @@ public class InputsHandler {
 	 * @return
 	 */
 	protected static Inputs extractInputs(Inputs inputs, XMCDA xmcda, ProgramExecutionResult xmcda_execution_results) {
-		extractAlternatives(inputs, xmcda);
-		extractCriteria(inputs, xmcda);
-		if (!criteriaAndAlternatives(inputs, xmcda, xmcda_execution_results)) {
-			return null;
-		}
+		extractAlternatives(inputs, xmcda, xmcda_execution_results);		
+		extractCriteria(inputs, xmcda, xmcda_execution_results);
 		extractPartialPreferences(inputs, xmcda, xmcda_execution_results);
 		return inputs;
 	}
-
-	private static void extractAlternatives(Inputs inputs, XMCDA xmcda) {
-		inputs.alternatives_ids = new ArrayList<>();
-		for (Alternative x_alternative : xmcda.alternatives)
-			if (x_alternative.isActive())
-				inputs.alternatives_ids.add(x_alternative.id());
-		Collections.sort(inputs.alternatives_ids);
+	
+	private static void extractAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		List<String> alternativesIds = xmcda.alternatives.getActiveAlternatives().stream()
+				.filter(a -> "alternatives.xml".equals(a.getMarker())).map(Alternative::id).collect(Collectors.toList());
+		if (alternativesIds.isEmpty())
+			errors.addError("The alternatives list can not be empty.");
+		inputs.alternatives_ids = alternativesIds;
 	}
 
-	private static void extractCriteria(Inputs inputs, XMCDA xmcda) {
+	private static void extractCriteria(Inputs inputs, XMCDA xmcda, ProgramExecutionResult xmcda_execution_results) {
 		List<String> criteria_ids = new ArrayList<>();
 		Criteria criteria = (Criteria) xmcda.criteria;
 		for (Criterion x_criterion : criteria)
@@ -115,20 +120,9 @@ public class InputsHandler {
 		Collections.sort(criteria_ids);
 		inputs.criteria_ids = criteria_ids;
 
-	}
-
-	private static Boolean criteriaAndAlternatives(Inputs inputs, XMCDA xmcda,
-			ProgramExecutionResult xmcda_execution_results) {
-		Boolean allExists = true;
-		if (inputs.alternatives_ids.size() == 0) {
-			xmcda_execution_results.addError("No active alternatives in performance_table.xml");
-			allExists = false;
-		}
 		if (inputs.criteria_ids.size() == 0) {
-			xmcda_execution_results.addError("No active criteria in criteria.xml");
-			allExists = false;
+			xmcda_execution_results.addError("No active criteria in criteria.xml");			
 		}
-		return allExists;
 	}
 
 	private static void extractPartialPreferences(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {

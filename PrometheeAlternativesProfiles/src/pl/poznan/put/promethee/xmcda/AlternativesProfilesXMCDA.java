@@ -62,6 +62,7 @@ public class AlternativesProfilesXMCDA {
 	private static Map<String, InputFile> initFiles() {
 		Map<String, InputFile> files = new LinkedHashMap<>();
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
+		files.put("alternatives", new InputFile("alternatives", "alternatives", "alternatives.xml", true));
 		files.put("partialPreferences",
 				new InputFile("alternativesComparisons", "alternativesMatrix", "partial_preferences.xml", true));
 		return files;
