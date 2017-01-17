@@ -13,42 +13,56 @@ Each criterion can have its own preference function (one of six predefined funct
   </documentation>
   <parameters>
 
-    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
+	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+      <documentation>
+        <description>Alternatives to consider.</description>
+      </documentation>
+      <xmcda tag="alternatives" />
+    </input>
+    
+    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
+      <documentation>
+        <description>Definitions of central or boundary profiles connected with classes (categories)</description>
+      </documentation>
+      <xmcda tag="categoriesProfiles" />
+    </input>
+    
+    <input id="input3" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="performance_table" displayName="performance table" isoptional="0">
+    <input id="input4" name="performance_table" displayName="performance table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input3" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
+    <input id="input5" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input4" name="weights" displayName="weights" isoptional="0">
+    <input id="input6" name="weights" displayName="weights" isoptional="0">
       <documentation>
         <description>Weights of criteria to consider.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input5" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
+    <input id="input7" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input6" name="method_parameters" displayName="method parameters" isoptional="0">
+    <input id="input8" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 

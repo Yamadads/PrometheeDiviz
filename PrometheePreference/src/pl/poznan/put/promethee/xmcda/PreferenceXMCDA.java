@@ -94,6 +94,8 @@ public class PreferenceXMCDA {
 		Map<String, InputFile> files = new LinkedHashMap<>();
 		files.put("methodParameters",
 				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
+		files.put("alternatives", new InputFile("alternatives", "alternatives", "alternatives.xml", true));		
+		files.put("categoriesProfiles", new InputFile("categoriesProfiles", "categoriesProfiles", "categories_profiles.xml", false));
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
 		files.put("criteriaScales", new InputFile("criteriaScales", "criteriaScales", "criteria.xml", true));
 		files.put("performanceTable",
@@ -102,7 +104,7 @@ public class PreferenceXMCDA {
 		files.put("generalisedCriteria",
 				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
 		files.put("profilesPerformanceTable",
-				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));
+				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));		
 		files.put("preferenceThresholds",
 				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
 		return files;

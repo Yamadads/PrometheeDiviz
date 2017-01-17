@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -127,7 +128,7 @@ public class InputsHandler {
 					"Enum GeneralisedCriterionParam with label " + parameterLabel + " not found");
 		}
 	}
-	
+
 	public static class Inputs {
 		public ComparisonWithParam comparisonWith;
 		public GeneralisedCriterionParam generalisedCriterion;
@@ -159,20 +160,44 @@ public class InputsHandler {
 
 		return extractInputs(inputsDict, xmcda, xmcda_exec_results);
 	}
-	
+
 	/**
 	 * @param xmcda
 	 * @param errors
 	 * @return Inputs
 	 */
 	protected static Inputs checkInputs(XMCDA xmcda, ProgramExecutionResult errors) {
-		Inputs inputs = new Inputs();
+		Inputs inputs = new Inputs();		
 		checkParameters(inputs, xmcda, errors);
+		checkAlternatives(inputs, xmcda, errors);
+		checkProfiles(inputs, xmcda, errors);
 		checkPerformanceTables(inputs, xmcda, errors);
 		checkCriteriaValues(inputs, xmcda, errors);
 		checkCriteriaScales(inputs, xmcda, errors);
 		return inputs;
 	}
+
+	private static void checkAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (xmcda.alternatives.isEmpty()) {
+			errors.addError("No alternatives list has been supplied.");
+		}
+	}
+		
+	private static void checkProfiles(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (inputs.comparisonWith == ComparisonWithParam.ALTERNATIVES) {
+			if (!xmcda.categoriesProfilesList.isEmpty()){
+				errors.addError("Categories profiles list is not needed");
+			}
+		}else{
+			if (xmcda.categoriesProfilesList.isEmpty()) {
+	            errors.addError("No categories profiles list has been supplied");
+	        }
+	        if (xmcda.categoriesProfilesList.size() > 1) {
+	            errors.addError("You can not supply more then 1 categories profiles list");
+	        }
+		}       
+    }
+
 
 	private static void checkParameters(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		ComparisonWithParam comparisonWith = null;
@@ -313,7 +338,8 @@ public class InputsHandler {
 		}
 		if ((inputs.generalisedCriterion != GeneralisedCriterionParam.SPECIFIED)
 				&& (xmcda.criteriaValuesList.size() != 1)) {
-			errors.addError("More than one criteria values have been supplied. Only weights of criteria are expected. ");
+			errors.addError(
+					"More than one criteria values have been supplied. Only weights of criteria are expected. ");
 			return;
 		}
 		@SuppressWarnings("rawtypes")
@@ -361,9 +387,11 @@ public class InputsHandler {
 	 * @return
 	 */
 	protected static Inputs extractInputs(Inputs inputs, XMCDA xmcda, ProgramExecutionResult xmcda_execution_results) {
-		extractAlternatives(inputs, xmcda);
+		extractAlternatives(inputs, xmcda, xmcda_execution_results);
+		checkAlternativesPerformanceTable(inputs, xmcda, xmcda_execution_results);
 		extractCriteria(inputs, xmcda);
-		extractProfiles(inputs, xmcda);
+		extractProfiles(inputs, xmcda, xmcda_execution_results);
+		checkProfilesPerformanceTable(inputs, xmcda, xmcda_execution_results);
 		if (!profilesIDsUnique(inputs, xmcda_execution_results)) {
 			return null;
 		}
@@ -373,8 +401,8 @@ public class InputsHandler {
 		if (!criteriaIdenticalInAllFiles(inputs, xmcda, xmcda_execution_results)) {
 			return null;
 		}
-		extractPreferenceTables(inputs, xmcda);
-		extractProfilesPreferenceTables(inputs, xmcda);
+		extractPerformanceTables(inputs, xmcda);
+		extractProfilesPerformanceTables(inputs, xmcda);
 		extractWeights(inputs, xmcda);
 		extractGeneralisedCriteria(inputs, xmcda, xmcda_execution_results);
 		extractCriteriaDirection(inputs, xmcda);
@@ -385,13 +413,26 @@ public class InputsHandler {
 		return inputs;
 	}
 
-	private static void extractAlternatives(Inputs inputs, XMCDA xmcda) {
+	private static void extractAlternatives(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		List<String> alternativesIds = xmcda.alternatives.getActiveAlternatives().stream()
+				.filter(a -> "alternatives.xml".equals(a.getMarker())).map(Alternative::id).collect(Collectors.toList());
+		if (alternativesIds.isEmpty())
+			errors.addError("The alternatives list can not be empty.");
+		inputs.alternatives_ids = alternativesIds;
+	}
+
+	private static void checkAlternativesPerformanceTable(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		@SuppressWarnings("unchecked")
 		PerformanceTable<Double> xmcda_perf_table = (PerformanceTable<Double>) xmcda.performanceTablesList.get(0);
-		inputs.alternatives_ids = new ArrayList<>();
+		List<String> alternativesIds = new ArrayList<>();
 		for (Alternative x_alternative : xmcda_perf_table.getAlternatives())
 			if (x_alternative.isActive())
-				inputs.alternatives_ids.add(x_alternative.id());
+				alternativesIds.add(x_alternative.id());
+		for (String alternative : inputs.alternatives_ids) {
+			if (!alternativesIds.contains(alternative)) {
+				errors.addError("The performance table does not contain alternative: " + alternative);
+			}
+		}
 	}
 
 	private static void extractCriteria(Inputs inputs, XMCDA xmcda) {
@@ -403,15 +444,33 @@ public class InputsHandler {
 		inputs.criteria_ids = criteria_ids;
 	}
 
-	private static void extractProfiles(Inputs inputs, XMCDA xmcda) {
+	private static void extractProfiles(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
+		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
+			List<String> profilesIds = xmcda.alternatives.getActiveAlternatives().stream()
+					.filter(a -> "categories_profiles.xml".equals(a.getMarker())).map(Alternative::id)
+					.collect(Collectors.toList());
+			if (profilesIds.isEmpty())
+				errors.addError("The alternatives list can not be empty.");
+			inputs.profiles_ids = profilesIds;
+		} else {
+			inputs.profiles_ids = null;
+		}
+	}
+
+	private static void checkProfilesPerformanceTable(Inputs inputs, XMCDA xmcda, ProgramExecutionResult errors) {
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			@SuppressWarnings("unchecked")
 			PerformanceTable<Double> x_perf_table_profiles = (PerformanceTable<Double>) xmcda.performanceTablesList
 					.get(1);
-			inputs.profiles_ids = new ArrayList<>();
+			List<String> profilesIds = new ArrayList<>();
 			for (Alternative x_alternative : x_perf_table_profiles.getAlternatives()) {
 				if (x_alternative.isActive())
-					inputs.profiles_ids.add(x_alternative.id());
+					profilesIds.add(x_alternative.id());
+			}
+			for (String profile : inputs.profiles_ids) {
+				if (!profilesIds.contains(profile)) {
+					errors.addError("The performance table does not contain profile: " + profile);
+				}
 			}
 		} else {
 			inputs.profiles_ids = null;
@@ -551,7 +610,7 @@ public class InputsHandler {
 		return compatible;
 	}
 
-	private static void extractPreferenceTables(Inputs inputs, XMCDA xmcda) {
+	private static void extractPerformanceTables(Inputs inputs, XMCDA xmcda) {
 		List<String> criteria_ids = inputs.criteria_ids;
 		inputs.performanceTable = new LinkedHashMap<>();
 		@SuppressWarnings("unchecked")
@@ -569,7 +628,7 @@ public class InputsHandler {
 		}
 	}
 
-	private static void extractProfilesPreferenceTables(Inputs inputs, XMCDA xmcda) {
+	private static void extractProfilesPerformanceTables(Inputs inputs, XMCDA xmcda) {
 		if (inputs.comparisonWith != ComparisonWithParam.ALTERNATIVES) {
 			List<String> criteria_ids = inputs.criteria_ids;
 			@SuppressWarnings("unchecked")
@@ -610,8 +669,7 @@ public class InputsHandler {
 				if ((value >= 1) && (value <= 6)) {
 					inputs.generalisedCriteria.put(criterion.id(), value);
 				} else {
-					xmcda_execution_results.addError(
-							"Generalised criteria must be integers between 1 and 6");
+					xmcda_execution_results.addError("Generalised criteria must be integers between 1 and 6");
 					break;
 				}
 			}
