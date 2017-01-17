@@ -13,7 +13,7 @@
 	<thresholds>
                 <threshold mcdaConcept="indifference">
                     <constant>
-                        <real>1.0</real>
+                        <real>0.0</real>
                     </constant>
                 </threshold>
                 <threshold mcdaConcept="preference">
@@ -62,7 +62,7 @@
                 </threshold>
 		<threshold mcdaConcept="reinforced_preference">
                     <constant>
-                        <real>3.0</real>
+                        <real>2.0</real>
                     </constant>
                 </threshold>
         </thresholds>
