@@ -10,46 +10,61 @@ This module is an extended version of 'PrometheePreference' - it brings the conc
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
-    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
+  
+  	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+      <documentation>
+        <description>Alternatives to consider.</description>
+      </documentation>
+      <xmcda tag="alternatives" />
+    </input>
+    
+    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
+      <documentation>
+        <description>Definitions of central or boundary profiles connected with classes (categories)</description>
+      </documentation>
+      <xmcda tag="categoriesProfiles" />
+    </input>
+    
+    <input id="input3" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with 'preference', 'indifference' and 'reinforced preference' thresholds (see also 'reinforcement_factors' input below). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input2" name="performance_table" displayName="performance table" isoptional="0">
+    <input id="input4" name="performance_table" displayName="performance table" isoptional="0">
       <documentation>
         <description>The performance of alternatives.</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input3" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
+    <input id="input5" name="profiles_performance_table" displayName="profiles performance table" isoptional="1">
       <documentation>
         <description>The performance of profiles (boundary or central).</description>
       </documentation>
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input4" name="weights" displayName="weights" isoptional="0">
+    <input id="input6" name="weights" displayName="weights" isoptional="0">
       <documentation>
         <description>Weights of criteria to consider.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input5" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
+    <input id="input7" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input6" name="reinforcement_factors" displayName="reinforcement factors" isoptional="0">
+    <input id="input8" name="reinforcement_factors" displayName="reinforcement factors" isoptional="0">
       <documentation>
         <description>Definitions of so-called 'reinforcement factors', one per each criterion for which 'reinforcement threshold' has been defined. For more regarding these concepts see the paper from 'Reference' section.
 
-This input is mandatory, if you don't need need the concept of reinforced preference please use 'PrometheePreference'.</description>
+This input is mandatory, if you don't need the concept of reinforced preference please use 'PrometheePreference'.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
