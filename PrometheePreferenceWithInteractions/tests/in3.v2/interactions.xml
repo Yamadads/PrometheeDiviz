@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2016/XMCDA-2.2.2'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
+<criteriaValues mcdaConcept="criteriaInteractions">
+    <criterionValue mcdaConcept="strengthening">
+      <criteriaSet>
+        <element>
+          <criterionID>g6</criterionID>
+        </element>
+        <element>
+          <criterionID>g7</criterionID>
+        </element>
+      </criteriaSet>
+      <value>
+        <real>0.03</real>
+      </value>
+    </criterionValue>
+    <criterionValue mcdaConcept="strengthening">
+      <criteriaSet>
+        <element>
+          <criterionID>g1</criterionID>
+        </element>
+        <element>
+          <criterionID>g3</criterionID>
+        </element>
+      </criteriaSet>
+      <value>
+        <real>0.02</real>
+      </value>
+    </criterionValue>
+    <criterionValue mcdaConcept="weakening">
+      <criteriaSet>
+        <element>
+          <criterionID>g4</criterionID>
+        </element>
+        <element>
+          <criterionID>g5</criterionID>
+        </element>
+      </criteriaSet>
+      <value>
+        <real>-0.05</real>
+      </value>
+    </criterionValue>
+    <criterionValue mcdaConcept="antagonistic">
+      <criteriaSet>
+        <element>
+          <criterionID>g2</criterionID>
+        </element>
+        <element>
+          <criterionID>g3</criterionID>
+        </element>
+      </criteriaSet>
+      <value>
+        <real>0.08</real>
+      </value>
+    </criterionValue>
+  </criteriaValues>
+</xmcda:XMCDA>
+

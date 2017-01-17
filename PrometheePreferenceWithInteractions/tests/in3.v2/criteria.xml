@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda='http://www.decision-deck.org/2016/XMCDA-2.2.2'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
+
+<criteria>
+    <criterion id="g1" name="earning before interest and taxes/total assets">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>2.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g2" name="net income/net worth">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>4.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>4.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g3" name="total liabilities/total assets">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g4" name="interests expenses/sales">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g5" name="general and administratie expenses/sales">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>3.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g6" name="managers work experience">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+    <criterion id="g7" name="market niche/position">
+	    <scale>
+       	        <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+	<thresholds>
+                <threshold mcdaConcept="indifference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="preference">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+        </thresholds>
+    </criterion>
+</criteria>
+</xmcda:XMCDA>
+
