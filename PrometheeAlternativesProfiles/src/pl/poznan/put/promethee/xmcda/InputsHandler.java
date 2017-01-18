@@ -132,7 +132,16 @@ public class InputsHandler {
 
 		for (String a : inputs.alternatives_ids) {
 			for (String b : inputs.alternatives_ids) {
-				if (!putPreferencesIntoMap(inputs, errors, matrix, a, b)) {
+				Alternative altA = new Alternative(a);
+				Alternative altB = new Alternative(b);
+				Coord<Alternative, Alternative> coord = new Coord<Alternative, Alternative>(altA, altB);
+				if (matrix.containsKey(coord)) {
+					if (!putPreferencesIntoMap(inputs, errors, matrix, a, b)) {
+						return;
+					}
+				}else{
+					errors.addError(
+							"List of partial preferences does not contain preferences of pair :" + a + ", " + b);
 					return;
 				}
 			}
