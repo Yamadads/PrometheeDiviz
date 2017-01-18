@@ -3,6 +3,11 @@
         xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
         xsi:schemaLocation='http://www.decision-deck.org/2016/XMCDA-2.2.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.2.xsd'>
 <methodParameters>
+  <parameter name="comparison_with" id="comparison_with">
+    <value>
+      <label>alternatives</label>
+    </value>
+  </parameter>
   <parameter name="technical_parameter" id="technical_parameter">
     <value>
       <integer>1</integer>

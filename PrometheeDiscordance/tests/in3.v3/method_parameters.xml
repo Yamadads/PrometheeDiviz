@@ -5,7 +5,7 @@
 		<parameter id="comparison_with" name="comparison_with">
 			<values>
 				<value>
-					<label>alternatives</label>
+					<label>boundary_profiles</label>
 				</value>
 			</values>
 		</parameter>

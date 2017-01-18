@@ -92,6 +92,8 @@ public class DiscordanceXMCDA {
 		Map<String, InputFile> files = new LinkedHashMap<>();
 		files.put("methodParameters",
 				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
+		files.put("alternatives", new InputFile("alternatives", "alternatives", "alternatives.xml", true));		
+		files.put("categoriesProfiles", new InputFile("categoriesProfiles", "categoriesProfiles", "categories_profiles.xml", false));
 		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));				
 		files.put("partialPreferences",
 				new InputFile("alternativesComparisons", "alternativesMatrix", "partial_preferences.xml", true));		
