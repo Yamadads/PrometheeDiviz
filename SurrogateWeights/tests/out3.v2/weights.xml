@@ -3,27 +3,35 @@
     <criteriaValues>
         <criterionValue>
             <criterionID>c01</criterionID>
-            <value>
-                <real>0.24000000000000005</real>
-            </value>
+            <values>
+                <value>
+                    <real>0.24000000000000005</real>
+                </value>
+            </values>
         </criterionValue>
         <criterionValue>
             <criterionID>c02</criterionID>
-            <value>
-                <real>0.16</real>
-            </value>
+            <values>
+                <value>
+                    <real>0.16</real>
+                </value>
+            </values>
         </criterionValue>
         <criterionValue>
             <criterionID>c03</criterionID>
-            <value>
-                <real>0.4800000000000001</real>
-            </value>
+            <values>
+                <value>
+                    <real>0.4800000000000001</real>
+                </value>
+            </values>
         </criterionValue>
         <criterionValue>
             <criterionID>c04</criterionID>
-            <value>
-                <real>0.12000000000000002</real>
-            </value>
+            <values>
+                <value>
+                    <real>0.12000000000000002</real>
+                </value>
+            </values>
         </criterionValue>
     </criteriaValues>
 </ns2:XMCDA>
