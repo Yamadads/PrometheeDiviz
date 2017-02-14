@@ -73,7 +73,9 @@
       </xmcda>
       <gui status="preferGUI">
         <entry id="%1" type="float" displayName="criteria weight ratio">
-          <description>How many times the last criterion is more important than the first one in the ranking</description>          
+          <documentation>
+            <description>How many times the last criterion is more important than the first one in the ranking</description>
+          </documentation>
         </entry>
         <entry id="%2" type="enum" displayName="decimal places">
           <items>
