@@ -19,14 +19,14 @@ Each criterion can have its own preference function (one of six predefined funct
       </documentation>
       <xmcda tag="alternatives" />
     </input>
-    
+
     <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
       <documentation>
         <description>Definitions of central or boundary profiles connected with classes (categories)</description>
       </documentation>
       <xmcda tag="categoriesProfiles" />
     </input>
-    
+
     <input id="input3" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
@@ -76,7 +76,7 @@ There are no limits on the number of interactions that can be declared, but keep
 
 It is possible to declare more than one interactions of the same type, although please note that considering the same pair of criteria involved, the &quot;strengthening&quot; and &quot;weakening&quot; interactions are mutually exclusive.</description>
       </documentation>
-      <xmcda tag="criteriaValues">
+      <xmcda tag="criteriaValues"><![CDATA[
  <criteriaValues mcdaConcept="criteriaInteractions">
     <criterionValue mcdaConcept="strengthening">
       <criteriaSet>
@@ -105,7 +105,7 @@ It is possible to declare more than one interactions of the same type, although 
       </value>
     </criterionValue>
   </criteriaValues>
-      </xmcda>
+      ]]></xmcda>
     </input>
 
     <input id="input9" name="method_parameters" displayName="method parameters" isoptional="0">

@@ -12,14 +12,14 @@ Each criterion can have its own preference function (one of six predefined funct
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
-  
+
   	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
       <documentation>
         <description>Alternatives to consider.</description>
       </documentation>
       <xmcda tag="alternatives" />
     </input>
-    
+
     <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
       <documentation>
         <description>Definitions of central or boundary profiles connected with classes (categories)</description>
@@ -76,7 +76,7 @@ There are no limits on the number of interactions that can be declared, but keep
 
 It is possible to declare more than one interactions of the same type, although please note that considering the same pair of criteria involved, the &quot;strengthening&quot; and &quot;weakening&quot; interactions are mutually exclusive.</description>
       </documentation>
-      <xmcda tag="criteriaSetsValues">
+      <xmcda tag="criteriaSetsValues"><![CDATA[
  	<criteriaSets>
 		<criteriaSet id="criteriaSet_generatedID_1">
 			<element>
@@ -97,7 +97,7 @@ It is possible to declare more than one interactions of the same type, although 
 			</values>
 		</criteriaSetValue>
 	</criteriaSetsValues>
-      </xmcda>
+      ]]></xmcda>
     </input>
 
     <input id="input9" name="method_parameters" displayName="method parameters" isoptional="0">
