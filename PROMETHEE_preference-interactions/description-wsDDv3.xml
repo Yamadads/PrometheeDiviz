@@ -112,7 +112,7 @@ Choosing some of numbers sets same function for all criteria.
 Third parameter specifies type of Z function in computing criteria interaction effect.
         </description>
       </documentation>
-      <xmcda tag="methodParameters">
+      <xmcda tag="programParameters">
         <![CDATA[
 	<programParameters>
 		<parameter id="comparison_with" name="comparison_with">

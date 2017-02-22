@@ -40,7 +40,7 @@
       <documentation>
         <description>Parameter specifies the technical parameter for aggregating discordances.</description>
       </documentation>
-      <xmcda tag="methodParameters">
+      <xmcda tag="programParameters">
         <![CDATA[
 		<programParameters>
 			<parameter id="comparison_with" name="comparison_with">
