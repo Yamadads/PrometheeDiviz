@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="PROMETHEE_preference-reinforcedPreference" displayName="PrometheePreferenceReinforcedPreference" version="1.0.0" />
+<?xml version='1.0' encoding='utf-8'?>
+<program_description>
+  <program provider="PUT" name="PROMETHEE_preference-reinforcedPreference" version="1.0.0" displayName="PrometheePreferenceReinforcedPreference" />
   <documentation>
     <description>Computes aggregated preference indices with reinforced preference effect
 
@@ -11,25 +10,18 @@ This module is an extended version of 'PrometheePreference' - it brings the conc
   </documentation>
   <parameters>
 
-  	<input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
-      <documentation>
-        <description>Alternatives to consider.</description>
-      </documentation>
-      <xmcda tag="alternatives" />
-    </input>
-
-    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
-      <documentation>
-        <description>Definitions of central or boundary profiles connected with classes (categories)</description>
-      </documentation>
-      <xmcda tag="categoriesProfiles" />
-    </input>
-
     <input id="input3" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
         <description>Criteria to consider, possibly with 'preference', 'indifference' and 'reinforced preference' thresholds (see also 'reinforcement_factors' input below). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
       </documentation>
       <xmcda tag="criteria" />
+    </input>
+
+    <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+      <documentation>
+        <description>Alternatives to consider.</description>
+      </documentation>
+      <xmcda tag="alternatives" />
     </input>
 
     <input id="input4" name="performance_table" displayName="performance table" isoptional="0">
@@ -69,6 +61,13 @@ This input is mandatory, if you don't need the concept of reinforced preference 
       <xmcda tag="criteriaValues" />
     </input>
 
+    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
+      <documentation>
+        <description>Definitions of central or boundary profiles connected with classes (categories)</description>
+      </documentation>
+      <xmcda tag="categoriesProfiles" />
+    </input>
+
     <input id="input9" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
@@ -77,11 +76,10 @@ Choosing 'boundary_profiles' or 'central_profiles' requires providing inputs 'cl
 
 Second parameter specifies the type of function used for comparison of each criterion.
 Choosing 'specified' requires providing inputs "generalised_criterion" which is optional by default.
-Choosing some of numbers sets same function for all criteria.
-        </description>
+Choosing some of numbers sets same function for all criteria.</description>
       </documentation>
-      <xmcda tag="programParameters">
-        <![CDATA[
+      <xmcda tag="programParameters"><![CDATA[
+        
         <programParameters>
 		<parameter id="comparison_with" name="comparison_with">
 			<values>
@@ -98,8 +96,8 @@ Choosing some of numbers sets same function for all criteria.
 			</values>
 		</parameter>
 		</programParameters>
-        ]]>
-      </xmcda>
+        
+      ]]></xmcda>
       <gui status="preferGUI">
         <entry id="%1" type="enum" displayName="comparison with">
           <items>
@@ -149,7 +147,6 @@ Choosing some of numbers sets same function for all criteria.
         </entry>
       </gui>
     </input>
-
 
     <output id="output1" name="preferences" displayName="preferences">
       <documentation>

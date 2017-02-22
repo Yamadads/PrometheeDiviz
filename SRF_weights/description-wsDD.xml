@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="SRF_weights" displayName="SRFWeights" version="1.0.0" />
+<?xml version='1.0' encoding='utf-8'?>
+<program_description>
+  <program provider="PUT" name="SRF_weights" version="1.0.0" displayName="SRFWeights" />
   <documentation>
-    <description>SRFWeights - computes weights of criteria using the revised Simos procedure
-    </description>
+    <description>SRFWeights - computes weights of criteria using the revised Simos procedure</description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
+
     <input id="input1" name="criteria_ranking" displayName="criteria ranking" isoptional="0">
       <documentation>
         <description>Criteria Values listing full ranking of criteria and containing information about blank cards.</description>
       </documentation>
-      <xmcda tag="criteriaValues">
-        <![CDATA[
+      <xmcda tag="criteriaValues"><![CDATA[
+        
         <criteriaValues mcdaConcept="Importance" name="ranking">
 		<criterionValue>
 			<criterionID>c01</criterionID>
@@ -34,19 +33,18 @@
 			</value>
 		</criterionValue>
 		</criteriaValues>
-        ]]>
-      </xmcda>
+        
+      ]]></xmcda>
     </input>
 
     <input id="input2" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>Simos? procedure needs some parameters from users.
           First parameter is telling how many times the last criterion is more important than the first one in the ranking
-          Second parameter is telling how many decimal places can be used in weight value.
-        </description>
+          Second parameter is telling how many decimal places can be used in weight value.</description>
       </documentation>
-      <xmcda tag="methodParameters">
-        <![CDATA[
+      <xmcda tag="methodParameters"><![CDATA[
+        
         <methodParameters>
           <parameter name="criteria_weight_ratio">
             <value>
@@ -59,8 +57,8 @@
             </value>
           </parameter>
         </methodParameters>
-        ]]>
-      </xmcda>
+        
+      ]]></xmcda>
       <gui status="preferGUI">
         <entry id="%1" type="float" displayName="criteria weight ratio">
           <documentation>

@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<program_description xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../../docs/w3-ws/specificationData/description.xsd">
-  <program provider="PUT" name="surrogateWeights" displayName="SurrogateWeights" version="1.0.0" />
+<?xml version='1.0' encoding='utf-8'?>
+<program_description>
+  <program provider="PUT" name="surrogateWeights" version="1.0.0" displayName="SurrogateWeights" />
   <documentation>
-    <description>SurrogateWeights - computes weights of criteria using ranking specified by user. Module allows to choose one of four methods.
-    </description>
+    <description>SurrogateWeights - computes weights of criteria using ranking specified by user. Module allows to choose one of four methods.</description>
     <url>https://github.com/Yamadads/PrometheeDiviz</url>
   </documentation>
   <parameters>
+
     <input id="input1" name="criteria_ranking" displayName="criteria ranking" isoptional="0">
       <documentation>
         <description>Criteria Values listing full ranking of criteria.</description>
       </documentation>
-      <xmcda tag="criteriaValues">
-        <![CDATA[
+      <xmcda tag="criteriaValues"><![CDATA[
+        
         <criteriaValues mcdaConcept="Importance" name="ranking">
 		<criterionValue>
 			<criterionID>c01</criterionID>
@@ -34,17 +33,16 @@
 			</value>
 		</criterionValue>
 		</criteriaValues>
-        ]]>
-      </xmcda>
+        
+      ]]></xmcda>
     </input>
 
     <input id="input2" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
-        <description>PrometheeSurrogateWeigts module creates weights for criteria using several methods. In this parameter you can choose this method.
-        </description>
+        <description>PrometheeSurrogateWeigts module creates weights for criteria using several methods. In this parameter you can choose this method.</description>
       </documentation>
-      <xmcda tag="methodParameters">
-        <![CDATA[
+      <xmcda tag="methodParameters"><![CDATA[
+        
           <methodParameters>
             <parameter name="method">
               <value>
@@ -52,8 +50,8 @@
               </value>
             </parameter>
           </methodParameters>
-        ]]>
-      </xmcda>
+        
+      ]]></xmcda>
       <gui status="preferGUI">
         <entry id="%1" type="enum" displayName="method">
           <items>
