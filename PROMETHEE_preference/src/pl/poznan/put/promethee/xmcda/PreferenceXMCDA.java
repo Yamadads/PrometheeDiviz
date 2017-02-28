@@ -48,7 +48,7 @@ public class PreferenceXMCDA {
 		final Map<String, Map<String, Double>> results = calcResults(inputs, executionResult);
 		if (!ErrorChecker.checkErrors(executionResult, results))
 			exitProgram(executionResult, prgExecResultsFile, version);
-		
+
 		final Map<String, Map<String, Map<String, Double>>> partialResults = calcPartialResults(inputs,
 				executionResult);
 		if (!ErrorChecker.checkPartialResultsErrors(executionResult, partialResults))
@@ -92,21 +92,25 @@ public class PreferenceXMCDA {
 
 	private static Map<String, InputFile> initFiles() {
 		Map<String, InputFile> files = new LinkedHashMap<>();
-		files.put("methodParameters",
-				new InputFile("methodParameters", "programParameters", "method_parameters.xml", true));
-		files.put("alternatives", new InputFile("alternatives", "alternatives", "alternatives.xml", true));		
-		files.put("categoriesProfiles", new InputFile("categoriesProfiles", "categoriesProfiles", "categories_profiles.xml", false));
-		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", true));
-		files.put("criteriaScales", new InputFile("criteriaScales", "criteriaScales", "criteria.xml", true));
-		files.put("performanceTable",
-				new InputFile("performanceTable", "performanceTable", "performance_table.xml", true));
-		files.put("criteriaWeights", new InputFile("criteriaValues", "criteriaValues", "weights.xml", true));
+		files.put("methodParameters", new InputFile("methodParameters", "programParameters", "method_parameters.xml",
+				"method_parameters.xml", true));
+		files.put("alternatives",
+				new InputFile("alternatives", "alternatives", "alternatives.xml", "alternatives.xml", true));
+		files.put("categoriesProfiles", new InputFile("categoriesProfiles", "categoriesProfiles",
+				"categories_profiles.xml", "categories_profiles.xml", false));
+		files.put("criteria", new InputFile("criteria", "criteria", "criteria.xml", "criteria.xml", true));
+		files.put("criteriaScales",
+				new InputFile("criteriaScales", "criteriaScales", "criteria.xml", "criteria_scales.xml", true));
+		files.put("performanceTable", new InputFile("performanceTable", "performanceTable", "performance_table.xml",
+				"performance_table.xml", true));
+		files.put("criteriaWeights",
+				new InputFile("criteriaValues", "criteriaValues", "weights.xml", "weights.xml", true));
 		files.put("generalisedCriteria",
-				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", false));
+				new InputFile("criteriaValues", "criteriaValues", "generalised_criteria.xml", "generalised_criteria.xml", false));
 		files.put("profilesPerformanceTable",
-				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", false));		
+				new InputFile("performanceTable", "performanceTable", "profiles_performance_table.xml", "profiles_performance_table.xml",false));
 		files.put("preferenceThresholds",
-				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", false));
+				new InputFile("criteriaThresholds", "criteriaThresholds", "criteria.xml", "criteria_thresholds.xml",false));
 		return files;
 	}
 
@@ -126,7 +130,7 @@ public class PreferenceXMCDA {
 		}
 		return results;
 	}
-	
+
 	private static Map<String, Map<String, Map<String, Double>>> calcPartialResults(InputsHandler.Inputs inputs,
 			ProgramExecutionResult executionResult) {
 		Map<String, Map<String, Map<String, Double>>> results = null;
