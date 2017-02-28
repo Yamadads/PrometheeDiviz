@@ -11,14 +11,32 @@ Each criterion can have its own preference function (one of six predefined funct
   </documentation>
   <parameters>
 
-    <input id="input3" name="criteria" displayName="criteria" isoptional="0">
+    <input id="input1" name="criteria" displayName="criteria" isoptional="0">
       <documentation>
-        <description>Criteria to consider, possibly with preference and indifference thresholds. For Gaussian function it needs inflection point (sigma). Each criterion must have a preference direction specified (min or max). It is worth mentioning that this module allows to define thresholds as constants as well as linear functions.</description>
+        <description>Criteria to consider.</description>
       </documentation>
       <xmcda tag="criteria" />
     </input>
 
-    <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+    <input id="input2" name="criteria_sets" displayName="criteria sets" isoptional="0">
+      <documentation>
+        <description>Criteria sets used to define interactions. Each set requires exactly two criteria.</description>
+      </documentation>
+      <xmcda tag="criteriaSets" /><![CDATA[
+ 	<criteriaSets>
+		<criteriaSet id="criteriaSet_generatedID_1">
+			<element>
+				<criterionID>c01</criterionID>
+			</element>
+			<element>
+				<criterionID>c02</criterionID>
+			</element>
+		</criteriaSet>
+	</criteriaSets>
+      ]]></xmcda>
+    </input>
+    
+    <input id="input3" name="alternatives" displayName="alternatives" isoptional="0">
       <documentation>
         <description>Alternatives to consider.</description>
       </documentation>
@@ -39,25 +57,39 @@ Each criterion can have its own preference function (one of six predefined funct
       <xmcda tag="performanceTable" />
     </input>
 
-    <input id="input6" name="weights" displayName="weights" isoptional="0">
+    <input id="input6" name="criteria_scales" displayName="criteria scales" isoptional="0">
+      <documentation>
+        <description>Preference direction (min or max) specified for each criterion.</description>
+      </documentation>
+      <xmcda tag="criteriaScales" />
+    </input>
+    
+    <input id="input7" name="criteria_thresholds" displayName="criteria thresholds" isoptional="0">
+      <documentation>
+        <description>Preference, indifference and sigma thresholds for criteria (as constants as well as linear functions). Gaussian function needs inflection point (sigma), rest of functions need preference or indifference thresholds.</description>
+      </documentation>
+      <xmcda tag="criteriaThresholds" />
+    </input>    
+    
+    <input id="input8" name="weights" displayName="weights" isoptional="0">
       <documentation>
         <description>Weights of criteria to consider.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input7" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
+    <input id="input9" name="generalised_criteria" displayName="generalised criteria" isoptional="1">
       <documentation>
         <description>ID number of predefined preference function specified for each criterion.</description>
       </documentation>
       <xmcda tag="criteriaValues" />
     </input>
 
-    <input id="input8" name="interactions" displayName="interactions" isoptional="0">
+    <input id="input10" name="interactions" displayName="interactions" isoptional="0">
       <documentation>
         <description>Declarations of criteria interactions which should be taken into account. Possible interactions are: "strengthening", "weakening" and "antagonistic".
 
-Every such declaration contains a pair of criteria and a numerical value for the interaction coefficient. This value should be negative for "weakening" and positive for "strenghtening" and "antagonistic".
+Every such declaration contains an id of criteria set and its numerical value for the interaction coefficient. This value should be negative for "weakening" and positive for "strenghtening" and "antagonistic".
 This coefficient should be interpreted as follows: the larger its absolute value, the more important the interaction effect.  All interaction coefficients should fulfill positive net balance condition.
 
 The order in which each criterion appears in its interaction definition is significant for antagonistic interactions (it designates the direction in which certain criterion affects the other).
@@ -68,16 +100,6 @@ There are no limits on the number of interactions that can be declared, but keep
 It is possible to declare more than one interactions of the same type, although please note that considering the same pair of criteria involved, the "strengthening" and "weakening" interactions are mutually exclusive.</description>
       </documentation>
       <xmcda tag="criteriaSetsValues"><![CDATA[
- 	<criteriaSets>
-		<criteriaSet id="criteriaSet_generatedID_1">
-			<element>
-				<criterionID>c01</criterionID>
-			</element>
-			<element>
-				<criterionID>c02</criterionID>
-			</element>
-		</criteriaSet>
-	</criteriaSets>
 	<criteriaSetsValues mcdaConcept="criteriaInteractions">
 		<criteriaSetValue mcdaConcept="strengthening">
 			<criteriaSetID>criteriaSet_generatedID_1</criteriaSetID>
@@ -91,14 +113,14 @@ It is possible to declare more than one interactions of the same type, although 
       ]]></xmcda>
     </input>
 
-    <input id="input2" name="categories_profiles" displayName="categories profiles" isoptional="1">
+    <input id="input11" name="categories_profiles" displayName="categories profiles" isoptional="1">
       <documentation>
         <description>Definitions of central or boundary profiles connected with classes (categories)</description>
       </documentation>
       <xmcda tag="categoriesProfiles" />
     </input>
 
-    <input id="input9" name="method_parameters" displayName="method parameters" isoptional="0">
+    <input id="input12" name="method_parameters" displayName="method parameters" isoptional="0">
       <documentation>
         <description>First parameter specifies the type of elements provided for comparison.
 
