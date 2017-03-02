@@ -1,4 +1,4 @@
-DIR="./PROMETHEE_veto/"
+DIR="./SRF_weights/"
 
   # use "-name '*.java'" instead of "-type f" if you want to match java source files only
 
