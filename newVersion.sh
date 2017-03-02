@@ -1,4 +1,4 @@
-DIR="./SRF_weights/"
+DIR="./surrogateWeights/"
 
   # use "-name '*.java'" instead of "-type f" if you want to match java source files only
 
