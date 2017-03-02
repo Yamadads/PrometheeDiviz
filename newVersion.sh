@@ -1,4 +1,4 @@
-DIR="./PROMETHEE_preferenceDiscordance/"
+DIR="./PROMETHEE_veto/"
 
   # use "-name '*.java'" instead of "-type f" if you want to match java source files only
 
