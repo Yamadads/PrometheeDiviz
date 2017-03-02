@@ -1,4 +1,4 @@
-DIR="./PROMETHEE_outrankingFlows/"
+DIR="./PROMETHEE_preference-reinforcedPreference/"
 
   # use "-name '*.java'" instead of "-type f" if you want to match java source files only
 
