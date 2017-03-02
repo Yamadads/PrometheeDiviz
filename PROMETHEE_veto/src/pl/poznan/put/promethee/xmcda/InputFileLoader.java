@@ -32,14 +32,15 @@ public class InputFileLoader {
 			Map<String, InputFile> files) {
 		XMCDA xmcda = new org.xmcda.XMCDA();	
 		for (InputFile file : files.values()) {
+			if ("".equals(file.filenameV2)) continue;
 			org.xmcda.v2.XMCDA xmcda_v2 = new org.xmcda.v2.XMCDA();
-			Referenceable.DefaultCreationObserver.currentMarker=file.filename;
-			Utils.loadXMCDAv2(xmcda_v2, new File(indir, file.filename), file.mandatory, executionResult,
+			Referenceable.DefaultCreationObserver.currentMarker=file.filenameV2;
+			Utils.loadXMCDAv2(xmcda_v2, new File(indir, file.filenameV2), file.mandatory, executionResult,
 					file.loadTagV2);
 			try {				
 	            XMCDAConverter.convertTo_v3(xmcda_v2, xmcda);
 	        } catch (Exception e) {
-	            executionResult.addError(Utils.getMessage("Could not convert " + file.filename + " to XMCDA v3, reason: ", e));
+	            executionResult.addError(Utils.getMessage("Could not convert " + file.filenameV2 + " to XMCDA v3, reason: ", e));
 	        }
 		}
 		return xmcda;
@@ -49,8 +50,9 @@ public class InputFileLoader {
 			Map<String, InputFile> files) {
 		XMCDA xmcda = new XMCDA();
 		for (InputFile file : files.values()) {
-			Referenceable.DefaultCreationObserver.currentMarker=file.filename;
-			Utils.loadXMCDAv3(xmcda, new File(indir, file.filename), file.mandatory, executionResult, file.loadTagV3);
+			if ("".equals(file.filenameV3)) continue;
+			Referenceable.DefaultCreationObserver.currentMarker=file.filenameV3;
+			Utils.loadXMCDAv3(xmcda, new File(indir, file.filenameV3), file.mandatory, executionResult, file.loadTagV3);
 		}
 		return xmcda;
 	}
